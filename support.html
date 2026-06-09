@@ -1,372 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support — OurFamilyHub</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --blue: #5B8CFF;
-      --dark: #1a1a2e;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --bg: #f9fafb;
-      --card: #ffffff;
-      --border: #e5e7eb;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* ── Header ── */
-    header {
-      background: var(--dark);
-      padding: 0 24px;
-    }
-    .header-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-    .logo {
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 17px;
-      text-decoration: none;
-      letter-spacing: -0.3px;
-    }
-    .logo span { color: var(--blue); }
-    nav a {
-      color: #9ca3af;
-      font-size: 14px;
-      text-decoration: none;
-      margin-left: 20px;
-      transition: color 0.15s;
-    }
-    nav a:hover { color: #ffffff; }
-    nav a.active { color: var(--blue); }
-
-    /* ── Hero ── */
-    .hero {
-      background: var(--dark);
-      padding: 48px 24px 52px;
-      text-align: center;
-    }
-    .hero h1 {
-      color: #ffffff;
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      color: #9ca3af;
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-    .contact-btn {
-      display: inline-block;
-      background: var(--blue);
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .contact-btn:hover { opacity: 0.88; }
-
-    /* ── Main ── */
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-
-    h2 {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 20px;
-      letter-spacing: -0.3px;
-    }
-
-    /* ── FAQ ── */
-    .faq { margin-bottom: 48px; }
-
-    details {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--card);
-      margin-bottom: 8px;
-      overflow: hidden;
-    }
-    details[open] { border-color: var(--blue); }
-
-    summary {
-      padding: 16px 20px;
-      font-weight: 600;
-      font-size: 15px;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::after {
-      content: "+";
-      color: var(--blue);
-      font-size: 20px;
-      font-weight: 400;
-      flex-shrink: 0;
-      margin-left: 12px;
-      transition: transform 0.2s;
-    }
-    details[open] summary::after { content: "−"; }
-
-    .answer {
-      padding: 0 20px 16px;
-      font-size: 15px;
-      color: #374151;
-      line-height: 1.65;
-    }
-    .answer p { margin-bottom: 8px; }
-    .answer p:last-child { margin-bottom: 0; }
-    .answer ul { padding-left: 18px; margin-top: 6px; }
-    .answer ul li { margin-bottom: 4px; }
-
-    /* ── Contact card ── */
-    .contact-section { margin-bottom: 48px; }
-
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    .contact-icon {
-      font-size: 32px;
-      flex-shrink: 0;
-    }
-    .contact-card h3 {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .contact-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-    .contact-card a.email-link {
-      display: inline-block;
-      background: var(--blue);
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 9px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .contact-card a.email-link:hover { opacity: 0.88; }
-
-    /* ── Tips ── */
-    .tips-section { margin-bottom: 48px; }
-    .tip {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-    .tip strong { color: var(--dark); }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--dark);
-      color: #9ca3af;
-      font-size: 13px;
-      padding: 24px;
-      text-align: center;
-    }
-    footer a { color: #9ca3af; text-decoration: none; }
-    footer a:hover { color: #ffffff; }
-    footer .footer-links { margin-bottom: 8px; }
-    footer .footer-links a { margin: 0 10px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — OurFamilyHub</title>
+<meta name="description" content="Get help with OurFamilyHub. Frequently asked questions, quick tips, and direct email support.">
+<style>
+:root{
+  --blue:#1A56C4;--blue-2:#3B82F6;--blue-glow:rgba(59,130,246,.35);
+  --gold:#FFC53D;--gold-soft:#FFE08A;
+  --bg-0:#070B1A;--bg-1:#0C1430;
+  --ink:#EAF0FF;--ink-dim:#A7B4D6;--ink-faint:#6F7DA6;
+  --card:rgba(255,255,255,.055);--card-2:rgba(255,255,255,.085);
+  --stroke:rgba(255,255,255,.12);--stroke-2:rgba(255,255,255,.20);
+  --green:#34D399;--radius:22px;--maxw:980px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,rgba(59,130,246,.20),transparent 60%),radial-gradient(1000px 600px at 100% 0%,rgba(255,197,61,.10),transparent 55%),radial-gradient(900px 800px at 50% 120%,rgba(59,130,246,.12),transparent 60%),linear-gradient(180deg,var(--bg-0),var(--bg-1) 40%,var(--bg-0));background-attachment:fixed;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--blue-2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floaties span{position:absolute;opacity:.10;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(20px) rotate(0deg)}50%{transform:translateY(-30px) rotate(12deg)}100%{transform:translateY(20px) rotate(0deg)}}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(7,11,26,.62);border-bottom:1px solid var(--stroke)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .logo{width:32px;height:32px;border-radius:9px;overflow:hidden;box-shadow:0 6px 18px var(--blue-glow);flex-shrink:0}
+.brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
+.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--ink-dim);font-size:.86rem;font-weight:600;padding:7px 12px;border-radius:999px;transition:.2s}
+.nav-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
+.nav-links a.active{color:var(--ink);background:var(--card-2)}
+.nav-dl{display:inline-flex;align-items:center;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff !important;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px var(--blue-glow);transition:.2s}
+.nav-dl:hover{opacity:.88;text-decoration:none;transform:translateY(-1px)}
+@media(max-width:720px){.nav-links{display:none}}
+.hero{position:relative;z-index:1;text-align:center;padding:60px 0 44px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold-soft);background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.25);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:.2em 0 .3em;font-weight:800;letter-spacing:-1px}
+.hero p.lead{font-size:1.1rem;color:var(--ink-dim);max-width:500px;margin:0 auto 28px}
+.btn-contact{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff;font-weight:700;font-size:.96rem;padding:13px 24px;border-radius:14px;box-shadow:0 10px 30px var(--blue-glow);transition:.22s}
+.btn-contact:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 16px 40px var(--blue-glow)}
+section.block{position:relative;z-index:1;padding:54px 0}
+.sec-head{margin-bottom:30px;max-width:680px}
+.sec-tag{font-size:.76rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-2);margin-bottom:10px}
+.sec-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .35em;letter-spacing:-.6px;font-weight:800}
+.sec-head p{color:var(--ink-dim);font-size:1.05rem;margin:0}
+.glass{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
+.faq{display:flex;flex-direction:column;gap:12px}
+.qa{overflow:hidden}
+.qa button{width:100%;text-align:left;background:none;border:none;color:var(--ink);font-size:1rem;font-weight:650;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:inherit}
+.qa button .plus{margin-left:auto;font-size:1.4rem;color:var(--blue-2);transition:.3s;flex:none}
+.qa.open button .plus{transform:rotate(45deg)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--ink-dim)}
+.qa .ans p{margin:0;padding:0 22px 20px 56px;font-size:.95rem;line-height:1.65}
+.qa .ans ul{margin:0;padding:2px 22px 20px 72px;font-size:.95rem;line-height:1.7}
+.qa .ans li{margin-bottom:4px}
+.qa.open .ans{max-height:360px}
+.qa .qi{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.3)}
+.kbd{font-size:.82rem;background:var(--card-2);border:1px solid var(--stroke);border-radius:6px;padding:2px 7px;color:var(--ink)}
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.tips-grid{grid-template-columns:1fr}}
+.tip-card{padding:20px 22px}
+.tip-card .tip-icon{font-size:24px;margin-bottom:10px}
+.tip-card h4{margin:0 0 6px;font-size:1rem;font-weight:700}
+.tip-card p{margin:0;font-size:.9rem;color:var(--ink-dim)}
+.contact-card{padding:28px 30px;display:flex;gap:20px;align-items:flex-start}
+@media(max-width:600px){.contact-card{flex-direction:column}}
+.contact-card .ic{font-size:36px;flex-shrink:0}
+.contact-card h3{margin:0 0 6px;font-size:1.2rem;font-weight:700}
+.contact-card p{color:var(--ink-dim);font-size:.95rem;margin:0 0 14px}
+.btn-email{display:inline-flex;align-items:center;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff;font-weight:700;font-size:.92rem;padding:10px 22px;border-radius:10px;box-shadow:0 6px 18px var(--blue-glow);transition:.2s}
+.btn-email:hover{transform:translateY(-1px);text-decoration:none;opacity:.9}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke-2),transparent);margin:8px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:40px}
+footer a{color:var(--ink-dim)}
+.footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
+.footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--gold),var(--blue-2));box-shadow:0 0 12px var(--blue-glow)}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo">Our<span>Family</span>Hub</a>
-    <nav>
+<div id="progress"></div>
+<div class="floaties" id="floaties"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="logo"><img src="icon.png" alt="OurFamilyHub icon"></span>
+      OurFamilyHub
+    </a>
+    <nav class="nav-links">
       <a href="guide.html">Guide</a>
       <a href="support.html" class="active">Support</a>
       <a href="privacy.html">Privacy</a>
+      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Download</a>
     </nav>
   </div>
 </header>
 
-<div class="hero">
+<div class="hero wrap">
+  <span class="eyebrow">⭐ OurFamilyHub Support</span>
   <h1>How can we help? 🌟</h1>
-  <p>Find answers below, or send us an email — we typically reply within 24 hours.</p>
-  <a href="mailto:magbjurling@gmail.com" class="contact-btn">Email support</a>
+  <p class="lead">Find answers below, or send us an email — we typically reply within 24 hours. Norwegian and English both welcome.</p>
+  <a href="mailto:magbjurling@gmail.com" class="btn-contact">✉️ Email support</a>
 </div>
 
-<main>
-
-  <!-- FAQ -->
-  <section class="faq">
+<section class="block wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag">Help &amp; troubleshooting</div>
     <h2>Frequently asked questions</h2>
+    <p>Tap a question to expand it. Still stuck? <a href="mailto:magbjurling@gmail.com">Email us</a>.</p>
+  </div>
+  <div class="faq">
 
-    <details>
-      <summary>My child can't log in — how does that work?</summary>
-      <div class="answer">
-        <p>Children don't have accounts or passwords. Instead, they appear as profiles on the family iPad. After you (the parent) set up your family on iPhone, the same family is visible on any iPad signed in with the same Apple ID.</p>
-        <p>On the iPad, your child simply taps their name to enter their personal star board — no login required.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">👶</span> My child can't log in — how does that work?<span class="plus">+</span></button>
+      <div class="ans"><p>Children don't have accounts or passwords. They appear as profiles on the family iPad. After you set up your family on iPhone, the same family is visible on any iPad signed in with the same Apple ID. Your child simply taps their name — no login required.</p></div>
+    </div>
 
-    <details>
-      <summary>I don't see my family on the iPad</summary>
-      <div class="answer">
-        <p>Make sure both devices are signed in with the same Apple ID. Open OurFamilyHub on the iPad — if you see a sign-in screen, tap <strong>Sign in with Apple</strong> using the same Apple ID you used on iPhone.</p>
-        <p>If you use Family Sharing, the iPad must be in the same Family Sharing group and signed in with the owner's Apple ID.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">📱</span> I don't see my family on the iPad<span class="plus">+</span></button>
+      <div class="ans"><p>Make sure both devices are signed in with the same Apple ID. Open OurFamilyHub on the iPad — if you see a sign-in screen, tap <strong>Sign in with Apple</strong> using the same Apple ID you used on iPhone. If you use Family Sharing, the iPad must be in the same group.</p></div>
+    </div>
 
-    <details>
-      <summary>A star disappeared / the task shows red</summary>
-      <div class="answer">
-        <p>A red task means it was <strong>rejected</strong> — it won't count until it's done again and re-approved. The child can tap it again after completing the task, and you can re-approve it in the parent panel on iPhone.</p>
-        <p>Stars that are <em>pending approval</em> are also not counted yet. They show with a ⏳ indicator until you approve or reject them.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">⭐</span> A star disappeared / the task shows red<span class="plus">+</span></button>
+      <div class="ans"><p>A red task was <strong>rejected</strong> — it won't count until re-done and re-approved. Stars that are <em>pending approval</em> also aren't counted yet (⏳ indicator). The child can tap the task again after completing it, and you can approve it from iPhone.</p></div>
+    </div>
 
-    <details>
-      <summary>The trophy didn't appear even though we hit the goal</summary>
-      <div class="answer">
-        <p>Make sure the app is open on the device — trophy celebrations trigger when the app receives the update in real time. Try closing and reopening the app if the trophy shelf doesn't update.</p>
-        <p>If the issue persists, email us at <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a> and we'll look into it.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">🏆</span> The trophy didn't appear even though we hit the goal<span class="plus">+</span></button>
+      <div class="ans"><p>Trophy celebrations trigger when the app is open and receives the update in real time. Try closing and reopening the app. If it still doesn't appear, <a href="mailto:magbjurling@gmail.com">email us</a> and we'll look into it.</p></div>
+    </div>
 
-    <details>
-      <summary>How do I change a child's goal or reward?</summary>
-      <div class="answer">
-        <p>On iPhone, go to <strong>Admin → Stars</strong> → tap the child's card → tap <strong>Edit</strong>. You can change the star goal (number of stars needed before the reward triggers) and the reward text.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">✏️</span> How do I change a child's goal or reward?<span class="plus">+</span></button>
+      <div class="ans"><p>On iPhone: <span class="kbd">Admin → Stars</span> → tap the child's card → tap <strong>Edit</strong>. You can change the star goal and the reward text at any time.</p></div>
+    </div>
 
-    <details>
-      <summary>How do I approve or reject a task?</summary>
-      <div class="answer">
-        <p>When a child taps a task on the iPad, it enters a <em>pending</em> state. On iPhone you'll see a badge on the Admin tab. Tap the notification to see all pending approvals, then approve or reject with one tap. Rejected tasks show in red on the iPad and can be re-attempted.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">✅</span> How do I approve or reject a task?<span class="plus">+</span></button>
+      <div class="ans"><p>When a child taps a task on the iPad, it enters <em>pending</em> state. On iPhone you'll see a badge on the Admin tab. Tap it to see all pending approvals, then approve or reject with one tap. Rejected tasks show red on the iPad and can be re-attempted the same day.</p></div>
+    </div>
 
-    <details>
-      <summary>What is the Morning Cycle?</summary>
-      <div class="answer">
-        <p>The Morning Cycle is a family-synced check-in ritual. It guides the whole family through a sequence of categories (e.g. morning routine → tasks). Each child checks in for the current step; once everyone has checked in, the family moves on to the next step and bonus stars are awarded automatically at the end.</p>
-        <p>You can configure or disable it in <strong>Admin → Settings → Morning Cycle</strong>.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">🌅</span> What is the Morning Cycle?<span class="plus">+</span></button>
+      <div class="ans"><p>The Morning Cycle is a family-synced check-in ritual. It guides the whole family through a sequence of categories. Each child checks in for the current step; once everyone has, the family moves to the next. Bonus stars are awarded at the end — the only place stars are credited without approval. Configure it in <span class="kbd">Admin → Settings → Morning Cycle</span>.</p></div>
+    </div>
 
-    <details>
-      <summary>How do I remove or change the admin PIN?</summary>
-      <div class="answer">
-        <p>On iPhone, go to <strong>Admin → Settings → Admin PIN</strong>. You can change or remove the PIN here. Face ID / Touch ID is offered as a faster alternative.</p>
-        <p>If you've forgotten your PIN, the only recovery path today is to email us. A self-service PIN reset will be added in a future update.</p>
-      </div>
-    </details>
+    <div class="glass qa reveal">
+      <button><span class="qi">🔒</span> How do I remove or change the admin PIN?<span class="plus">+</span></button>
+      <div class="ans"><p>Go to <span class="kbd">Admin → Settings → Admin PIN</span>. You can change or remove the PIN here. Face ID / Touch ID is offered as a faster alternative. If you've forgotten your PIN, email us — a self-service reset will be added in a future update.</p></div>
+    </div>
 
-    <details>
-      <summary>The family calendar isn't showing events</summary>
-      <div class="answer">
-        <p>OurFamilyHub reads calendars named <strong>"Family"</strong> or <strong>"Familie"</strong> directly from your device using iOS Calendar. Check that:</p>
+    <div class="glass qa reveal">
+      <button><span class="qi">📅</span> The family calendar isn't showing events<span class="plus">+</span></button>
+      <div class="ans">
+        <p>OurFamilyHub reads calendars named <strong>"Family"</strong> or <strong>"Familie"</strong> from iOS Calendar. Check that:</p>
         <ul>
-          <li>There is a calendar with one of those names in the iOS Calendar app on the iPad.</li>
-          <li>OurFamilyHub has permission to access calendars: <strong>Settings → Privacy & Security → Calendars → OurFamilyHub</strong>.</li>
-          <li>If you use Google Calendar, the Google account must be added to <strong>iOS Settings → Calendar → Accounts</strong>.</li>
+          <li>A calendar with one of those names exists in the iOS Calendar app on the iPad.</li>
+          <li>OurFamilyHub has calendar permission: <span class="kbd">Settings → Privacy → Calendars → OurFamilyHub</span>.</li>
+          <li>For Google Calendar: the account must be added in <span class="kbd">iOS Settings → Calendar → Accounts</span>.</li>
         </ul>
       </div>
-    </details>
-
-    <details>
-      <summary>The weather widget isn't working</summary>
-      <div class="answer">
-        <p>The weather widget uses Apple WeatherKit and requires a physical device — it does not work in the iOS Simulator. Make sure location services are enabled for OurFamilyHub: <strong>Settings → Privacy & Security → Location Services → OurFamilyHub</strong>.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>How do subscriptions and billing work?</summary>
-      <div class="answer">
-        <p>OurFamilyHub offers a free tier (2 child profiles, morning routine category) and optional premium subscriptions with more profiles and categories. All purchases and billing are handled by Apple through your App Store account.</p>
-        <p>To manage, pause, or cancel a subscription: <strong>iPhone Settings → [Your name] → Subscriptions → OurFamilyHub</strong>. If a feature you paid for is not unlocked, try <strong>Restore Purchases</strong> in the app's subscription screen — it may take a few minutes to sync after purchase.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>How do I delete my account and family data?</summary>
-      <div class="answer">
-        <p>You can delete individual child profiles from Admin at any time. To permanently delete your account and all associated family data, email <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a> with the subject "Delete my account" — we will erase all data within 30 days.</p>
-      </div>
-    </details>
-
-  </section>
-
-  <!-- Quick tips -->
-  <section class="tips-section">
-    <h2>Quick tips for getting started</h2>
-    <div class="tip"><strong>Add children first.</strong> On iPhone, tap the + button in Admin to add your first child profile. Set a star goal (e.g. 10) and a reward they'll love.</div>
-    <div class="tip"><strong>Default routines are ready to go.</strong> Morning and evening routines come pre-filled with steps. Delete what doesn't fit your family and add your own.</div>
-    <div class="tip"><strong>Set an admin PIN.</strong> A 4-digit PIN (or Face ID) prevents children from accidentally opening admin mode from the iPad.</div>
-    <div class="tip"><strong>The iPad is always-on.</strong> Leave the iPad plugged in and the app open — it will always show your children's star boards, family calendar, and photos.</div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact-section">
-    <h2>Still need help?</h2>
-    <div class="contact-card">
-      <div class="contact-icon">✉️</div>
-      <div>
-        <h3>Email support</h3>
-        <p>We read every email and typically reply within 24 hours. Norwegian and English both welcome.</p>
-        <a href="mailto:magbjurling@gmail.com" class="email-link">magbjurling@gmail.com</a>
-      </div>
     </div>
-  </section>
 
-</main>
+    <div class="glass qa reveal">
+      <button><span class="qi">☀️</span> The weather widget isn't working<span class="plus">+</span></button>
+      <div class="ans"><p>Weather requires a physical device (Apple WeatherKit doesn't work in the Simulator) and location access: <span class="kbd">Settings → Privacy → Location Services → OurFamilyHub</span>.</p></div>
+    </div>
+
+    <div class="glass qa reveal">
+      <button><span class="qi">💳</span> How do subscriptions and billing work?<span class="plus">+</span></button>
+      <div class="ans"><p>All purchases are handled by Apple through your App Store account. To manage, pause or cancel: <span class="kbd">iPhone Settings → [Your name] → Subscriptions → OurFamilyHub</span>. If a paid feature isn't unlocked, try <strong>Restore Purchases</strong> in the app — it may take a few minutes to sync.</p></div>
+    </div>
+
+    <div class="glass qa reveal">
+      <button><span class="qi">🗑️</span> How do I delete my account and family data?<span class="plus">+</span></button>
+      <div class="ans"><p>You can delete individual child profiles from Admin at any time. To delete your entire account and all data, email <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a> with the subject "Delete my account" — we will erase all data within 30 days.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider wrap"></div>
+
+<section class="block wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag">Getting started</div>
+    <h2>Quick tips for new families</h2>
+  </div>
+  <div class="tips-grid">
+    <div class="glass tip-card reveal">
+      <div class="tip-icon">➕</div>
+      <h4>Add children first</h4>
+      <p>On iPhone, tap the + button in Admin to add your first child. Set a star goal (e.g. 10) and a reward they'll love.</p>
+    </div>
+    <div class="glass tip-card reveal">
+      <div class="tip-icon">📋</div>
+      <h4>Default routines are ready to go</h4>
+      <p>Morning and evening routines come pre-filled. Delete what doesn't fit and add your own.</p>
+    </div>
+    <div class="glass tip-card reveal">
+      <div class="tip-icon">🔒</div>
+      <h4>Set an admin PIN</h4>
+      <p>A 4-digit PIN (or Face ID) prevents children from accidentally opening admin mode from the iPad.</p>
+    </div>
+    <div class="glass tip-card reveal">
+      <div class="tip-icon">🔌</div>
+      <h4>Leave the iPad plugged in</h4>
+      <p>The iPad is always-on — leave it plugged in and the app open so kids always see their star boards.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag">Contact</div>
+    <h2>Still need help?</h2>
+  </div>
+  <div class="glass contact-card reveal">
+    <div class="ic">✉️</div>
+    <div>
+      <h3>Email support</h3>
+      <p>We read every email and reply within 24 hours. Norwegian and English both welcome.</p>
+      <a href="mailto:magbjurling@gmail.com" class="btn-email">magbjurling@gmail.com</a>
+    </div>
+  </div>
+</section>
 
 <footer>
+  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
+    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px var(--blue-glow)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+    <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
+  </div>
   <div class="footer-links">
     <a href="index.html">Home</a>
+    <a href="guide.html">Setup Guide</a>
     <a href="support.html">Support</a>
     <a href="privacy.html">Privacy Policy</a>
   </div>
-  <div>&copy; 2026 Magnus Bjurling &mdash; OurFamilyHub</div>
+  <p style="font-size:.82rem;margin:0">&copy; 2026 Magnus Bjurling</p>
 </footer>
 
+<script>
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.qa button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const qa=b.parentElement;const open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
+    if(!open)qa.classList.add('open');
+  });
+});
+const icons=['⭐','🏆','📋','✅','🦊','🐻','🌙','☀️','🎯','💛','🌟','🎉'];
+const f=document.getElementById('floaties');
+for(let i=0;i<14;i++){const s=document.createElement('span');s.textContent=icons[i%icons.length];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(18+Math.random()*22)+'px';s.style.animationDuration=(9+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*10)+'s';f.appendChild(s)}
+</script>
 </body>
 </html>
