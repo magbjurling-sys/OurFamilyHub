@@ -1,25 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FamilyHub — Legal</title>
-<style>
-  :root { color-scheme: light dark; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         max-width: 720px; margin: 0 auto; padding: 48px 24px; line-height: 1.6; }
-  h1 { font-size: 1.8rem; }
-  a { color: #2563eb; }
-  ul { padding-left: 1.2rem; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurFamilyHub — Star rewards for kids who love getting things done</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #5B8CFF;
+      --dark: #1a1a2e;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--dark);
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .logo {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 17px;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--blue); }
+    nav a {
+      color: #9ca3af;
+      font-size: 14px;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: #ffffff; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--dark);
+      padding: 72px 24px 80px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(91, 140, 255, 0.18);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      color: #ffffff;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+    .hero p {
+      color: #9ca3af;
+      font-size: 17px;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .app-store-btn {
+      display: inline-block;
+      background: var(--blue);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .app-store-btn:hover { opacity: 0.88; }
+
+    /* ── Features ── */
+    .features {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .feature-icon { font-size: 28px; margin-bottom: 12px; }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+    .feature-card p { font-size: 14px; color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--dark);
+      text-align: center;
+      padding: 56px 24px;
+    }
+    .cta h2 {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .cta p {
+      color: #9ca3af;
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      font-size: 13px;
+      padding: 24px;
+      text-align: center;
+    }
+    footer a { color: #9ca3af; text-decoration: none; }
+    footer a:hover { color: #ffffff; }
+    footer .footer-links { margin-bottom: 8px; }
+    footer .footer-links a { margin: 0 10px; }
+  </style>
 </head>
 <body>
-  <h1>FamilyHub</h1>
-  <p>Legal documents for the FamilyHub app:</p>
-  <ul>
-    <li><a href="privacy.html">Privacy Policy</a></li>
-    <li><a href="terms.html">Terms of Service</a></li>
-  </ul>
-  <p>Contact: <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a></p>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">Our<span>Family</span>Hub</a>
+    <nav>
+      <a href="guide.html">Guide</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">Available on the App Store</div>
+  <h1>Your kids will actually look forward to getting things done</h1>
+  <p>A star economy that turns daily routines into something kids love — and makes life as a parent simpler.</p>
+  <a href="https://apps.apple.com/app/id6775283053" class="app-store-btn">Download on the App Store</a>
+</div>
+
+<div class="features">
+  <div class="feature-card">
+    <div class="feature-icon">⭐</div>
+    <h3>Star boards kids love</h3>
+    <p>Children earn stars for completing routines and tasks. Stars fill up in groups of 5 toward a trophy. Visible progress beats verbal praise every time.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📱</div>
+    <h3>iPhone for parents, iPad for kids</h3>
+    <p>Parents manage everything from iPhone. The iPad runs as an always-on family dashboard — no login needed for children.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🌅</div>
+    <h3>Morning Cycle</h3>
+    <p>A family-synchronized check-in ritual. Everyone checks in together through the morning categories and earns bonus stars on completion.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">✅</div>
+    <h3>One-tap approval</h3>
+    <p>Kids self-report completed tasks. Parents approve or reject with a single tap — and get notified when something is waiting.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🏆</div>
+    <h3>Trophy shelf</h3>
+    <p>Every completed star board earns a trophy on the shelf. Kids watch their own effort build up over time — no "good job" needed.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🌍</div>
+    <h3>6 languages</h3>
+    <p>Available in English, Norwegian, German, Spanish, Hindi, and Chinese (Simplified). Sign in with Apple — no passwords, no child accounts.</p>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Free to download</h2>
+  <p>Start with the morning routine for up to two children. Upgrade anytime for more.</p>
+  <a href="https://apps.apple.com/app/id6775283053" class="app-store-btn">Download OurFamilyHub</a>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="guide.html">Setup Guide</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:magbjurling@gmail.com">Contact</a>
+  </div>
+  <div>&copy; 2026 Magnus Bjurling &mdash; OurFamilyHub</div>
+</footer>
+
 </body>
 </html>
