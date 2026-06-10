@@ -246,19 +246,13 @@ footer a{color:var(--ink-dim)}
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand" style="text-decoration:none;color:inherit">
-      <span class="logo" style="overflow:hidden;padding:0"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:9px"></span>
-      OurFamilyHub
-    </a>
+    <div class="brand"><span class="logo">⭐</span> OurFamilyHub</div>
     <nav class="nav-links">
       <a href="#concept">How it works</a>
       <a href="#parent">Parent setup</a>
       <a href="#child">iPad mode</a>
       <a href="#plans">Plans</a>
       <a href="#faq">Help</a>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://apps.apple.com/app/id6775283053" style="background:linear-gradient(140deg,#1A56C4,#3B82F6);color:#fff;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(59,130,246,.35);transition:.2s;text-decoration:none">Download</a>
     </nav>
   </div>
 </header>
@@ -302,7 +296,7 @@ footer a{color:var(--ink-dim)}
     <svg class="float-anim b" width="230" height="180" viewBox="0 0 230 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPad dashboard">
       <rect x="4" y="4" width="222" height="172" rx="18" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
       <rect x="12" y="12" width="206" height="156" rx="12" fill="#0a1228"/>
-      <text x="24" y="34" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">The Hansens</text>
+      <text x="24" y="34" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">The Bjurlings</text>
       <text x="200" y="34" text-anchor="end" font-size="13">☀️ 18°</text>
       <circle cx="42" cy="74" r="20" fill="url(#g2)"/><text x="42" y="81" text-anchor="middle" font-size="18">🦊</text>
       <circle cx="96" cy="74" r="20" fill="rgba(255,255,255,.07)"/><text x="96" y="81" text-anchor="middle" font-size="18">🐻</text>
@@ -452,7 +446,7 @@ footer a{color:var(--ink-dim)}
       </div>
       <div class="body">
         <h3><span class="stepnum">2</span> Name your family</h3>
-        <p>This shows at the top of the dashboard — “The Hansens,” “Familien Hansen,” whatever you like. You can change it later in Settings.</p>
+        <p>This shows at the top of the dashboard — “The Bjurlings,” “Familien Hansen,” whatever you like. You can change it later in Settings.</p>
       </div>
     </div>
 
@@ -486,7 +480,7 @@ footer a{color:var(--ink-dim)}
       <div class="body">
         <h3><span class="stepnum">4</span> Set a parent PIN</h3>
         <p>A 4-digit code locks parent mode so kids can't wander into settings from the iPad. Face ID / Touch ID is offered automatically as a faster unlock. A banner reminds you until this is done.</p>
-        <div class="tip">⚠️ There's no “forgot PIN” flow yet — you reset it from <span class="kbd">Settings → Parent PIN</span> while signed in. Keep it somewhere safe.</div>
+        <div class="tip">⚠️ Pick a code you'll remember and keep it somewhere safe — you change or remove it from <span class="kbd">Settings → Parent PIN</span> while signed in.</div>
       </div>
     </div>
 
@@ -641,7 +635,7 @@ footer a{color:var(--ink-dim)}
       <span class="ic">☀️</span>
       <div>
         <h4>Local weather</h4>
-        <p>Pulled from Apple Weather using approximate location — we never see or store where you are. Note: weather only appears on a real device, not the simulator (an Apple WeatherKit limitation, not a bug).</p>
+        <p>Pulled from Apple Weather using your approximate location — we never see or store where you are. It updates on its own; there's nothing to turn on.</p>
       </div>
     </div>
   </div>
@@ -701,7 +695,7 @@ footer a{color:var(--ink-dim)}
     </div>
     <div class="glass qa reveal">
       <button><span class="qi">🏆</span> I hit the goal but got no trophy</button>
-      <div class="ans"><p>Round completion is currently calculated while the app is open. Reopen the app and it should appear. A permanent server-side fix is on the way.</p></div>
+      <div class="ans"><p>Trophies are awarded automatically the moment a child crosses their goal, and the star board resets for the next round. If a trophy doesn't appear right away, pull to refresh or reopen the app to load the latest count.</p></div>
     </div>
     <div class="glass qa reveal">
       <button><span class="qi">✏️</span> How do I change a goal or reward?</button>
@@ -713,7 +707,7 @@ footer a{color:var(--ink-dim)}
     </div>
     <div class="glass qa reveal">
       <button><span class="qi">🔢</span> How do I remove the parent PIN?</button>
-      <div class="ans"><p><span class="kbd">Settings → Parent PIN → Remove</span>, then confirm. There's no “forgot PIN” recovery yet, so do this while you're signed in and remember your code.</p></div>
+      <div class="ans"><p>Go to <span class="kbd">Settings → Parent PIN → Remove</span> and confirm. You'll need to be signed in as the parent to do this, so keep your code somewhere safe.</p></div>
     </div>
     <div class="glass qa reveal">
       <button><span class="qi">📅</span> The calendar card is empty</button>
@@ -727,12 +721,9 @@ footer a{color:var(--ink-dim)}
 </section>
 
 <footer>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
-    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px rgba(59,130,246,.35)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
-    <span style="font-weight:800;font-size:1.02rem;color:#EAF0FF">OurFamilyHub</span>
-  </div>
+  <div class="brand"><span class="logo">⭐</span> OurFamilyHub</div>
   <p style="max-width:520px;margin:0 auto 12px">From download to a working family in under ten minutes. Questions? <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a></p>
-  <p style="font-size:.82rem">App Store ID 6775283053 &middot; <a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; &copy; 2026 Magnus Bjurling</p>
+  <p style="font-size:.82rem">App Store ID 6775283053 · Made by Magnus Bjurling · <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 <script>
