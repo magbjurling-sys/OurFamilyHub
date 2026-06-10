@@ -64,18 +64,15 @@ header.nav{
   border-bottom:1px solid var(--stroke);
 }
 .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem}
-.brand .logo{
-  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
-  background:linear-gradient(145deg,var(--blue),var(--blue-2));
-  box-shadow:0 6px 18px var(--blue-glow);font-size:16px
-}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
-.nav-links a{
-  color:var(--ink-dim);font-size:.86rem;font-weight:600;
-  padding:7px 12px;border-radius:999px;transition:.2s
-}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;color:var(--ink);text-decoration:none}
+.brand .logo{width:32px;height:32px;border-radius:9px;overflow:hidden;box-shadow:0 6px 18px var(--blue-glow);flex-shrink:0}
+.brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
+.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--ink-dim);font-size:.86rem;font-weight:600;padding:7px 12px;border-radius:999px;transition:.2s}
 .nav-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
+.nav-links a.active{color:var(--ink);background:var(--card-2)}
+.nav-dl{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff !important;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px var(--blue-glow);transition:.2s}
+.nav-dl:hover{opacity:.88;text-decoration:none;transform:translateY(-1px)}
 @media(max-width:720px){.nav-links{display:none}}
 
 /* HERO */
@@ -220,9 +217,18 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .reveal.in{opacity:1;transform:none}
 
 /* footer */
+.cta-section{position:relative;z-index:1;text-align:center;padding:60px 22px}
+.cta-section h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.5px;margin:0 0 .4em}
+.cta-section p{color:var(--ink-dim);font-size:1.05rem;margin:0 auto 28px;max-width:460px}
+.appstore-wrap{display:flex;justify-content:center;flex-wrap:wrap;align-items:center}
+.appstore-badge-img{display:inline-block;transition:.2s;filter:drop-shadow(0 8px 20px rgba(0,0,0,.5))}
+.appstore-badge-img:hover{transform:translateY(-2px);text-decoration:none}
+.appstore-badge-img img{height:54px;width:auto;display:block}
 footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:40px}
-footer .brand{justify-content:center;margin-bottom:14px}
 footer a{color:var(--ink-dim)}
+.footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
+.footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
 
 /* progress bar */
 #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
@@ -246,13 +252,15 @@ footer a{color:var(--ink-dim)}
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="brand"><span class="logo">⭐</span> OurFamilyHub</div>
+    <a href="index.html" class="brand">
+      <span class="logo"><img src="icon.png" alt="OurFamilyHub icon"></span>
+      OurFamilyHub
+    </a>
     <nav class="nav-links">
-      <a href="#concept">How it works</a>
-      <a href="#parent">Parent setup</a>
-      <a href="#child">iPad mode</a>
-      <a href="#plans">Plans</a>
-      <a href="#faq">Help</a>
+      <a href="guide.html" class="active">Guide</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Download</a>
     </nav>
   </div>
 </header>
@@ -720,10 +728,30 @@ footer a{color:var(--ink-dim)}
   </div>
 </section>
 
+<!-- BOTTOM CTA -->
+<div class="cta-section reveal">
+  <h2>That's everything — go set it up</h2>
+  <p>Download free and have your family running in under ten minutes. Need a hand? <a href="support.html">Support is here</a>.</p>
+  <div class="appstore-wrap">
+    <a href="https://apps.apple.com/app/id6775283053" class="appstore-badge-img">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="Download on the App Store">
+    </a>
+  </div>
+</div>
+
 <footer>
-  <div class="brand"><span class="logo">⭐</span> OurFamilyHub</div>
-  <p style="max-width:520px;margin:0 auto 12px">From download to a working family in under ten minutes. Questions? <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a></p>
-  <p style="font-size:.82rem">App Store ID 6775283053 · Made by Magnus Bjurling · <a href="privacy.html">Privacy Policy</a></p>
+  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
+    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px var(--blue-glow)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+    <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
+  </div>
+  <div class="footer-links">
+    <a href="guide.html">Setup Guide</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:magbjurling@gmail.com">Contact</a>
+  </div>
+  <p style="font-size:.82rem;margin:0">App Store ID 6775283053 &middot; &copy; 2026 Magnus Bjurling</p>
 </footer>
 
 <script>
