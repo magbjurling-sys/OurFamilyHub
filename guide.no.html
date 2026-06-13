@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OurFamilyHub — Setup & User Guide</title>
-<meta name="description" content="Get your family up and running on OurFamilyHub in under 10 minutes. A friendly, step-by-step setup and user guide for parents.">
+<title>OurFamilyHub — Oppsett- og brukerguide</title>
+<meta name="description" content="Få familien i gang med OurFamilyHub på under 10 minutter. En vennlig, steg-for-steg oppsett- og brukerguide for foreldre.">
 <style>
 :root{
   --blue:#1A56C4;
@@ -47,7 +47,6 @@ a{color:var(--blue-2);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 
-/* floating background icons */
 .floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .floaties span{position:absolute;font-size:26px;opacity:.10;animation:drift linear infinite}
 @keyframes drift{
@@ -56,7 +55,6 @@ a:hover{text-decoration:underline}
   100%{transform:translateY(20px) rotate(0deg)}
 }
 
-/* NAV */
 header.nav{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
@@ -83,7 +81,6 @@ header.nav{
 .footer-lang a:hover{color:var(--ink);text-decoration:none}
 .footer-lang a.active{background:var(--card-2);color:var(--ink)}
 
-/* HERO */
 .hero{position:relative;z-index:1;text-align:center;padding:72px 0 36px}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
@@ -112,27 +109,23 @@ header.nav{
 .btn-ghost:hover{background:var(--card-2);text-decoration:none}
 .time-pill{margin-top:16px;color:var(--ink-faint);font-size:.85rem}
 
-/* hero device float */
 .hero-stage{position:relative;z-index:1;margin:30px auto 0;max-width:560px;display:flex;justify-content:center;gap:18px;align-items:flex-end}
 .float-anim{animation:bob 5s ease-in-out infinite}
 .float-anim.b{animation-delay:-2.5s}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
-/* SECTION */
 section.block{position:relative;z-index:1;padding:54px 0}
 .sec-head{margin-bottom:30px;max-width:680px}
 .sec-tag{font-size:.76rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-2);margin-bottom:10px}
 .sec-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .35em;letter-spacing:-.6px;font-weight:800}
 .sec-head p{color:var(--ink-dim);font-size:1.05rem;margin:0}
 
-/* glass card */
 .glass{
   background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   box-shadow:0 18px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)
 }
 
-/* concept trio */
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:780px){.trio{grid-template-columns:1fr}}
 .trio .glass{padding:22px}
@@ -146,7 +139,6 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .chip.app{background:rgba(255,197,61,.12);color:var(--gold-soft);border:1px solid rgba(255,197,61,.25)}
 .chip.appv{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.3)}
 
-/* star flow */
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
 @media(max-width:780px){.flow{grid-template-columns:1fr 1fr}}
 .flow .step{padding:20px;text-align:center;position:relative}
@@ -157,7 +149,6 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .flow .arr{position:absolute;right:-11px;top:34px;color:var(--ink-faint);font-size:20px;z-index:2}
 @media(max-width:780px){.flow .arr{display:none}}
 
-/* steps (walkthrough) */
 .steps{display:flex;flex-direction:column;gap:20px;counter-reset:s}
 .stepcard{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;padding:24px}
 @media(max-width:680px){.stepcard{grid-template-columns:1fr;text-align:center}}
@@ -176,7 +167,6 @@ section.block{position:relative;z-index:1;padding:54px 0}
 }
 .kbd{font-size:.82rem;background:var(--card-2);border:1px solid var(--stroke);border-radius:6px;padding:2px 7px;color:var(--ink)}
 
-/* device columns */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
 @media(max-width:780px){.two{grid-template-columns:1fr}}
 .device-card{padding:26px;display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -185,13 +175,11 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .device-card .role{font-size:.76rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--blue-2);margin-bottom:12px}
 .device-card p{color:var(--ink-dim);font-size:.95rem;margin:0}
 
-/* feature list */
 .feat{list-style:none;padding:0;margin:14px 0 0;text-align:left;width:100%}
 .feat li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--stroke);font-size:.92rem;color:var(--ink-dim)}
 .feat li:first-child{border-top:none}
 .feat li .dot{color:var(--gold);flex:none}
 
-/* FAQ */
 .faq{display:flex;flex-direction:column;gap:12px}
 .qa{padding:0;overflow:hidden}
 .qa button{
@@ -203,11 +191,10 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .qa.open button .plus{transform:rotate(45deg)}
 .qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--ink-dim)}
 .qa .ans p{margin:0;padding:0 22px 20px 56px;font-size:.95rem}
-.qa.open .ans{max-height:280px}
+.qa.open .ans{max-height:320px}
 .qa .qi{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
   background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.3)}
 
-/* tiers */
 .tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:680px){.tiers{grid-template-columns:1fr}}
 .tier{padding:24px;position:relative}
@@ -220,11 +207,9 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .badge-pop{position:absolute;top:-12px;right:20px;background:linear-gradient(140deg,var(--gold),#FFB020);color:#3a2a00;
   font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px}
 
-/* reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* footer */
 .cta-section{position:relative;z-index:1;text-align:center;padding:60px 22px}
 .cta-section h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.5px;margin:0 0 .4em}
 .cta-section p{color:var(--ink-dim);font-size:1.05rem;margin:0 auto 28px;max-width:460px}
@@ -238,11 +223,9 @@ footer a{color:var(--ink-dim)}
 .footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
 .footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
 
-/* progress bar */
 #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
   background:linear-gradient(90deg,var(--gold),var(--blue-2));box-shadow:0 0 12px var(--blue-glow)}
 
-/* star pop animation */
 @keyframes pop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
 .starpop{animation:pop .5s ease both}
 
@@ -252,9 +235,6 @@ footer a{color:var(--ink-dim)}
 .callout h4{margin:0 0 4px}
 .callout p{margin:0;color:var(--ink-dim);font-size:.94rem}
 </style>
-<script>
-(function(){try{if(localStorage.getItem('ofh_lang'))return;var l=(navigator.language||navigator.userLanguage||'').toLowerCase();if(l.indexOf('nb')===0||l.indexOf('nn')===0||l.indexOf('no')===0){location.replace('guide.no.html');}}catch(e){}})();
-</script>
 </head>
 <body>
 
@@ -263,34 +243,34 @@ footer a{color:var(--ink-dim)}
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <span class="logo"><img src="icon.png" alt="OurFamilyHub icon"></span>
+    <a href="index.no.html" class="brand">
+      <span class="logo"><img src="icon.png" alt="OurFamilyHub-ikon"></span>
       OurFamilyHub
     </a>
     <nav class="nav-links">
-      <a href="guide.html" class="active">Guide</a>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Download</a>
-      <span class="lang-switch"><a href="guide.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></span>
+      <a href="guide.no.html" class="active">Guide</a>
+      <a href="support.no.html">Hjelp</a>
+      <a href="privacy.no.html">Personvern</a>
+      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Last ned</a>
+      <span class="lang-switch"><a href="guide.html" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" class="active" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></span>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
 <div class="hero wrap">
-  <span class="eyebrow">⭐ Family setup guide</span>
-  <h1>Turn everyday routines into<br><span class="grad">a game your kids love</span></h1>
-  <p class="lead">OurFamilyHub rewards kids with stars for finishing routines and tasks — and lets you run the whole thing from your iPhone. This guide takes you from download to a working family in under 10 minutes.</p>
+  <span class="eyebrow">⭐ Oppsettsguide for familien</span>
+  <h1>Gjør hverdagsrutiner om til<br><span class="grad">et spill barna elsker</span></h1>
+  <p class="lead">OurFamilyHub belønner barna med stjerner for å fullføre rutiner og oppgaver — og lar deg styre alt fra din egen iPhone. Denne guiden tar deg fra nedlasting til en fungerende familie på under 10 minutter.</p>
   <div class="cta-row">
-    <a href="#parent" class="btn btn-primary">Start the 10-minute setup →</a>
-    <a href="#concept" class="btn btn-ghost">First, how does it work?</a>
+    <a href="#parent" class="btn btn-primary">Start oppsettet på 10 minutter →</a>
+    <a href="#concept" class="btn btn-ghost">Først: hvordan fungerer det?</a>
   </div>
-  <div class="time-pill">No spreadsheets. No accounts for kids. Just one parent sign-in.</div>
+  <div class="time-pill">Ingen regneark. Ingen kontoer for barn. Bare én forelder-innlogging.</div>
 
   <div class="hero-stage">
     <!-- iPhone -->
-    <svg class="float-anim" width="150" height="300" viewBox="0 0 150 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPhone admin view">
+    <svg class="float-anim" width="150" height="300" viewBox="0 0 150 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPhone admin-visning">
       <rect x="6" y="6" width="138" height="288" rx="30" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
       <rect x="14" y="14" width="122" height="272" rx="24" fill="#0a1228"/>
       <rect x="55" y="20" width="40" height="7" rx="3.5" fill="rgba(255,255,255,.15)"/>
@@ -303,9 +283,9 @@ footer a{color:var(--ink-dim)}
         <text y="22" font-size="13">⭐⭐⭐<tspan fill="#2a3760">⭐⭐</tspan></text>
       </g>
       <rect x="26" y="196" width="98" height="30" rx="9" fill="rgba(52,211,153,.15)" stroke="rgba(52,211,153,.4)"/>
-      <text x="75" y="215" text-anchor="middle" fill="#34D399" font-size="9.5" font-weight="700" font-family="sans-serif">✓ Approve task</text>
+      <text x="75" y="215" text-anchor="middle" fill="#34D399" font-size="9.5" font-weight="700" font-family="sans-serif">✓ Godkjenn</text>
       <rect x="26" y="234" width="98" height="30" rx="9" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
-      <text x="75" y="253" text-anchor="middle" fill="#A7B4D6" font-size="9.5" font-weight="600" font-family="sans-serif">Run routine</text>
+      <text x="75" y="253" text-anchor="middle" fill="#A7B4D6" font-size="9.5" font-weight="600" font-family="sans-serif">Kjør rutine</text>
       <defs>
         <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
           <stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/>
@@ -313,128 +293,128 @@ footer a{color:var(--ink-dim)}
       </defs>
     </svg>
     <!-- iPad -->
-    <svg class="float-anim b" width="230" height="180" viewBox="0 0 230 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPad dashboard">
+    <svg class="float-anim b" width="230" height="180" viewBox="0 0 230 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPad-dashbord">
       <rect x="4" y="4" width="222" height="172" rx="18" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
       <rect x="12" y="12" width="206" height="156" rx="12" fill="#0a1228"/>
-      <text x="24" y="34" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">The Bjurlings</text>
+      <text x="24" y="34" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Familien Bjurling</text>
       <text x="200" y="34" text-anchor="end" font-size="13">☀️ 18°</text>
       <circle cx="42" cy="74" r="20" fill="url(#g2)"/><text x="42" y="81" text-anchor="middle" font-size="18">🦊</text>
       <circle cx="96" cy="74" r="20" fill="rgba(255,255,255,.07)"/><text x="96" y="81" text-anchor="middle" font-size="18">🐻</text>
       <g transform="translate(135,60)">
         <rect width="78" height="48" rx="11" fill="rgba(255,197,61,.10)" stroke="rgba(255,197,61,.3)"/>
         <text x="39" y="20" text-anchor="middle" font-size="13">⭐⭐⭐⭐</text>
-        <text x="39" y="38" text-anchor="middle" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 stars</text>
+        <text x="39" y="38" text-anchor="middle" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 stjerner</text>
       </g>
       <rect x="24" y="120" width="84" height="32" rx="9" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.35)"/>
-      <text x="66" y="140" text-anchor="middle" fill="#3B82F6" font-size="9" font-weight="700" font-family="sans-serif">Tap when done</text>
+      <text x="66" y="140" text-anchor="middle" fill="#3B82F6" font-size="9" font-weight="700" font-family="sans-serif">Trykk når ferdig</text>
       <rect x="118" y="120" width="92" height="32" rx="9" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/>
-      <text x="164" y="140" text-anchor="middle" fill="#A7B4D6" font-size="9" font-weight="600" font-family="sans-serif">🏆 Trophies</text>
+      <text x="164" y="140" text-anchor="middle" fill="#A7B4D6" font-size="9" font-weight="600" font-family="sans-serif">🏆 Trofeer</text>
       <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
     </svg>
   </div>
 </div>
 
-<!-- CONCEPT -->
+<!-- KONSEPT -->
 <section class="block wrap" id="concept">
   <div class="sec-head reveal">
-    <div class="sec-tag">The big idea</div>
-    <h2>A star economy the whole family understands</h2>
-    <p>Kids earn stars for things they do. Stars build toward a goal. Hit the goal and a trophy unlocks — plus a real-world reward you choose. Here's the loop.</p>
+    <div class="sec-tag">Den store idéen</div>
+    <h2>En stjerneøkonomi hele familien forstår</h2>
+    <p>Barna tjener stjerner for ting de gjør. Stjernene bygger mot et mål. Nå målet, og et trofé låses opp — pluss en belønning i den virkelige verden som du velger. Slik går sløyfen.</p>
   </div>
 
   <div class="flow reveal">
     <div class="glass step">
-      <div class="n">1</div><h4>Kid taps</h4>
-      <p>On the iPad, your child taps a task they've finished in StarTap.</p>
+      <div class="n">1</div><h4>Barnet trykker</h4>
+      <p>På iPaden trykker barnet på en oppgave de har fullført i StarTap.</p>
       <div class="arr">→</div>
     </div>
     <div class="glass step">
-      <div class="n">2</div><h4>You approve</h4>
-      <p>It lands in “Pending” on your iPhone. One tap to approve — or reject.</p>
+      <div class="n">2</div><h4>Du godkjenner</h4>
+      <p>Den havner i «Venter» på din iPhone. Ett trykk for å godkjenne — eller avvise.</p>
       <div class="arr">→</div>
     </div>
     <div class="glass step">
-      <div class="n">3</div><h4>Star counts</h4>
-      <p>Approved stars fill a board, grouped in fives, toward the goal.</p>
+      <div class="n">3</div><h4>Stjernen telles</h4>
+      <p>Godkjente stjerner fyller et brett, gruppert i femmere, mot målet.</p>
       <div class="arr">→</div>
     </div>
     <div class="glass step">
-      <div class="n">4</div><h4>Trophy unlocks</h4>
-      <p>Reach the goal → a trophy is earned, the board resets, the cycle begins again.</p>
+      <div class="n">4</div><h4>Trofé låses opp</h4>
+      <p>Nå målet → et trofé opptjenes, brettet nullstilles, og runden begynner på nytt.</p>
     </div>
   </div>
 
   <div class="callout glass reveal" style="margin-top:24px">
     <span class="ic">💡</span>
     <div>
-      <h4>Why the approval step?</h4>
-      <p>It keeps you in control and means kids can't “cheat” their way to stars. Rejected tasks show up red with a friendly “Try again” and can be redone the same day.</p>
+      <h4>Hvorfor godkjenningssteget?</h4>
+      <p>Det holder deg i kontroll og gjør at barna ikke kan «jukse» seg til stjerner. Avviste oppgaver vises røde med et vennlig «Prøv igjen» og kan gjøres på nytt samme dag.</p>
     </div>
   </div>
 </section>
 
-<!-- ROUTINE vs TASK vs CYCLE -->
+<!-- RUTINE vs OPPGAVE vs SYKLUS -->
 <section class="block wrap">
   <div class="sec-head reveal">
-    <div class="sec-tag">Three building blocks</div>
-    <h2>Routines, Tasks &amp; Cycles</h2>
-    <p>They look similar, but each works differently. Knowing the difference makes setup obvious — and you'll only ever need a few of each.</p>
+    <div class="sec-tag">Tre byggeklosser</div>
+    <h2>Rutiner, oppgaver og sykluser</h2>
+    <p>De ser like ut, men fungerer ulikt. Når du kjenner forskjellen blir oppsettet opplagt — og du trenger bare noen få av hver.</p>
   </div>
   <div class="trio">
     <div class="glass reveal">
       <div class="ic" style="background:rgba(59,130,246,.15)">📋</div>
-      <h3>Routine</h3>
-      <div class="who">Parent-led · one kid</div>
-      <p>An ordered set of small steps that belong together — “Get dressed → Brush teeth → Eat breakfast.”</p>
+      <h3>Rutine</h3>
+      <div class="who">Forelder-ledet · ett barn</div>
+      <p>En ordnet rekke små steg som hører sammen — «Kle på seg → Pusse tenner → Spise frokost».</p>
       <ul>
-        <li>You lead the child through it, step by step</li>
-        <li>No waiting — you give the star on the spot</li>
-        <li>Lives in <b>Admin → Routines</b></li>
+        <li>Du leder barnet gjennom det, steg for steg</li>
+        <li>Ingen venting — du gir stjernen der og da</li>
+        <li>Ligger i <b>Admin → Rutiner</b></li>
       </ul>
-      <span class="chip appv">No approval needed</span>
+      <span class="chip appv">Ingen godkjenning nødvendig</span>
     </div>
     <div class="glass reveal">
       <div class="ic" style="background:rgba(255,197,61,.15)">✅</div>
-      <h3>Task</h3>
-      <div class="who">Kid-reported · independent</div>
-      <p>A single, standalone action — “Tidied my room.” The child decides when it's done.</p>
+      <h3>Oppgave</h3>
+      <div class="who">Barn-rapportert · selvstendig</div>
+      <p>En enkeltstående handling — «Ryddet rommet». Barnet bestemmer selv når den er ferdig.</p>
       <ul>
-        <li>Kid taps it in StarTap themselves</li>
-        <li>Needs your approval before it counts</li>
-        <li><i>Recurring</i> (daily) or <i>one-off</i></li>
+        <li>Barnet trykker den selv i StarTap</li>
+        <li>Krever din godkjenning før den teller</li>
+        <li><i>Gjentakende</i> (daglig) eller <i>engangs</i></li>
       </ul>
-      <span class="chip app">Approval required</span>
+      <span class="chip app">Godkjenning kreves</span>
     </div>
     <div class="glass reveal">
       <div class="ic" style="background:rgba(52,211,153,.15)">🔄</div>
-      <h3>Cycle</h3>
-      <div class="who">Family-synced · together</div>
-      <p>A shared check-in ritual across categories — like the “Morning Round” the whole family does in step.</p>
+      <h3>Syklus</h3>
+      <div class="who">Familie-synkronisert · sammen</div>
+      <p>Et felles innsjekk-ritual på tvers av kategorier — som «Morgenrunden» hele familien gjør i takt.</p>
       <ul>
-        <li>Each kid checks in; progress is shared</li>
-        <li>Credited instantly, no approval</li>
-        <li>Bonus stars when everyone finishes</li>
+        <li>Hvert barn sjekker inn; fremdriften er felles</li>
+        <li>Krediteres umiddelbart, ingen godkjenning</li>
+        <li>Bonusstjerner når alle er ferdige</li>
       </ul>
-      <span class="chip appv">Instant check-in</span>
+      <span class="chip appv">Umiddelbar innsjekk</span>
     </div>
   </div>
   <div class="callout glass reveal" style="margin-top:20px">
     <span class="ic">🧭</span>
     <div>
-      <h4>Rule of thumb</h4>
-      <p>A guided walk-through of several steps → <b>Routine</b>. Something the kid reports and you approve → <b>Task</b>. Something the whole family does together, in sync → <b>Cycle</b>.</p>
+      <h4>Tommelfingerregel</h4>
+      <p>En guidet gjennomgang av flere steg → <b>Rutine</b>. Noe barnet rapporterer og du godkjenner → <b>Oppgave</b>. Noe hele familien gjør sammen, i takt → <b>Syklus</b>.</p>
     </div>
   </div>
 </section>
 
 <div class="section-divider wrap"></div>
 
-<!-- PARENT SETUP -->
+<!-- FORELDREOPPSETT -->
 <section class="block wrap" id="parent">
   <div class="sec-head reveal">
-    <div class="sec-tag">Part 1 · On your iPhone</div>
-    <h2>Parent setup, step by step</h2>
-    <p>You'll do all of this once, from your iPhone. Follow along — most families finish in well under ten minutes.</p>
+    <div class="sec-tag">Del 1 · På din iPhone</div>
+    <h2>Foreldreoppsett, steg for steg</h2>
+    <p>Alt dette gjør du én gang, fra din iPhone. Følg med — de fleste familier er ferdige på godt under ti minutter.</p>
   </div>
 
   <div class="steps">
@@ -448,9 +428,9 @@ footer a{color:var(--ink-dim)}
         </svg>
       </div>
       <div class="body">
-        <h3><span class="stepnum">1</span> Sign in with Apple</h3>
-        <p>The only way to sign in — no password to remember, no email required. Apple gives the app a private identifier and nothing else unless you choose to share it.</p>
-        <div class="tip">⭐ Kids never sign in. They're profiles inside your family, picked from a list on the iPad.</div>
+        <h3><span class="stepnum">1</span> Logg inn med Apple</h3>
+        <p>Den eneste måten å logge inn på — ingen passord å huske, ingen e-post nødvendig. Apple gir appen en privat identifikator og ingenting annet, med mindre du selv velger å dele det.</p>
+        <div class="tip">⭐ Barn logger aldri inn. De er profiler inne i familien din, valgt fra en liste på iPaden.</div>
       </div>
     </div>
 
@@ -465,8 +445,8 @@ footer a{color:var(--ink-dim)}
         </svg>
       </div>
       <div class="body">
-        <h3><span class="stepnum">2</span> Name your family</h3>
-        <p>This shows at the top of the dashboard — “The Bjurlings,” “Familien Hansen,” whatever you like. You can change it later in Settings.</p>
+        <h3><span class="stepnum">2</span> Gi familien et navn</h3>
+        <p>Dette vises øverst på dashbordet — «Familien Bjurling», «Familien Hansen», hva du vil. Du kan endre det senere i Innstillinger.</p>
       </div>
     </div>
 
@@ -476,14 +456,14 @@ footer a{color:var(--ink-dim)}
           <rect width="96" height="96" rx="20" fill="rgba(255,197,61,.10)" stroke="rgba(255,197,61,.28)"/>
           <circle cx="48" cy="36" r="18" fill="url(#pg)"/><text x="48" y="43" text-anchor="middle" font-size="18">🦊</text>
           <rect x="20" y="62" width="56" height="9" rx="4.5" fill="rgba(255,255,255,.1)"/>
-          <text x="48" y="84" text-anchor="middle" font-size="11">⭐ goal 15</text>
+          <text x="48" y="84" text-anchor="middle" font-size="11">⭐ mål 15</text>
           <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
         </svg>
       </div>
       <div class="body">
-        <h3><span class="stepnum">3</span> Add your kids</h3>
-        <p>For each child: a name, an emoji avatar (or a photo), and two things that make the magic work — a <b>goal</b> (stars needed before a trophy, default 15) and a <b>reward</b> in your own words, like “Movie night with pizza.”</p>
-        <div class="tip">⭐ Each profile tracks its own stars and tasks independently — kids can't share one profile.</div>
+        <h3><span class="stepnum">3</span> Legg til barna</h3>
+        <p>For hvert barn: et navn, en emoji-avatar (eller et bilde), og to ting som gjør magien — et <b>mål</b> (antall stjerner før et trofé, standard 15) og en <b>belønning</b> med dine egne ord, som «Kinokveld med pizza».</p>
+        <div class="tip">⭐ Hver profil sporer sine egne stjerner og oppgaver uavhengig — barn kan ikke dele én profil.</div>
       </div>
     </div>
 
@@ -498,9 +478,9 @@ footer a{color:var(--ink-dim)}
         </svg>
       </div>
       <div class="body">
-        <h3><span class="stepnum">4</span> Set a parent PIN</h3>
-        <p>A 4-digit code locks parent mode so kids can't wander into settings from the iPad. Face ID / Touch ID is offered automatically as a faster unlock. A banner reminds you until this is done.</p>
-        <div class="tip">⚠️ Pick a code you'll remember and keep it somewhere safe — you change or remove it from <span class="kbd">Settings → Parent PIN</span> while signed in.</div>
+        <h3><span class="stepnum">4</span> Sett en foreldre-PIN</h3>
+        <p>En 4-sifret kode låser foreldremodus så barna ikke roter seg inn i innstillinger fra iPaden. Face ID / Touch ID tilbys automatisk som raskere opplåsing. Et banner minner deg på det til det er gjort.</p>
+        <div class="tip">⚠️ Velg en kode du husker og oppbevar den trygt — du endrer eller fjerner den fra <span class="kbd">Innstillinger → Foreldre-PIN</span> mens du er innlogget.</div>
       </div>
     </div>
 
@@ -514,44 +494,44 @@ footer a{color:var(--ink-dim)}
         </svg>
       </div>
       <div class="body">
-        <h3><span class="stepnum">5</span> Connect the iPad</h3>
-        <p>Sign the iPad into the same Apple ID, or share your family with iOS Family Sharing. The iPad then runs the always-on dashboard for the kids — covered in Part 2 below.</p>
-        <div class="tip">⭐ Don't see your kids on the iPad? Make sure both devices use the same Apple ID and the app is installed on both.</div>
+        <h3><span class="stepnum">5</span> Koble til iPaden</h3>
+        <p>Logg iPaden inn på samme Apple-ID, eller del familien din med iOS Familiedeling. Da kjører iPaden det alltid-på dashbordet for barna — dekket i Del 2 nedenfor.</p>
+        <div class="tip">⭐ Ser du ikke barna på iPaden? Sjekk at begge enhetene bruker samme Apple-ID og at appen er installert på begge.</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ROUTINES & TASKS SETUP -->
+<!-- RUTINER & OPPGAVER OPPSETT -->
 <section class="block wrap">
   <div class="sec-head reveal">
-    <div class="sec-tag">Part 1 · continued</div>
-    <h2>Add routines and tasks</h2>
-    <p>This is where the day takes shape. Our advice: start from the defaults and tweak — don't build from scratch.</p>
+    <div class="sec-tag">Del 1 · fortsettelse</div>
+    <h2>Legg til rutiner og oppgaver</h2>
+    <p>Det er her dagen får form. Vårt råd: start fra standardoppsettet og juster — ikke bygg fra bunnen.</p>
   </div>
 
   <div class="two">
     <div class="glass device-card reveal">
       <div style="font-size:40px;margin-bottom:8px">📋</div>
-      <h3>Categories &amp; routines</h3>
-      <div class="role">Settings → Profiles &amp; categories</div>
-      <p>Morning and Evening routines come pre-filled. Toggle them on/off and edit their <b>steps</b> — the checklist your interactive Routine Runner walks through.</p>
+      <h3>Kategorier og rutiner</h3>
+      <div class="role">Innstillinger → Profiler og kategorier</div>
+      <p>Morgen- og kveldsrutiner er forhåndsutfylt. Slå dem av/på og rediger <b>stegene</b> — sjekklisten den interaktive Rutineløperen går gjennom.</p>
       <ul class="feat">
-        <li><span class="dot">★</span> Categories are just labels for where a star came from</li>
-        <li><span class="dot">★</span> Edit steps any time; no data is lost</li>
-        <li><span class="dot">★</span> Run them together in <b>Admin → Routines</b></li>
+        <li><span class="dot">★</span> Kategorier er bare merkelapper for hvor en stjerne kom fra</li>
+        <li><span class="dot">★</span> Rediger steg når som helst; ingenting går tapt</li>
+        <li><span class="dot">★</span> Kjør dem sammen i <b>Admin → Rutiner</b></li>
       </ul>
     </div>
     <div class="glass device-card reveal">
       <div style="font-size:40px;margin-bottom:8px">✅</div>
-      <h3>Tasks</h3>
-      <div class="role">Admin → Manage tasks</div>
-      <p>Single actions under a category. Pick a type and, if you like, limit it to certain weekdays.</p>
+      <h3>Oppgaver</h3>
+      <div class="role">Admin → Administrer oppgaver</div>
+      <p>Enkelthandlinger under en kategori. Velg en type og, om du vil, begrens den til bestemte ukedager.</p>
       <ul class="feat">
-        <li><span class="dot">★</span> <b>Recurring</b> — once per day per kid, resets overnight</li>
-        <li><span class="dot">★</span> <b>One-off</b> — stays until you delete it</li>
-        <li><span class="dot">★</span> Weekday limits, e.g. “Pack school bag” on weekdays only</li>
+        <li><span class="dot">★</span> <b>Gjentakende</b> — én gang per dag per barn, nullstilles over natten</li>
+        <li><span class="dot">★</span> <b>Engangs</b> — blir liggende til du sletter den</li>
+        <li><span class="dot">★</span> Ukedagsbegrensninger, f.eks. «Pakke skolesekk» kun på hverdager</li>
       </ul>
     </div>
   </div>
@@ -559,27 +539,27 @@ footer a{color:var(--ink-dim)}
   <div class="callout glass reveal" style="margin-top:20px">
     <span class="ic">🌙</span>
     <div>
-      <h4>What “resets overnight” means</h4>
-      <p>At midnight, daily tasks and routine progress clear so the slate is fresh each morning. Stars already earned stay on the board — only the to-do state resets.</p>
+      <h4>Hva «nullstilles over natten» betyr</h4>
+      <p>Ved midnatt tømmes daglige oppgaver og rutinefremdrift, så det er blanke ark hver morgen. Stjerner som allerede er opptjent blir liggende på brettet — bare gjøremåls-statusen nullstilles.</p>
     </div>
   </div>
 </section>
 
 <div class="section-divider wrap"></div>
 
-<!-- CHILD MODE -->
+<!-- BARNEMODUS -->
 <section class="block wrap" id="child">
   <div class="sec-head reveal">
-    <div class="sec-tag">Part 2 · On the iPad</div>
-    <h2>The kids' dashboard</h2>
-    <p>The iPad is a calm, always-on screen the kids actually want to look at. There's no login and nothing to break — they just tap.</p>
+    <div class="sec-tag">Del 2 · På iPaden</div>
+    <h2>Barnas dashbord</h2>
+    <p>iPaden er en rolig, alltid-på skjerm barna faktisk vil se på. Ingen innlogging og ingenting som kan ødelegges — de bare trykker.</p>
   </div>
 
   <div class="two">
     <div class="glass device-card reveal">
       <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
         <rect x="3" y="3" width="194" height="144" rx="16" fill="#0a1228" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-        <text x="18" y="28" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Stars</text>
+        <text x="18" y="28" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Stjerner</text>
         <circle cx="38" cy="62" r="20" fill="url(#cg)"/><text x="38" y="69" text-anchor="middle" font-size="18">🦊</text>
         <text x="38" y="98" text-anchor="middle" fill="#EAF0FF" font-size="10" font-weight="700" font-family="sans-serif">Emma</text>
         <g transform="translate(78,46)">
@@ -588,110 +568,110 @@ footer a{color:var(--ink-dim)}
         </g>
         <rect x="78" y="96" width="104" height="9" rx="4.5" fill="rgba(255,255,255,.1)"/>
         <rect x="78" y="96" width="56" height="9" rx="4.5" fill="#FFC53D"/>
-        <text x="78" y="126" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 to the next trophy 🏆</text>
+        <text x="78" y="126" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 til neste trofé 🏆</text>
         <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
       </svg>
-      <h3>Three swipeable pages</h3>
-      <p>The dashboard pages between <b>Stars</b> (board + trophies), <b>Tasks</b> (StarTap), and <b>Family</b> (photos, weather, shared calendar). Nothing to configure — it just shows.</p>
+      <h3>Tre sider du sveiper mellom</h3>
+      <p>Dashbordet veksler mellom <b>Stjerner</b> (brett + trofeer), <b>Oppgaver</b> (StarTap) og <b>Familie</b> (bilder, vær, delt kalender). Ingenting å konfigurere — det bare vises.</p>
     </div>
 
     <div class="glass device-card reveal">
       <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
         <rect x="3" y="3" width="194" height="144" rx="16" fill="#0a1228" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-        <text x="18" y="26" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Tasks · StarTap</text>
+        <text x="18" y="26" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Oppgaver · StarTap</text>
         <g transform="translate(16,38)">
           <rect width="80" height="44" rx="11" fill="rgba(59,130,246,.14)" stroke="rgba(59,130,246,.35)"/>
           <text x="40" y="22" text-anchor="middle" font-size="18">🪥</text>
-          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Brush teeth</text>
+          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Pusse tenner</text>
         </g>
         <g transform="translate(104,38)">
           <rect width="80" height="44" rx="11" fill="rgba(52,211,153,.16)" stroke="rgba(52,211,153,.4)"/>
           <text x="40" y="22" text-anchor="middle" font-size="18">🛏️</text>
-          <text x="40" y="37" text-anchor="middle" fill="#34D399" font-size="8.5" font-weight="700" font-family="sans-serif">✓ Pending</text>
+          <text x="40" y="37" text-anchor="middle" fill="#34D399" font-size="8.5" font-weight="700" font-family="sans-serif">✓ Venter</text>
         </g>
         <g transform="translate(16,92)">
           <rect width="80" height="44" rx="11" fill="rgba(248,113,113,.12)" stroke="rgba(248,113,113,.35)"/>
           <text x="40" y="22" text-anchor="middle" font-size="18">🧸</text>
-          <text x="40" y="37" text-anchor="middle" fill="#F87171" font-size="8.5" font-weight="700" font-family="sans-serif">Try again</text>
+          <text x="40" y="37" text-anchor="middle" fill="#F87171" font-size="8.5" font-weight="700" font-family="sans-serif">Prøv igjen</text>
         </g>
         <g transform="translate(104,92)">
           <rect width="80" height="44" rx="11" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/>
           <text x="40" y="22" text-anchor="middle" font-size="18">🥗</text>
-          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Tap when done</text>
+          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Trykk når ferdig</text>
         </g>
       </svg>
-      <h3>Tap when done</h3>
-      <p>A kid picks their profile, taps a finished task, and it goes <b>pending</b> (green) for your approval. Rejected tasks turn red with “Try again” and can be retried the same day.</p>
+      <h3>Trykk når ferdig</h3>
+      <p>Et barn velger profilen sin, trykker en fullført oppgave, og den går til <b>venter</b> (grønn) for din godkjenning. Avviste oppgaver blir røde med «Prøv igjen» og kan prøves på nytt samme dag.</p>
     </div>
   </div>
 
   <div class="callout glass reveal" style="margin-top:20px">
     <span class="ic">🔄</span>
     <div>
-      <h4>Optional: the Morning Round (a Cycle)</h4>
-      <p>Set up a shared morning check-in from <span class="kbd">Admin → Morning Round</span>. Each kid checks in across a sequence of categories; everyone moving in sync earns bonus stars — the one place stars are credited without approval. Great for school mornings.</p>
+      <h4>Valgfritt: Morgenrunden (en syklus)</h4>
+      <p>Sett opp en felles morgeninnsjekk fra <span class="kbd">Admin → Morgenrunde</span>. Hvert barn sjekker inn gjennom en rekke kategorier; når alle beveger seg i takt får de bonusstjerner — det eneste stedet stjerner krediteres uten godkjenning. Perfekt for skolemorgener.</p>
     </div>
   </div>
 </section>
 
 <div class="section-divider wrap"></div>
 
-<!-- CALENDAR & WEATHER -->
+<!-- KALENDER & VÆR -->
 <section class="block wrap">
   <div class="sec-head reveal">
-    <div class="sec-tag">Nice extras</div>
-    <h2>Calendar &amp; weather — zero setup</h2>
-    <p>The Family page shows your shared calendar and local weather automatically. Nothing to configure inside the app.</p>
+    <div class="sec-tag">Fine ekstrafunksjoner</div>
+    <h2>Kalender og vær — null oppsett</h2>
+    <p>Familie-siden viser den delte kalenderen og lokalt vær automatisk. Ingenting å konfigurere inne i appen.</p>
   </div>
   <div class="two">
     <div class="glass callout reveal">
       <span class="ic">📅</span>
       <div>
-        <h4>Shared family calendar</h4>
-        <p>Upcoming events read straight from the iPad's iOS Calendar. Just make sure a calendar named “Family” (or “Familie”) exists and the app has Calendar access in <span class="kbd">Settings → Privacy → Calendars</span>. Works with iCloud, Google or Outlook accounts added to iOS.</p>
+        <h4>Delt familiekalender</h4>
+        <p>Kommende hendelser leses rett fra iPadens iOS-kalender. Bare pass på at det finnes en kalender med navnet «Family» (eller «Familie») og at appen har kalendertilgang i <span class="kbd">Innstillinger → Personvern → Kalendere</span>. Fungerer med iCloud-, Google- eller Outlook-kontoer lagt til i iOS.</p>
       </div>
     </div>
     <div class="glass callout reveal">
       <span class="ic">☀️</span>
       <div>
-        <h4>Local weather</h4>
-        <p>Pulled from Apple Weather using your approximate location — we never see or store where you are. It updates on its own; there's nothing to turn on.</p>
+        <h4>Lokalt vær</h4>
+        <p>Hentet fra Apple Vær med din omtrentlige posisjon — vi ser eller lagrer aldri hvor du er. Det oppdateres av seg selv; ingenting å slå på.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PLANS -->
+<!-- PRISER -->
 <section class="block wrap" id="plans">
   <div class="sec-head reveal">
-    <div class="sec-tag">Free &amp; Premium</div>
-    <h2>What's included</h2>
-    <p>Start free with two kids. Upgrade when your family — or your ambitions — grow.</p>
+    <div class="sec-tag">Gratis og Premium</div>
+    <h2>Hva som er inkludert</h2>
+    <p>Start gratis med to barn. Oppgrader når familien — eller ambisjonene dine — vokser.</p>
   </div>
   <div class="tiers">
     <div class="glass tier reveal">
-      <h3>Free</h3>
+      <h3>Gratis</h3>
       <div class="price">$0</div>
       <ul>
-        <li><span class="dot" style="color:var(--gold)">★</span> Up to 2 child profiles</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Categories marked “Free” (Morning routine included)</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Stars, approvals, trophies — the full core loop</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Calendar &amp; weather on the dashboard</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Opptil 2 barneprofiler</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Kategorier merket «Gratis» (Morgenrutinen er inkludert)</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Stjerner, godkjenninger, trofeer — hele kjernesløyfen</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Kalender og vær på dashbordet</li>
       </ul>
     </div>
     <div class="glass tier pro reveal">
-      <span class="badge-pop">Most families</span>
+      <span class="badge-pop">De fleste familier</span>
       <h3>Premium</h3>
-      <div class="price">$4.99<small> /mo · or $49.99 /yr</small></div>
+      <div class="price">$4.99<small> /mnd · eller $49.99 /år</small></div>
       <ul>
-        <li><span class="dot" style="color:var(--gold)">★</span> Every category unlocked</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Up to 4 profiles (extra slots +$1.99/mo)</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Full routines, tasks &amp; cycles</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Everything in Free</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Alle kategorier låst opp</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Opptil 4 profiler (ekstra plasser +$1.99/mnd)</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Fulle rutiner, oppgaver og sykluser</li>
+        <li><span class="dot" style="color:var(--gold)">★</span> Alt i Gratis</li>
       </ul>
     </div>
   </div>
-  <p style="color:var(--ink-faint);font-size:.85rem;margin-top:14px">Hit a limit (like adding a 3rd profile on Free)? An unlock screen appears automatically — that's expected, not an error. After purchasing, features can take a few minutes to unlock; use “Restore purchases” if something looks off.</p>
+  <p style="color:var(--ink-faint);font-size:.85rem;margin-top:14px">Nådd en grense (som å legge til en 3. profil på Gratis)? Et opplåsingsvindu vises automatisk — det er forventet, ikke en feil. All betaling håndteres av Apple og vises i din lokale valuta; bruk «Gjenopprett kjøp» hvis noe ser feil ut.</p>
 </section>
 
 <div class="section-divider wrap"></div>
@@ -699,55 +679,55 @@ footer a{color:var(--ink-dim)}
 <!-- FAQ -->
 <section class="block wrap" id="faq">
   <div class="sec-head reveal">
-    <div class="sec-tag">Help &amp; troubleshooting</div>
-    <h2>Common questions</h2>
-    <p>Quick answers to the things families ask most. Tap a question to expand it.</p>
+    <div class="sec-tag">Hjelp og feilsøking</div>
+    <h2>Vanlige spørsmål</h2>
+    <p>Raske svar på det familier spør om mest. Trykk på et spørsmål for å utvide det.</p>
   </div>
 
   <div class="faq">
     <div class="glass qa reveal">
-      <button><span class="qi">👶</span> My child can't log in</button>
-      <div class="ans"><p>That's by design — children don't log in at all. They're profiles inside your family, chosen from a list on the iPad. Only parents sign in (with Apple).</p></div>
+      <button><span class="qi">👶</span> Barnet mitt får ikke logget inn</button>
+      <div class="ans"><p>Det er med vilje — barn logger ikke inn i det hele tatt. De er profiler inne i familien din, valgt fra en liste på iPaden. Bare foreldre logger inn (med Apple).</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">⭐</span> A star disappeared</button>
-      <div class="ans"><p>The task was probably rejected — look for a red marker and “Try again.” Rejected and pending tasks don't count toward the total until you approve them.</p></div>
+      <button><span class="qi">⭐</span> En stjerne forsvant</button>
+      <div class="ans"><p>Oppgaven ble sannsynligvis avvist — se etter en rød markering og «Prøv igjen». Avviste og ventende oppgaver teller ikke mot totalen før du godkjenner dem.</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">🏆</span> I hit the goal but got no trophy</button>
-      <div class="ans"><p>Trophies are awarded automatically the moment a child crosses their goal, and the star board resets for the next round. If a trophy doesn't appear right away, pull to refresh or reopen the app to load the latest count.</p></div>
+      <button><span class="qi">🏆</span> Jeg nådde målet, men fikk ikke trofé</button>
+      <div class="ans"><p>Trofeer tildeles automatisk i det øyeblikket et barn passerer målet sitt, og stjernebrettet nullstilles til neste runde. Dukker ikke et trofé opp med en gang, dra for å oppdatere eller åpne appen på nytt for å laste inn siste status.</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">✏️</span> How do I change a goal or reward?</button>
-      <div class="ans"><p>Go to <span class="kbd">Admin → Stars</span>, pick the child, and tap Edit. Update the goal number or the reward text any time.</p></div>
+      <button><span class="qi">✏️</span> Hvordan endrer jeg et mål eller en belønning?</button>
+      <div class="ans"><p>Gå til <span class="kbd">Admin → Stjerner</span>, velg barnet og trykk Rediger. Oppdater målet eller belønningsteksten når som helst.</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">📱</span> I don't see my kids on the iPad</button>
-      <div class="ans"><p>Check that the iPad and iPhone are signed into the same Apple ID (or share via Family Sharing), and that the app is installed on both devices.</p></div>
+      <button><span class="qi">📱</span> Jeg ser ikke barna på iPaden</button>
+      <div class="ans"><p>Sjekk at iPaden og iPhonen er logget inn på samme Apple-ID (eller deler via Familiedeling), og at appen er installert på begge enhetene.</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">🔢</span> How do I remove the parent PIN?</button>
-      <div class="ans"><p>Go to <span class="kbd">Settings → Parent PIN → Remove</span> and confirm. You'll need to be signed in as the parent to do this, so keep your code somewhere safe.</p></div>
+      <button><span class="qi">🔢</span> Hvordan fjerner jeg foreldre-PIN-en?</button>
+      <div class="ans"><p>Gå til <span class="kbd">Innstillinger → Foreldre-PIN → Fjern</span> og bekreft. Du må være innlogget som forelder for å gjøre dette, så oppbevar koden trygt.</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">📅</span> The calendar card is empty</button>
-      <div class="ans"><p>Make sure (a) a calendar named “Family” or “Familie” exists on the iPad, and (b) the app has Calendar access under <span class="kbd">Settings → Privacy → Calendars</span>. Google calendars only appear if the account is added in iOS Settings → Calendar.</p></div>
+      <button><span class="qi">📅</span> Kalenderkortet er tomt</button>
+      <div class="ans"><p>Pass på at (a) det finnes en kalender med navnet «Family» eller «Familie» på iPaden, og (b) at appen har kalendertilgang under <span class="kbd">Innstillinger → Personvern → Kalendere</span>. Google-kalendere vises bare hvis kontoen er lagt til i iOS Innstillinger → Kalender.</p></div>
     </div>
     <div class="glass qa reveal">
-      <button><span class="qi">👥</span> Can two kids share one profile?</button>
-      <div class="ans"><p>No — each profile is individual and tracks its own stars and tasks. Give every child their own profile so progress stays separate.</p></div>
+      <button><span class="qi">👥</span> Kan to barn dele én profil?</button>
+      <div class="ans"><p>Nei — hver profil er individuell og sporer sine egne stjerner og oppgaver. Gi hvert barn sin egen profil så fremdriften holdes adskilt.</p></div>
     </div>
   </div>
 </section>
 
-<!-- BOTTOM CTA -->
+<!-- BUNN-CTA -->
 <div class="cta-section reveal">
-  <h2>That's everything — go set it up</h2>
-  <p>Download free and have your family running in under ten minutes. Need a hand? <a href="support.html">Support is here</a>.</p>
+  <h2>Det var alt — gå og sett det opp</h2>
+  <p>Last ned gratis og få familien i gang på under ti minutter. Trenger du hjelp? <a href="support.no.html">Hjelpen er her</a>.</p>
   <div class="appstore-wrap">
     <a href="https://apps.apple.com/app/id6775283053" class="appstore-badge-img">
       <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-           alt="Download on the App Store">
+           alt="Last ned i App Store">
     </a>
   </div>
 </div>
@@ -758,17 +738,16 @@ footer a{color:var(--ink-dim)}
     <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
   </div>
   <div class="footer-links">
-    <a href="guide.html">Setup Guide</a>
-    <a href="support.html">Support</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:magbjurling@gmail.com">Contact</a>
+    <a href="index.no.html">Hjem</a>
+    <a href="support.no.html">Hjelp</a>
+    <a href="privacy.no.html">Personvern</a>
+    <a href="mailto:magbjurling@gmail.com">Kontakt</a>
   </div>
-  <div class="footer-lang"><a href="guide.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></div>
-  <p style="font-size:.82rem;margin:0">App Store ID 6775283053 &middot; &copy; 2026 Magnus Bjurling</p>
+  <div class="footer-lang"><a href="guide.html" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" class="active" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></div>
+  <p style="font-size:.82rem;margin:0">App Store-ID 6775283053 &middot; &copy; 2026 Magnus Bjurling</p>
 </footer>
 
 <script>
-// progress bar
 const prog=document.getElementById('progress');
 addEventListener('scroll',()=>{
   const h=document.documentElement;
@@ -776,13 +755,11 @@ addEventListener('scroll',()=>{
   prog.style.width=p+'%';
 });
 
-// reveal on scroll
 const io=new IntersectionObserver((es)=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
 },{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// FAQ accordion
 document.querySelectorAll('.qa button').forEach(b=>{
   b.addEventListener('click',()=>{
     const qa=b.parentElement;
@@ -792,7 +769,6 @@ document.querySelectorAll('.qa button').forEach(b=>{
   });
 });
 
-// floating background icons
 const icons=['⭐','🏆','📋','✅','🦊','🐻','🌙','☀️','🪥','🛏️','🥗','🧸','📅','🔄','🎯','💛'];
 const f=document.getElementById('floaties');
 for(let i=0;i<18;i++){
