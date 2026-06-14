@@ -120,6 +120,13 @@ section.block{position:relative;z-index:1;padding:54px 0}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke-2),transparent);margin:8px 0}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:760px){.shots{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}}
+.shot{padding:18px;text-align:center}
+.shot img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid rgba(255,255,255,.10);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.shot .cap{margin-top:16px}
+.shot .cap h4{margin:0 0 3px;font-size:1.05rem;font-weight:700}
+.shot .cap p{margin:0;font-size:.88rem;color:var(--ink-dim)}
 footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:40px}
 footer a{color:var(--ink-dim)}
 .footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
@@ -259,6 +266,29 @@ footer a{color:var(--ink-dim)}
         <li><span class="dot">★</span> Trophy shelf, shared calendar and weather</li>
         <li><span class="dot">★</span> Morning Cycle shared check-in</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="block wrap">
+  <div class="sec-head reveal">
+    <div class="sec-tag">See it in action</div>
+    <h2>A peek inside OurFamilyHub</h2>
+    <p>Real screens from the app — the calm dashboard kids watch, the tasks they tap, and the trophy moment they're chasing.</p>
+  </div>
+  <div class="shots">
+    <div class="glass shot reveal">
+      <img src="app-stars.png" alt="OurFamilyHub star board dashboard" loading="lazy">
+      <div class="cap"><h4>The star board</h4><p>Each child's stars, goal and reward — plus the morning-round bonus.</p></div>
+    </div>
+    <div class="glass shot reveal">
+      <img src="app-tasks.png" alt="OurFamilyHub StarTap tasks" loading="lazy">
+      <div class="cap"><h4>StarTap</h4><p>Kids tap a finished task; it waits for a parent's OK.</p></div>
+    </div>
+    <div class="glass shot reveal">
+      <img src="app-trophy.png" alt="OurFamilyHub trophy celebration" loading="lazy">
+      <div class="cap"><h4>Trophy time</h4><p>Reach the goal and the reward unlocks — cue the confetti.</p></div>
     </div>
   </div>
 </section>
