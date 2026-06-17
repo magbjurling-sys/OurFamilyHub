@@ -1,292 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support — OurFamilyHub</title>
-<meta name="description" content="Get help with OurFamilyHub. Frequently asked questions, quick tips, and direct email support.">
-<style>
-:root{
-  --blue:#1A56C4;--blue-2:#3B82F6;--blue-glow:rgba(59,130,246,.35);
-  --gold:#FFC53D;--gold-soft:#FFE08A;
-  --bg-0:#070B1A;--bg-1:#0C1430;
-  --ink:#EAF0FF;--ink-dim:#A7B4D6;--ink-faint:#6F7DA6;
-  --card:rgba(255,255,255,.055);--card-2:rgba(255,255,255,.085);
-  --stroke:rgba(255,255,255,.12);--stroke-2:rgba(255,255,255,.20);
-  --green:#34D399;--radius:22px;--maxw:980px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,rgba(59,130,246,.20),transparent 60%),radial-gradient(1000px 600px at 100% 0%,rgba(255,197,61,.10),transparent 55%),radial-gradient(900px 800px at 50% 120%,rgba(59,130,246,.12),transparent 60%),linear-gradient(180deg,var(--bg-0),var(--bg-1) 40%,var(--bg-0));background-attachment:fixed;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:var(--blue-2);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-.floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.floaties span{position:absolute;opacity:.10;animation:drift linear infinite}
-@keyframes drift{0%{transform:translateY(20px) rotate(0deg)}50%{transform:translateY(-30px) rotate(12deg)}100%{transform:translateY(20px) rotate(0deg)}}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(7,11,26,.62);border-bottom:1px solid var(--stroke)}
-.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;color:var(--ink);text-decoration:none}
-.brand .logo{width:32px;height:32px;border-radius:9px;overflow:hidden;box-shadow:0 6px 18px var(--blue-glow);flex-shrink:0}
-.brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--ink-dim);font-size:.86rem;font-weight:600;padding:7px 12px;border-radius:999px;transition:.2s}
-.nav-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-.nav-links a.active{color:var(--ink);background:var(--card-2)}
-.nav-dl{display:inline-flex;align-items:center;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff !important;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px var(--blue-glow);transition:.2s}
-.nav-dl:hover{opacity:.88;text-decoration:none;transform:translateY(-1px)}
-.lang-switch{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden}
-.lang-switch a{padding:6px 11px;font-size:.76rem;font-weight:800;letter-spacing:.3px;color:var(--ink-dim);transition:.2s}
-.lang-switch a:hover{color:var(--ink);text-decoration:none}
-.lang-switch a.active{background:var(--card-2);color:var(--ink)}
-@media(max-width:720px){.nav-links{display:none}}
-.footer-lang{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden;margin-bottom:18px}
-.footer-lang a{padding:6px 12px;font-size:.78rem;font-weight:800;color:var(--ink-dim);transition:.2s}
-.footer-lang a:hover{color:var(--ink);text-decoration:none}
-.footer-lang a.active{background:var(--card-2);color:var(--ink)}
-.hero{position:relative;z-index:1;text-align:center;padding:60px 0 44px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold-soft);background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.25);padding:7px 14px;border-radius:999px;margin-bottom:22px}
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:.2em 0 .3em;font-weight:800;letter-spacing:-1px}
-.hero p.lead{font-size:1.1rem;color:var(--ink-dim);max-width:500px;margin:0 auto 28px}
-.btn-contact{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff;font-weight:700;font-size:.96rem;padding:13px 24px;border-radius:14px;box-shadow:0 10px 30px var(--blue-glow);transition:.22s}
-.btn-contact:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 16px 40px var(--blue-glow)}
-section.block{position:relative;z-index:1;padding:54px 0}
-.sec-head{margin-bottom:30px;max-width:680px}
-.sec-tag{font-size:.76rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-2);margin-bottom:10px}
-.sec-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .35em;letter-spacing:-.6px;font-weight:800}
-.sec-head p{color:var(--ink-dim);font-size:1.05rem;margin:0}
-.glass{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
-.faq{display:flex;flex-direction:column;gap:12px}
-.qa{overflow:hidden}
-.qa button{width:100%;text-align:left;background:none;border:none;color:var(--ink);font-size:1rem;font-weight:650;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:inherit}
-.qa button .plus{margin-left:auto;font-size:1.4rem;color:var(--blue-2);transition:.3s;flex:none}
-.qa.open button .plus{transform:rotate(45deg)}
-.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--ink-dim)}
-.qa .ans p{margin:0;padding:0 22px 20px 56px;font-size:.95rem;line-height:1.65}
-.qa .ans ul{margin:0;padding:2px 22px 20px 72px;font-size:.95rem;line-height:1.7}
-.qa .ans li{margin-bottom:4px}
-.qa.open .ans{max-height:360px}
-.qa .qi{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.3)}
-.kbd{font-size:.82rem;background:var(--card-2);border:1px solid var(--stroke);border-radius:6px;padding:2px 7px;color:var(--ink)}
-.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:640px){.tips-grid{grid-template-columns:1fr}}
-.tip-card{padding:20px 22px}
-.tip-card .tip-icon{font-size:24px;margin-bottom:10px}
-.tip-card h4{margin:0 0 6px;font-size:1rem;font-weight:700}
-.tip-card p{margin:0;font-size:.9rem;color:var(--ink-dim)}
-.contact-card{padding:28px 30px;display:flex;gap:20px;align-items:flex-start}
-@media(max-width:600px){.contact-card{flex-direction:column}}
-.contact-card .ic{font-size:36px;flex-shrink:0}
-.contact-card h3{margin:0 0 6px;font-size:1.2rem;font-weight:700}
-.contact-card p{color:var(--ink-dim);font-size:.95rem;margin:0 0 14px}
-.btn-email{display:inline-flex;align-items:center;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff;font-weight:700;font-size:.92rem;padding:10px 22px;border-radius:10px;box-shadow:0 6px 18px var(--blue-glow);transition:.2s}
-.btn-email:hover{transform:translateY(-1px);text-decoration:none;opacity:.9}
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke-2),transparent);margin:8px 0}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:40px}
-footer a{color:var(--ink-dim)}
-.footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
-.footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--gold),var(--blue-2));box-shadow:0 0 12px var(--blue-glow)}
-</style>
-<script>
-(function(){try{if(localStorage.getItem('ofh_lang'))return;var l=(navigator.language||navigator.userLanguage||'').toLowerCase();if(l.indexOf('nb')===0||l.indexOf('nn')===0||l.indexOf('no')===0){location.replace('support.no.html');}}catch(e){}})();
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:#F1ECFF;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:#0B0A1F}
+a{text-decoration:none;color:inherit}
+img{display:block}
+@keyframes ofhDrift{0%{transform:translateY(8px) rotate(0deg)}50%{transform:translateY(-26px) rotate(12deg)}100%{transform:translateY(8px) rotate(0deg)}}
+</style>
+</helmet>
 
-<div id="progress"></div>
-<div class="floaties" id="floaties"></div>
+<div id="ofh-prog" style="position:fixed;top:0;left:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,#FF7EA5,#FFC861);box-shadow:0 0 14px rgba(255,158,120,.6)"></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <span class="logo"><img src="icon.png" alt="OurFamilyHub icon"></span>
-      OurFamilyHub
-    </a>
-    <nav class="nav-links">
-      <a href="guide.html">Guide</a>
-      <a href="support.html" class="active">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Download</a>
-      <span class="lang-switch"><a href="support.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="support.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></span>
-    </nav>
-  </div>
-</header>
-
-<div class="hero wrap">
-  <span class="eyebrow">⭐ OurFamilyHub Support</span>
-  <h1>How can we help? 🌟</h1>
-  <p class="lead">Find answers below, or send us an email — we typically reply within 24 hours. Norwegian and English both welcome.</p>
-  <a href="mailto:magbjurling@gmail.com" class="btn-contact">✉️ Email support</a>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 720px at 10% -10%,rgba(168,85,247,.20),transparent 60%),radial-gradient(1000px 620px at 102% 2%,rgba(255,197,61,.09),transparent 55%),radial-gradient(960px 820px at 50% 120%,rgba(236,72,153,.14),transparent 60%)"></div>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <sc-for list="{{ floaties }}" as="fl" hint-placeholder-count="12">
+    <span style="position:absolute;left:{{ fl.l }}%;top:{{ fl.t }}%;font-size:{{ fl.s }}px;opacity:.13;animation:ofhDrift linear infinite;animation-duration:{{ fl.d }}s;animation-delay:{{ fl.dl }}s">{{ fl.g }}</span>
+  </sc-for>
 </div>
 
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Help &amp; troubleshooting</div>
-    <h2>Frequently asked questions</h2>
-    <p>Tap a question to expand it. Still stuck? <a href="mailto:magbjurling@gmail.com">Email us</a>.</p>
-  </div>
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:620px;margin:0 auto 26px">
-    <figure style="margin:0;text-align:center">
-      <img src="approvals.png" alt="Approvals screen" loading="lazy" style="width:100%;max-width:260px;border-radius:22px;border:1px solid var(--stroke);box-shadow:0 14px 40px rgba(0,0,0,.4)">
-      <figcaption style="color:var(--ink-faint);font-size:.82rem;margin-top:8px">Approve, reject — or “Approve all”.</figcaption>
-    </figure>
-    <figure style="margin:0;text-align:center">
-      <img src="settings-delete.png" alt="Admin menu with delete account" loading="lazy" style="width:100%;max-width:260px;border-radius:22px;border:1px solid var(--stroke);box-shadow:0 14px 40px rgba(0,0,0,.4)">
-      <figcaption style="color:var(--ink-faint);font-size:.82rem;margin-top:8px">Delete your account, self-service in the app.</figcaption>
-    </figure>
-  </div>
-  <div class="faq">
+<div style="position:relative;z-index:1">
 
-    <div class="glass qa reveal">
-      <button><span class="qi">👶</span> My child can't log in — how does that work?<span class="plus">+</span></button>
-      <div class="ans"><p>Children don't have accounts or passwords. They appear as profiles on the family iPad. After you set up your family on iPhone, the same family is visible on any iPad signed in with the same Apple ID. Your child simply taps their name — no login required.</p></div>
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,10,31,.66);border-bottom:1px solid rgba(255,255,255,.10)">
+    <div style="max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:13px 24px">
+      <a href="index.html" style="display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;color:#F4EFFF">
+        <span style="width:34px;height:34px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(168,85,247,.45);flex-shrink:0"><img src="icon.png" alt="OurFamilyHub" style="width:100%;height:100%;object-fit:cover"></span>
+        OurFamilyHub
+      </a>
+      <nav style="margin-left:auto;display:flex;gap:4px;align-items:center">
+        <a href="guide.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Guide</a>
+        <a href="support.html" style="color:#F4EFFF;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.10)">Support</a>
+        <a href="privacy.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Privacy</a>
+        <a href="https://apps.apple.com/app/id6775283053" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-size:.86rem;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(255,158,120,.35);margin-left:6px;white-space:nowrap">Download</a>
+        <span style="display:inline-flex;border:1px solid rgba(255,255,255,.18);border-radius:999px;overflow:hidden;margin-left:8px">
+          <a href="support.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#F4EFFF;background:rgba(255,255,255,.10)">EN</a>
+          <a href="support.no.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#B6AED4">NO</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <div style="max-width:920px;margin:0 auto;padding:0 24px">
+
+    <section style="text-align:center;padding:60px 0 36px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#FFE0A6;background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.28);padding:8px 15px;border-radius:999px;margin-bottom:22px">⭐ OurFamilyHub Support</span>
+      <h1 style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(2.1rem,4.6vw,3.1rem);letter-spacing:-.8px;margin:0 0 14px">How can we <span style="background:linear-gradient(100deg,#FF8FB1,#FFC861);-webkit-background-clip:text;background-clip:text;color:transparent">help?</span></h1>
+      <p style="font-size:1.08rem;color:#C2BAD9;max-width:500px;margin:0 auto 26px">Find answers below, or send us an email — we usually reply within 24 hours. Both English and Norwegian are fine.</p>
+      <a href="mailto:magbjurling@gmail.com" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-weight:700;font-size:.96rem;padding:13px 24px;border-radius:14px;box-shadow:0 10px 28px rgba(255,158,120,.35)">✉️ Email support</a>
+    </section>
+
+    <div data-reveal="1" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:620px;margin:0 auto 32px">
+      <figure style="margin:0;text-align:center">
+        <div style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 16px 40px rgba(0,0,0,.45)"><img src="approvals.png" alt="Approvals" loading="lazy" style="width:100%"></div>
+        <figcaption style="color:#8E86AE;font-size:.82rem;margin-top:10px">Approve, reject — or "Approve all".</figcaption>
+      </figure>
+      <figure style="margin:0;text-align:center">
+        <div style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 16px 40px rgba(0,0,0,.45)"><img src="settings-delete.png" alt="Delete account" loading="lazy" style="width:100%"></div>
+        <figcaption style="color:#8E86AE;font-size:.82rem;margin-top:10px">Delete your account yourself, right in the app.</figcaption>
+      </figure>
     </div>
 
-    <div class="glass qa reveal">
-      <button><span class="qi">📱</span> I don't see my family on the iPad<span class="plus">+</span></button>
-      <div class="ans"><p>Make sure both devices are signed in with the same Apple ID. Open OurFamilyHub on the iPad — if you see a sign-in screen, tap <strong>Sign in with Apple</strong> using the same Apple ID you used on iPhone. If you use Family Sharing, the iPad must be in the same group.</p></div>
+    <div data-reveal="1" style="margin-bottom:14px">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:10px;text-align:center">Help & troubleshooting</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.5px;margin:0;text-align:center">Frequently asked questions</h2>
     </div>
 
-    <div class="glass qa reveal">
-      <button><span class="qi">⭐</span> A star disappeared / the task shows red<span class="plus">+</span></button>
-      <div class="ans"><p>A red task was <strong>rejected</strong> — it won't count until re-done and re-approved. Stars that are <em>pending approval</em> also aren't counted yet (⏳ indicator). The child can tap the task again after completing it, and you can approve it from iPhone.</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px">
+      <sc-for list="{{ faqs }}" as="qa" hint-placeholder-count="12">
+        <div data-qa="1" data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 14px 36px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden">
+          <button onClick="{{ toggle }}" style="width:100%;text-align:left;background:none;border:none;color:#F1ECFF;font-size:1rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:14px">
+            <span style="flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:15px;background:rgba(168,85,247,.18);border:1px solid rgba(168,85,247,.32)">{{ qa.ic }}</span>
+            <span style="flex:1">{{ qa.q }}</span>
+            <span data-plus="1" style="margin-left:auto;font-size:1.5rem;color:#FF9FBC;transition:transform .3s;flex:none;line-height:1">+</span>
+          </button>
+          <div data-ans="1" style="max-height:0;overflow:hidden;transition:max-height .35s ease">
+            <div data-html="{{ qa.a }}" style="padding:0 22px 20px 64px;color:#B6AED4;font-size:.95rem"></div>
+          </div>
+        </div>
+      </sc-for>
     </div>
 
-    <div class="glass qa reveal">
-      <button><span class="qi">🏆</span> The trophy didn't appear even though we hit the goal<span class="plus">+</span></button>
-      <div class="ans"><p>Trophies are awarded automatically the moment a child crosses their goal. If a trophy doesn't appear right away, close and reopen the app to load the latest count. Still missing? <a href="mailto:magbjurling@gmail.com">Email us</a> and we'll look into it.</p></div>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);margin:48px 0"></div>
+
+    <div data-reveal="1" style="margin-bottom:24px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:10px">Getting started</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.5px;margin:0">Quick tips for new families</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <sc-for list="{{ tips }}" as="t" hint-placeholder-count="4">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:0 14px 36px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+          <div style="font-size:26px;margin-bottom:12px">{{ t.ic }}</div>
+          <h4 style="margin:0 0 6px;font-size:1.04rem;font-weight:700">{{ t.h }}</h4>
+          <p style="margin:0;font-size:.9rem;color:#B6AED4">{{ t.d }}</p>
+        </div>
+      </sc-for>
     </div>
 
-    <div class="glass qa reveal">
-      <button><span class="qi">✏️</span> How do I change a child's goal or reward?<span class="plus">+</span></button>
-      <div class="ans"><p>On iPhone: <span class="kbd">Admin → Stars</span> → tap the child's card → tap <strong>Edit</strong>. You can change the star goal and the reward text at any time.</p></div>
-    </div>
-
-    <div class="glass qa reveal">
-      <button><span class="qi">✅</span> How do I approve or reject a task?<span class="plus">+</span></button>
-      <div class="ans"><p>When a child taps a task on the iPad, it enters <em>pending</em> state. On iPhone, open <span class="kbd">Admin → Approvals</span> (a badge shows the count). Approve or reject each one with a single tap, or use <strong>Approve all</strong> to clear the whole list at once. Rejected tasks show red on the iPad and can be re-attempted the same day.</p></div>
-    </div>
-
-    <div class="glass qa reveal">
-      <button><span class="qi">🌅</span> What is the Morning Cycle?<span class="plus">+</span></button>
-      <div class="ans"><p>The Morning Cycle is a family-synced check-in ritual. The kids check in as they wake up, then move through your chosen categories one at a time — with a cheering dance scene during "Get dressed", a rising sun, and a tap-to-open gift box at the end. When everyone finishes, the round ends with a <strong>soft reward you define</strong> (a hug, a small choice, a surprise) rather than automatic stars — bonus stars are optional and default to 0. Set the order and rewards in <span class="kbd">Admin → Settings → Morning Cycle</span>.</p></div>
-    </div>
-
-    <div class="glass qa reveal">
-      <button><span class="qi">🔒</span> How do I remove or change the admin PIN?<span class="plus">+</span></button>
-      <div class="ans"><p>Go to <span class="kbd">Admin → Settings → Admin PIN</span>. You can change or remove the PIN here. Face ID / Touch ID is offered as a faster alternative. You'll need to be signed in as the parent, so keep your code somewhere safe.</p></div>
-    </div>
-
-    <div class="glass qa reveal">
-      <button><span class="qi">📅</span> The family calendar isn't showing events<span class="plus">+</span></button>
-      <div class="ans">
-        <p>OurFamilyHub reads calendars named <strong>"Family"</strong> or <strong>"Familie"</strong> from iOS Calendar. Check that:</p>
-        <ul>
-          <li>A calendar with one of those names exists in the iOS Calendar app on the iPad.</li>
-          <li>OurFamilyHub has calendar permission: <span class="kbd">Settings → Privacy → Calendars → OurFamilyHub</span>.</li>
-          <li>For Google Calendar: the account must be added in <span class="kbd">iOS Settings → Calendar → Accounts</span>.</li>
-        </ul>
+    <div data-reveal="1" style="margin:40px 0 56px;display:flex;gap:22px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:24px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:30px 32px">
+      <div style="font-size:38px;flex:none">✉️</div>
+      <div>
+        <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.25rem">Still need help?</h3>
+        <p style="color:#B6AED4;font-size:.95rem;margin:0 0 16px">We read every email and reply within 24 hours. Both English and Norwegian are fine.</p>
+        <a href="mailto:magbjurling@gmail.com" style="display:inline-flex;align-items:center;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-weight:700;font-size:.92rem;padding:11px 22px;border-radius:11px;box-shadow:0 8px 20px rgba(255,158,120,.32)">magbjurling@gmail.com</a>
       </div>
     </div>
 
-    <div class="glass qa reveal">
-      <button><span class="qi">☀️</span> The weather widget isn't working<span class="plus">+</span></button>
-      <div class="ans"><p>Weather is provided by Apple Weather and needs location access: <span class="kbd">Settings → Privacy → Location Services → OurFamilyHub</span>. It updates on its own once granted.</p></div>
-    </div>
-
-    <div class="glass qa reveal">
-      <button><span class="qi">💳</span> How do subscriptions and billing work?<span class="plus">+</span></button>
-      <div class="ans"><p>All purchases are handled by Apple through your App Store account. To manage, pause or cancel: <span class="kbd">iPhone Settings → [Your name] → Subscriptions → OurFamilyHub</span>. If a paid feature isn't unlocked, try <strong>Restore Purchases</strong> in the app — it may take a few minutes to sync.</p></div>
-    </div>
-
-    <div class="glass qa reveal">
-      <button><span class="qi">🗑️</span> How do I delete my account and family data?<span class="plus">+</span></button>
-      <div class="ans"><p>You can do this yourself in the app: <span class="kbd">Admin → Delete account</span> removes your entire account and all family data. You can also delete individual child profiles from Admin at any time. Prefer email? Write <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a> with the subject "Delete my account" and we'll erase everything within 30 days.</p></div>
-    </div>
-
   </div>
-</section>
 
-<div class="section-divider wrap"></div>
+  <footer style="text-align:center;padding:48px 24px 60px;color:#7C749E;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="display:flex;align-items:center;gap:11px;justify-content:center;margin-bottom:16px">
+      <span style="width:30px;height:30px;border-radius:9px;overflow:hidden;display:inline-block;box-shadow:0 4px 14px rgba(168,85,247,.4)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover"></span>
+      <span style="font-weight:700;font-size:1.06rem;color:#F4EFFF">OurFamilyHub</span>
+    </div>
+    <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:18px">
+      <a href="index.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Home</a>
+      <a href="guide.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Setup Guide</a>
+      <a href="privacy.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Privacy</a>
+      <a href="mailto:magbjurling@gmail.com" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Contact</a>
+    </div>
+    <p style="font-size:.82rem;margin:0">© 2026 Magnus Bjurling</p>
+  </footer>
 
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Getting started</div>
-    <h2>Quick tips for new families</h2>
-  </div>
-  <div class="tips-grid">
-    <div class="glass tip-card reveal">
-      <div class="tip-icon">➕</div>
-      <h4>Add children first</h4>
-      <p>On iPhone, tap the + button in Admin to add your first child. Set a star goal (e.g. 10) and a reward they'll love.</p>
-    </div>
-    <div class="glass tip-card reveal">
-      <div class="tip-icon">📋</div>
-      <h4>Default routines are ready to go</h4>
-      <p>Morning and evening routines come pre-filled. Delete what doesn't fit and add your own.</p>
-    </div>
-    <div class="glass tip-card reveal">
-      <div class="tip-icon">🔒</div>
-      <h4>Set an admin PIN</h4>
-      <p>A 4-digit PIN (or Face ID) prevents children from accidentally opening admin mode from the iPad.</p>
-    </div>
-    <div class="glass tip-card reveal">
-      <div class="tip-icon">🔌</div>
-      <h4>Leave the iPad plugged in</h4>
-      <p>The iPad is always-on — leave it plugged in and the app open so kids always see their star boards.</p>
-    </div>
-  </div>
-</section>
-
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Contact</div>
-    <h2>Still need help?</h2>
-  </div>
-  <div class="glass contact-card reveal">
-    <div class="ic">✉️</div>
-    <div>
-      <h3>Email support</h3>
-      <p>We read every email and reply within 24 hours. Norwegian and English both welcome.</p>
-      <a href="mailto:magbjurling@gmail.com" class="btn-email">magbjurling@gmail.com</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
-    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px var(--blue-glow)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
-    <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="guide.html">Setup Guide</a>
-    <a href="support.html">Support</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </div>
-  <div class="footer-lang"><a href="support.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="support.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></div>
-  <p style="font-size:.82rem;margin:0">&copy; 2026 Magnus Bjurling</p>
-</footer>
-
-<script>
-const prog=document.getElementById('progress');
-addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.qa button').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const qa=b.parentElement;const open=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
-    if(!open)qa.classList.add('open');
-  });
-});
-const icons=['⭐','🏆','📋','✅','🦊','🐻','🌙','☀️','🎯','💛','🌟','🎉'];
-const f=document.getElementById('floaties');
-for(let i=0;i<14;i++){const s=document.createElement('span');s.textContent=icons[i%icons.length];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(18+Math.random()*22)+'px';s.style.animationDuration=(9+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*10)+'s';f.appendChild(s)}
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:980,&quot;height&quot;:800}}">
+class Component extends DCLogic {
+  componentDidMount(){
+    this.io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';this.io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';this.io.observe(el);});
+    this._prog=()=>{const h=document.documentElement;const b=document.getElementById('ofh-prog');if(b)b.style.width=(h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100)+'%';};
+    window.addEventListener('scroll',this._prog,{passive:true});this._prog();
+    document.querySelectorAll('[data-html]').forEach(el=>{ el.innerHTML = el.getAttribute('data-html'); });
+  }
+  componentWillUnmount(){window.removeEventListener('scroll',this._prog);if(this.io)this.io.disconnect();}
+  toggle(e){
+    const card = e.currentTarget.closest('[data-qa]');
+    if(!card) return;
+    const ans = card.querySelector('[data-ans]');
+    const plus = card.querySelector('[data-plus]');
+    const isOpen = card.getAttribute('data-open') === '1';
+    document.querySelectorAll('[data-qa]').forEach(c=>{
+      c.setAttribute('data-open','0');
+      const a=c.querySelector('[data-ans]'); if(a)a.style.maxHeight='0';
+      const p=c.querySelector('[data-plus]'); if(p)p.style.transform='none';
+    });
+    if(!isOpen){
+      card.setAttribute('data-open','1');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+      if(plus) plus.style.transform = 'rotate(45deg)';
+    }
+  }
+  renderVals(){
+    if(!this._floaties){const g=['⭐','✨','🌟','💫','🦊','🌙','🏆','💛'];this._floaties=Array.from({length:12},(_,i)=>({g:g[i%g.length],l:Math.floor(Math.random()*94)+2,t:Math.floor(Math.random()*92)+2,s:15+Math.floor(Math.random()*20),d:11+Math.floor(Math.random()*12),dl:-Math.floor(Math.random()*12)}));}
+    const k='style="font-size:.84rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:2px 7px;color:#F1ECFF"';
+    const st='style="color:#F1ECFF;font-weight:700"';
+    const a='style="color:#FF9FBC;font-weight:600"';
+    const mail='<a href="mailto:magbjurling@gmail.com" '+a+'>magbjurling@gmail.com</a>';
+    return {
+      floaties:this._floaties,
+      toggle:(e)=>this.toggle(e),
+      faqs:[
+        {ic:'👶',q:'My child can\'t sign in — how does it work?',a:'Children don\'t have accounts or passwords. They appear as profiles on the family\'s iPad. After you set up the family on iPhone, the same family is visible on any iPad signed in with the same Apple ID. The child simply taps their name — no login needed.'},
+        {ic:'📱',q:'I can\'t see my family on the iPad',a:'Make sure both devices are signed in with the same Apple ID. Open OurFamilyHub on the iPad — if you see a sign-in screen, tap <strong '+st+'>Sign in with Apple</strong> with the same Apple ID you used on iPhone. If you use Family Sharing, the iPad must be in the same group.'},
+        {ic:'⭐',q:'A star disappeared / the task shows red',a:'A red task was <strong '+st+'>rejected</strong> — it doesn\'t count until it\'s redone and re-approved. Stars <em>awaiting approval</em> don\'t count yet either (⏳ indicator). The child can tap the task again after finishing it, and you can approve it from your iPhone.'},
+        {ic:'🏆',q:'The trophy didn\'t appear even though we reached the goal',a:'Trophies are awarded automatically the moment a child passes their goal. If a trophy doesn\'t appear right away, close and reopen the app to load the latest status. Still missing? '+mail+', and we\'ll look into it.'},
+        {ic:'✏️',q:'How do I change a child\'s goal or reward?',a:'On iPhone: <span '+k+'>Admin → Stars</span> → tap the child\'s card → tap <strong '+st+'>Edit</strong>. You can change the star goal and reward text at any time.'},
+        {ic:'✅',q:'How do I approve or reject a task?',a:'When a child taps a task on the iPad, it goes to <em>pending</em> status. On iPhone, open <span '+k+'>Admin → Approvals</span> (a badge shows the count). Approve or reject each one with a single tap, or use <strong '+st+'>Approve all</strong> to clear the whole list at once. Rejected tasks show red on the iPad and can be retried the same day.'},
+        {ic:'🌅',q:'What is the Morning Round?',a:'The Morning Round is a family-synced check-in ritual. Kids check in as they wake up and move through the categories you choose, one step at a time — with a cheering dance scene during "Get dressed", a sunrise, and a gift box they tap at the end. When everyone is done, the round ends with a <strong '+st+'>soft reward you choose yourself</strong> (a hug, a small choice, a surprise) instead of automatic stars — bonus stars are optional and default to 0. Set up the order and rewards in <span '+k+'>Admin → Settings → Morning Round</span>.'},
+        {ic:'🔒',q:'How do I remove or change the admin PIN?',a:'Go to <span '+k+'>Admin → Settings → Admin PIN</span>. There you can change or remove the PIN. Face ID / Touch ID is offered as a faster option. You must be signed in as a parent, so keep the code safe.'},
+        {ic:'📅',q:'The family calendar shows no events',a:'OurFamilyHub reads calendars named <strong '+st+'>"Family"</strong> eller <strong '+st+'>"Familie"</strong> from the iOS calendar. Check that: a calendar with one of those names exists in the iOS Calendar app on the iPad; OurFamilyHub has calendar access in <span '+k+'>Settings → Privacy → Calendars</span>; and for Google Calendar that the account is added in <span '+k+'>iOS Settings → Calendar → Accounts</span>.'},
+        {ic:'☀️',q:'The weather widget isn\'t working',a:'Weather is provided by Apple Weather and needs location access: <span '+k+'>Settings → Privacy → Location Services → OurFamilyHub</span>. It updates on its own once access is granted.'},
+        {ic:'💳',q:'How do subscriptions and billing work?',a:'All purchases are handled by Apple through your App Store account. To manage, pause or cancel: <span '+k+'>iPhone Settings → [Your name] → Subscriptions → OurFamilyHub</span>. If a paid feature isn\'t unlocked, try <strong '+st+'>Restore purchases</strong> in the app — it can take a few minutes to sync.'},
+        {ic:'🗑️',q:'How do I delete my account and family data?',a:'You can do it yourself in the app: <span '+k+'>Admin → Delete account</span> removes the entire account and all family data. You can also delete individual child profiles from Admin at any time. Prefer email? Write to '+mail+' with the subject "Delete my account", and we\'ll delete everything within 30 days.'}
+      ],
+      tips:[
+        {ic:'➕',h:'Add your kids first',d:'On iPhone, tap + in Admin to add your first child. Set a star goal (e.g. 10) and a reward they\'ll love.'},
+        {ic:'📋',h:'Default routines are ready to go',d:'Morning and evening routines are pre-filled. Delete what doesn\'t fit and add your own.'},
+        {ic:'🔒',h:'Set an admin PIN',d:'A 4-digit PIN (or Face ID) stops kids from opening admin mode by accident from the iPad.'},
+        {ic:'🔌',h:'Keep the iPad charging',d:'The iPad is always on — leave it charging with the app open so kids always see their star boards.'}
+      ]
+    };
+  }
+}
 </script>
 </body>
 </html>

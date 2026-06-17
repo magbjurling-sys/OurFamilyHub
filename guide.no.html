@@ -1,800 +1,394 @@
 <!DOCTYPE html>
-<html lang="no">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OurFamilyHub — Oppsett- og brukerguide</title>
-<meta name="description" content="Få familien i gang med OurFamilyHub på under 10 minutter. En vennlig, steg-for-steg oppsett- og brukerguide for foreldre.">
-<style>
-:root{
-  --blue:#1A56C4;
-  --blue-2:#3B82F6;
-  --blue-glow:rgba(59,130,246,.35);
-  --gold:#FFC53D;
-  --gold-soft:#FFE08A;
-  --bg-0:#070B1A;
-  --bg-1:#0C1430;
-  --bg-2:#121E45;
-  --ink:#EAF0FF;
-  --ink-dim:#A7B4D6;
-  --ink-faint:#6F7DA6;
-  --card:rgba(255,255,255,.055);
-  --card-2:rgba(255,255,255,.085);
-  --stroke:rgba(255,255,255,.12);
-  --stroke-2:rgba(255,255,255,.20);
-  --green:#34D399;
-  --red:#F87171;
-  --radius:22px;
-  --maxw:980px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(1200px 700px at 15% -10%, rgba(59,130,246,.20), transparent 60%),
-    radial-gradient(1000px 600px at 100% 0%, rgba(255,197,61,.10), transparent 55%),
-    radial-gradient(900px 800px at 50% 120%, rgba(59,130,246,.12), transparent 60%),
-    linear-gradient(180deg,var(--bg-0),var(--bg-1) 40%,var(--bg-0));
-  background-attachment:fixed;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-a{color:var(--blue-2);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-
-.floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.floaties span{position:absolute;font-size:26px;opacity:.10;animation:drift linear infinite}
-@keyframes drift{
-  0%{transform:translateY(20px) rotate(0deg)}
-  50%{transform:translateY(-30px) rotate(12deg)}
-  100%{transform:translateY(20px) rotate(0deg)}
-}
-
-header.nav{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  background:rgba(7,11,26,.62);
-  border-bottom:1px solid var(--stroke);
-}
-.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;color:var(--ink);text-decoration:none}
-.brand .logo{width:32px;height:32px;border-radius:9px;overflow:hidden;box-shadow:0 6px 18px var(--blue-glow);flex-shrink:0}
-.brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--ink-dim);font-size:.86rem;font-weight:600;padding:7px 12px;border-radius:999px;transition:.2s}
-.nav-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-.nav-links a.active{color:var(--ink);background:var(--card-2)}
-.nav-dl{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff !important;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px var(--blue-glow);transition:.2s}
-.nav-dl:hover{opacity:.88;text-decoration:none;transform:translateY(-1px)}
-.lang-switch{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden}
-.lang-switch a{padding:6px 11px;font-size:.76rem;font-weight:800;letter-spacing:.3px;color:var(--ink-dim);transition:.2s}
-.lang-switch a:hover{color:var(--ink);text-decoration:none}
-.lang-switch a.active{background:var(--card-2);color:var(--ink)}
-@media(max-width:720px){.nav-links{display:none}}
-.footer-lang{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden;margin-bottom:18px}
-.footer-lang a{padding:6px 12px;font-size:.78rem;font-weight:800;color:var(--ink-dim);transition:.2s}
-.footer-lang a:hover{color:var(--ink);text-decoration:none}
-.footer-lang a.active{background:var(--card-2);color:var(--ink)}
-
-.hero{position:relative;z-index:1;text-align:center;padding:72px 0 36px}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.78rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
-  color:var(--gold-soft);
-  background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.25);
-  padding:7px 14px;border-radius:999px;margin-bottom:22px
-}
-.hero h1{
-  font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.05;margin:.2em 0 .25em;
-  font-weight:850;letter-spacing:-1.2px
-}
-.hero h1 .grad{
-  background:linear-gradient(120deg,#fff 10%,var(--gold-soft) 55%,var(--blue-2) 110%);
-  -webkit-background-clip:text;background-clip:text;color:transparent
-}
-.hero p.lead{font-size:clamp(1.02rem,2.4vw,1.28rem);color:var(--ink-dim);max-width:640px;margin:0 auto 28px}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-.btn{
-  display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.96rem;
-  padding:13px 22px;border-radius:14px;cursor:pointer;border:1px solid transparent;transition:.22s
-}
-.btn-primary{background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff;box-shadow:0 10px 30px var(--blue-glow)}
-.btn-primary:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 16px 40px var(--blue-glow)}
-.btn-ghost{background:var(--card);border-color:var(--stroke-2);color:var(--ink)}
-.btn-ghost:hover{background:var(--card-2);text-decoration:none}
-.time-pill{margin-top:16px;color:var(--ink-faint);font-size:.85rem}
-
-.hero-stage{position:relative;z-index:1;margin:30px auto 0;max-width:560px;display:flex;justify-content:center;gap:18px;align-items:flex-end}
-.float-anim{animation:bob 5s ease-in-out infinite}
-.float-anim.b{animation-delay:-2.5s}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-
-section.block{position:relative;z-index:1;padding:54px 0}
-.sec-head{margin-bottom:30px;max-width:680px}
-.sec-tag{font-size:.76rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-2);margin-bottom:10px}
-.sec-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .35em;letter-spacing:-.6px;font-weight:800}
-.sec-head p{color:var(--ink-dim);font-size:1.05rem;margin:0}
-
-.glass{
-  background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:0 18px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)
-}
-
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:780px){.trio{grid-template-columns:1fr}}
-.trio .glass{padding:22px}
-.trio .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;margin-bottom:14px}
-.trio h3{margin:.1em 0 .3em;font-size:1.18rem}
-.trio .who{font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
-.trio p{color:var(--ink-dim);font-size:.94rem;margin:0 0 12px}
-.trio ul{margin:0;padding-left:18px;color:var(--ink-dim);font-size:.88rem}
-.trio li{margin-bottom:5px}
-.chip{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;margin-top:6px}
-.chip.app{background:rgba(255,197,61,.12);color:var(--gold-soft);border:1px solid rgba(255,197,61,.25)}
-.chip.appv{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.3)}
-
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
-@media(max-width:780px){.flow{grid-template-columns:1fr 1fr}}
-.flow .step{padding:20px;text-align:center;position:relative}
-.flow .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-weight:800;
-  background:linear-gradient(140deg,var(--blue),var(--blue-2));box-shadow:0 6px 18px var(--blue-glow)}
-.flow .step h4{margin:0 0 6px;font-size:1rem}
-.flow .step p{margin:0;font-size:.86rem;color:var(--ink-dim)}
-.flow .arr{position:absolute;right:-11px;top:34px;color:var(--ink-faint);font-size:20px;z-index:2}
-@media(max-width:780px){.flow .arr{display:none}}
-
-.steps{display:flex;flex-direction:column;gap:20px;counter-reset:s}
-.stepcard{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;padding:24px}
-@media(max-width:680px){.stepcard{grid-template-columns:1fr;text-align:center}}
-.stepcard .visual{display:flex;justify-content:center}
-.stepcard .body h3{margin:0 0 8px;font-size:1.28rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-@media(max-width:680px){.stepcard .body h3{justify-content:center}}
-.stepnum{
-  flex:none;width:30px;height:30px;border-radius:9px;display:inline-grid;place-items:center;
-  font-size:.95rem;font-weight:800;background:linear-gradient(140deg,var(--blue),var(--blue-2));
-  box-shadow:0 6px 16px var(--blue-glow)
-}
-.stepcard .body p{margin:0 0 8px;color:var(--ink-dim)}
-.stepcard .tip{
-  font-size:.85rem;color:var(--gold-soft);background:rgba(255,197,61,.08);
-  border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px
-}
-.kbd{font-size:.82rem;background:var(--card-2);border:1px solid var(--stroke);border-radius:6px;padding:2px 7px;color:var(--ink)}
-
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
-@media(max-width:780px){.two{grid-template-columns:1fr}}
-.device-card{padding:26px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.device-card svg{margin-bottom:18px}
-.device-card h3{margin:0 0 6px;font-size:1.3rem}
-.device-card .role{font-size:.76rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--blue-2);margin-bottom:12px}
-.device-card p{color:var(--ink-dim);font-size:.95rem;margin:0}
-
-.feat{list-style:none;padding:0;margin:14px 0 0;text-align:left;width:100%}
-.feat li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--stroke);font-size:.92rem;color:var(--ink-dim)}
-.feat li:first-child{border-top:none}
-.feat li .dot{color:var(--gold);flex:none}
-
-.faq{display:flex;flex-direction:column;gap:12px}
-.qa{padding:0;overflow:hidden}
-.qa button{
-  width:100%;text-align:left;background:none;border:none;color:var(--ink);
-  font-size:1.02rem;font-weight:650;padding:18px 22px;cursor:pointer;
-  display:flex;align-items:center;gap:14px;font-family:inherit
-}
-.qa button .plus{margin-left:auto;font-size:1.4rem;color:var(--blue-2);transition:.3s;flex:none}
-.qa.open button .plus{transform:rotate(45deg)}
-.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--ink-dim)}
-.qa .ans p{margin:0;padding:0 22px 20px 56px;font-size:.95rem}
-.qa.open .ans{max-height:320px}
-.qa .qi{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
-  background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.3)}
-
-.tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:680px){.tiers{grid-template-columns:1fr}}
-.tier{padding:24px;position:relative}
-.tier.pro{border-color:rgba(255,197,61,.4);box-shadow:0 0 0 1px rgba(255,197,61,.2),0 18px 50px rgba(0,0,0,.4)}
-.tier h3{margin:0 0 4px;font-size:1.3rem}
-.tier .price{font-size:1.6rem;font-weight:800;margin:6px 0 14px}
-.tier .price small{font-size:.85rem;color:var(--ink-faint);font-weight:500}
-.tier ul{list-style:none;padding:0;margin:0}
-.tier li{padding:7px 0;font-size:.92rem;color:var(--ink-dim);display:flex;gap:9px}
-.badge-pop{position:absolute;top:-12px;right:20px;background:linear-gradient(140deg,var(--gold),#FFB020);color:#3a2a00;
-  font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px}
-
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-
-.cta-section{position:relative;z-index:1;text-align:center;padding:60px 22px}
-.cta-section h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.5px;margin:0 0 .4em}
-.cta-section p{color:var(--ink-dim);font-size:1.05rem;margin:0 auto 28px;max-width:460px}
-.appstore-wrap{display:flex;justify-content:center;flex-wrap:wrap;align-items:center}
-.appstore-badge-img{display:inline-block;transition:.2s;filter:drop-shadow(0 8px 20px rgba(0,0,0,.5))}
-.appstore-badge-img:hover{transform:translateY(-2px);text-decoration:none}
-.appstore-badge-img img{height:54px;width:auto;display:block}
-footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:40px}
-footer a{color:var(--ink-dim)}
-.footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
-.footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-
-#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
-  background:linear-gradient(90deg,var(--gold),var(--blue-2));box-shadow:0 0 12px var(--blue-glow)}
-
-@keyframes pop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-.starpop{animation:pop .5s ease both}
-
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke-2),transparent);margin:8px 0}
-.callout{padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
-.callout .ic{font-size:26px;flex:none}
-.callout h4{margin:0 0 4px}
-.callout p{margin:0;color:var(--ink-dim);font-size:.94rem}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:#F1ECFF;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:#0B0A1F}
+a{text-decoration:none;color:inherit}
+img{display:block}
+@keyframes ofhDrift{0%{transform:translateY(8px) rotate(0deg)}50%{transform:translateY(-26px) rotate(12deg)}100%{transform:translateY(8px) rotate(0deg)}}
+</style>
+</helmet>
 
-<div id="progress"></div>
-<div class="floaties" id="floaties"></div>
+<div id="ofh-prog" style="position:fixed;top:0;left:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,#FF7EA5,#FFC861);box-shadow:0 0 14px rgba(255,158,120,.6)"></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.no.html" class="brand">
-      <span class="logo"><img src="icon.png" alt="OurFamilyHub-ikon"></span>
-      OurFamilyHub
-    </a>
-    <nav class="nav-links">
-      <a href="guide.no.html" class="active">Guide</a>
-      <a href="support.no.html">Hjelp</a>
-      <a href="privacy.no.html">Personvern</a>
-      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Last ned</a>
-      <span class="lang-switch"><a href="guide.html" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" class="active" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></span>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<div class="hero wrap">
-  <span class="eyebrow">⭐ Oppsettsguide for familien</span>
-  <h1>Gjør hverdagsrutiner om til<br><span class="grad">et spill barna elsker</span></h1>
-  <p class="lead">OurFamilyHub belønner barna med stjerner for å fullføre rutiner og oppgaver — og lar deg styre alt fra din egen iPhone. Denne guiden tar deg fra nedlasting til en fungerende familie på under 10 minutter.</p>
-  <div class="cta-row">
-    <a href="#parent" class="btn btn-primary">Start oppsettet på 10 minutter →</a>
-    <a href="#concept" class="btn btn-ghost">Først: hvordan fungerer det?</a>
-  </div>
-  <div class="time-pill">Ingen regneark. Ingen kontoer for barn. Bare én forelder-innlogging.</div>
-
-  <div class="hero-stage">
-    <!-- iPhone -->
-    <svg class="float-anim" width="150" height="300" viewBox="0 0 150 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPhone admin-visning">
-      <rect x="6" y="6" width="138" height="288" rx="30" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-      <rect x="14" y="14" width="122" height="272" rx="24" fill="#0a1228"/>
-      <rect x="55" y="20" width="40" height="7" rx="3.5" fill="rgba(255,255,255,.15)"/>
-      <text x="26" y="52" fill="#EAF0FF" font-size="11" font-weight="700" font-family="sans-serif">Admin</text>
-      <circle cx="75" cy="92" r="26" fill="url(#g1)"/>
-      <text x="75" y="99" text-anchor="middle" font-size="22">🦊</text>
-      <text x="75" y="138" text-anchor="middle" fill="#EAF0FF" font-size="11" font-weight="700" font-family="sans-serif">Emma</text>
-      <g transform="translate(33,150)">
-        <text font-size="13">⭐⭐⭐⭐⭐</text>
-        <text y="22" font-size="13">⭐⭐⭐<tspan fill="#2a3760">⭐⭐</tspan></text>
-      </g>
-      <rect x="26" y="196" width="98" height="30" rx="9" fill="rgba(52,211,153,.15)" stroke="rgba(52,211,153,.4)"/>
-      <text x="75" y="215" text-anchor="middle" fill="#34D399" font-size="9.5" font-weight="700" font-family="sans-serif">✓ Godkjenn</text>
-      <rect x="26" y="234" width="98" height="30" rx="9" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
-      <text x="75" y="253" text-anchor="middle" fill="#A7B4D6" font-size="9.5" font-weight="600" font-family="sans-serif">Rediger steg</text>
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <!-- iPad -->
-    <svg class="float-anim b" width="230" height="180" viewBox="0 0 230 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPad-dashbord">
-      <rect x="4" y="4" width="222" height="172" rx="18" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-      <rect x="12" y="12" width="206" height="156" rx="12" fill="#0a1228"/>
-      <text x="24" y="34" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Familien Hansen</text>
-      <text x="200" y="34" text-anchor="end" font-size="13">☀️ 18°</text>
-      <circle cx="42" cy="74" r="20" fill="url(#g2)"/><text x="42" y="81" text-anchor="middle" font-size="18">🦊</text>
-      <circle cx="96" cy="74" r="20" fill="rgba(255,255,255,.07)"/><text x="96" y="81" text-anchor="middle" font-size="18">🐻</text>
-      <g transform="translate(135,60)">
-        <rect width="78" height="48" rx="11" fill="rgba(255,197,61,.10)" stroke="rgba(255,197,61,.3)"/>
-        <text x="39" y="20" text-anchor="middle" font-size="13">⭐⭐⭐⭐</text>
-        <text x="39" y="38" text-anchor="middle" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 stjerner</text>
-      </g>
-      <rect x="24" y="120" width="84" height="32" rx="9" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.35)"/>
-      <text x="66" y="140" text-anchor="middle" fill="#3B82F6" font-size="9" font-weight="700" font-family="sans-serif">Trykk når ferdig</text>
-      <rect x="118" y="120" width="92" height="32" rx="9" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/>
-      <text x="164" y="140" text-anchor="middle" fill="#A7B4D6" font-size="9" font-weight="600" font-family="sans-serif">🏆 Trofeer</text>
-      <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-    </svg>
-  </div>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 720px at 10% -10%,rgba(168,85,247,.20),transparent 60%),radial-gradient(1000px 620px at 102% 2%,rgba(255,197,61,.09),transparent 55%),radial-gradient(960px 820px at 50% 120%,rgba(236,72,153,.14),transparent 60%)"></div>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <sc-for list="{{ floaties }}" as="fl" hint-placeholder-count="14">
+    <span style="position:absolute;left:{{ fl.l }}%;top:{{ fl.t }}%;font-size:{{ fl.s }}px;opacity:.12;animation:ofhDrift linear infinite;animation-duration:{{ fl.d }}s;animation-delay:{{ fl.dl }}s">{{ fl.g }}</span>
+  </sc-for>
 </div>
 
-<!-- KONSEPT -->
-<section class="block wrap" id="concept">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Den store idéen</div>
-    <h2>En stjerneøkonomi hele familien forstår</h2>
-    <p>Barna tjener stjerner for ting de gjør. Stjernene bygger mot et mål. Nå målet, og et trofé låses opp — pluss en belønning i den virkelige verden som du velger. Slik går sløyfen.</p>
+<div style="position:relative;z-index:1">
+
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,10,31,.66);border-bottom:1px solid rgba(255,255,255,.10)">
+    <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:13px 24px">
+      <a href="index.no.html" style="display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;color:#F4EFFF">
+        <span style="width:34px;height:34px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(168,85,247,.45);flex-shrink:0"><img src="icon.png" alt="OurFamilyHub" style="width:100%;height:100%;object-fit:cover"></span>
+        OurFamilyHub
+      </a>
+      <nav style="margin-left:auto;display:flex;gap:4px;align-items:center">
+        <a href="guide.no.html" style="color:#F4EFFF;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.10)">Guide</a>
+        <a href="support.no.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Hjelp</a>
+        <a href="privacy.no.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Personvern</a>
+        <a href="https://apps.apple.com/app/id6775283053" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-size:.86rem;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(255,158,120,.35);margin-left:6px;white-space:nowrap">Last ned</a>
+        <span style="display:inline-flex;border:1px solid rgba(255,255,255,.18);border-radius:999px;overflow:hidden;margin-left:8px">
+          <a href="guide.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#B6AED4">EN</a>
+          <a href="guide.no.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#F4EFFF;background:rgba(255,255,255,.10)">NO</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px">
+    <section style="text-align:center;padding:66px 0 40px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#FFE0A6;background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.28);padding:8px 15px;border-radius:999px;margin-bottom:22px">⭐ Oppsettsguide for familien</span>
+      <h1 style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(2.3rem,5vw,3.7rem);line-height:1.04;letter-spacing:-1px;margin:0 auto 18px;max-width:800px">Fra nedlasting til en fungerende familie på <span style="background:linear-gradient(100deg,#FF8FB1,#FFC861);-webkit-background-clip:text;background-clip:text;color:transparent">under 10 minutter</span></h1>
+      <p style="font-size:clamp(1.02rem,1.7vw,1.22rem);color:#C2BAD9;max-width:620px;margin:0 auto 28px">OurFamilyHub belønner barna med stjerner for å fullføre rutiner og oppgaver — og lar deg styre alt fra din egen iPhone. Denne guiden tar deg gjennom hele oppsettet.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
+        <a href="#parent" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-weight:700;font-size:.96rem;padding:13px 22px;border-radius:14px;box-shadow:0 10px 28px rgba(255,158,120,.35)">Start oppsettet →</a>
+        <a href="#concept" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#F1ECFF;font-weight:700;font-size:.96rem;padding:13px 22px;border-radius:14px">Først: hvordan fungerer det?</a>
+      </div>
+      <div style="color:#8E86AE;font-size:.88rem">Ingen regneark. Ingen kontoer for barn. Bare én forelder-innlogging.</div>
+    </section>
   </div>
 
-  <div class="flow reveal">
-    <div class="glass step">
-      <div class="n">1</div><h4>Barnet trykker</h4>
-      <p>På iPaden trykker barnet på en oppgave de har fullført i StarTap.</p>
-      <div class="arr">→</div>
+  <!-- KONSEPT -->
+  <section id="concept" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Den store idéen</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">En stjerneøkonomi hele familien forstår</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Barna tjener stjerner for ting de gjør. Stjernene bygger mot et mål. Nå målet, og et trofé låses opp — pluss en belønning i den virkelige verden som du velger.</p>
     </div>
-    <div class="glass step">
-      <div class="n">2</div><h4>Du godkjenner</h4>
-      <p>Den havner i «Venter» på din iPhone. Ett trykk for å godkjenne — eller avvise.</p>
-      <div class="arr">→</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <sc-for list="{{ flow }}" as="s" hint-placeholder-count="4">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px 20px;text-align:center">
+          <div style="width:42px;height:42px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem;color:#21122e;background:linear-gradient(135deg,#FF7EA5,#FFC861);box-shadow:0 8px 20px rgba(255,158,120,.35)">{{ s.n }}</div>
+          <h4 style="margin:0 0 7px;font-size:1.05rem;font-weight:700">{{ s.t }}</h4>
+          <p style="margin:0;font-size:.9rem;color:#B6AED4">{{ s.d }}</p>
+        </div>
+      </sc-for>
     </div>
-    <div class="glass step">
-      <div class="n">3</div><h4>Stjernen telles</h4>
-      <p>Godkjente stjerner fyller et brett, gruppert i femmere, mot målet.</p>
-      <div class="arr">→</div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">💡</span>
+      <div><h4 style="margin:0 0 4px;font-size:1.05rem">Hvorfor godkjenningssteget?</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Det holder deg i kontroll og gjør at barna ikke kan «jukse» seg til stjerner. Avviste oppgaver vises røde med et vennlig «Prøv igjen» og kan gjøres på nytt samme dag.</p></div>
     </div>
-    <div class="glass step">
-      <div class="n">4</div><h4>Trofé låses opp</h4>
-      <p>Nå målet → et trofé opptjenes, brettet nullstilles, og runden begynner på nytt.</p>
+  </section>
+
+  <!-- TRE BYGGEKLOSSER -->
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Tre byggeklosser</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Rutiner, oppgaver og sykluser</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">De ser like ut, men fungerer ulikt. Når du kjenner forskjellen blir oppsettet opplagt — og du trenger bare noen få av hver.</p>
     </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="3">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+          <div style="width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;margin-bottom:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10)">{{ b.ic }}</div>
+          <h3 style="margin:0 0 4px;font-size:1.18rem;font-weight:700">{{ b.h }}</h3>
+          <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#8E86AE;margin-bottom:10px">{{ b.who }}</div>
+          <p style="color:#B6AED4;font-size:.93rem;margin:0 0 12px">{{ b.p }}</p>
+          <ul style="margin:0 0 12px;padding-left:18px;color:#B6AED4;font-size:.88rem">
+            <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
+              <li style="margin-bottom:5px">{{ it }}</li>
+            </sc-for>
+          </ul>
+          <span data-html="{{ b.chip }}"></span>
+        </div>
+      </sc-for>
+    </div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">🧭</span>
+      <div data-html="{{ ruleOfThumb }}"></div>
+    </div>
+  </section>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px"><div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)"></div></div>
+
+  <!-- FORELDREOPPSETT -->
+  <section id="parent" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Del 1 · På din iPhone</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Foreldreoppsett, steg for steg</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Alt dette gjør du én gang, fra din iPhone. De fleste familier er ferdige på godt under ti minutter.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto">
+      <sc-for list="{{ setupSteps }}" as="st" hint-placeholder-count="5">
+        <div data-reveal="1" style="display:grid;grid-template-columns:84px 1fr;gap:22px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+          <div style="width:84px;height:84px;border-radius:20px;display:grid;place-items:center;font-size:38px;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.25)">{{ st.ic }}</div>
+          <div>
+            <h3 style="margin:0 0 8px;font-size:1.22rem;display:flex;align-items:center;gap:10px"><span style="flex:none;width:30px;height:30px;border-radius:9px;display:inline-grid;place-items:center;font-size:.95rem;font-weight:800;color:#21122e;background:linear-gradient(135deg,#FF7EA5,#FFC861)">{{ st.n }}</span>{{ st.h }}</h3>
+            <div data-html="{{ st.body }}" style="color:#B6AED4;font-size:.95rem"></div>
+            <sc-if value="{{ st.hasTip }}" hint-placeholder-val="{{ false }}">
+              <div data-html="{{ st.tip }}" style="font-size:.86rem;color:#FFE0A6;background:rgba(255,197,61,.08);border-left:3px solid #FFC861;padding:9px 13px;border-radius:0 8px 8px 0;margin-top:12px"></div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="parent-menu.png" alt="Forelder-admin-meny" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Forelder-hubben — godkjenninger, rutiner, oppgaver og profiler, bak en PIN.</div>
   </div>
 
-  <div class="callout glass reveal" style="margin-top:24px">
-    <span class="ic">💡</span>
-    <div>
-      <h4>Hvorfor godkjenningssteget?</h4>
-      <p>Det holder deg i kontroll og gjør at barna ikke kan «jukse» seg til stjerner. Avviste oppgaver vises røde med et vennlig «Prøv igjen» og kan gjøres på nytt samme dag.</p>
+  <!-- RUTINER & OPPGAVER -->
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Del 1 · fortsettelse</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Legg til rutiner og oppgaver</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Det er her dagen får form. Vårt råd: start fra standardoppsettet og juster — ikke bygg fra bunnen.</p>
     </div>
-  </div>
-</section>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
+        <div style="font-size:38px;margin-bottom:10px">📋</div>
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Kategorier og rutiner</h3>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Innstillinger → Profiler og kategorier</div>
+        <div data-html="{{ catBody }}" style="color:#B6AED4;font-size:.93rem;margin-bottom:12px"></div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Kategorier er bare merkelapper for hvor en stjerne kom fra</li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Rediger steg når som helst; ingenting går tapt</li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Barna fullfører dem i StarTap; du godkjenner stjernen</li>
+        </ul>
+      </div>
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
+        <div style="font-size:38px;margin-bottom:10px">✅</div>
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Oppgaver</h3>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Admin → Administrer oppgaver</div>
+        <p style="color:#B6AED4;font-size:.93rem;margin:0 0 12px">Enkelthandlinger under en kategori. Velg en type og, om du vil, begrens den til bestemte ukedager.</p>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li data-html="{{ taskLi1 }}" style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"></li>
+          <li data-html="{{ taskLi2 }}" style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"></li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Ukedagsbegrensninger, f.eks. «Pakke skolesekk» kun på hverdager</li>
+        </ul>
+      </div>
+    </div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">🌙</span>
+      <div><h4 style="margin:0 0 4px;font-size:1.05rem">Hva «nullstilles over natten» betyr</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Ved midnatt tømmes daglige oppgaver og rutinefremdrift, så det er blanke ark hver morgen. Stjerner som allerede er opptjent blir liggende på brettet — bare gjøremåls-statusen nullstilles.</p></div>
+    </div>
+  </section>
 
-<!-- RUTINE vs OPPGAVE vs SYKLUS -->
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Tre byggeklosser</div>
-    <h2>Rutiner, oppgaver og sykluser</h2>
-    <p>De ser like ut, men fungerer ulikt. Når du kjenner forskjellen blir oppsettet opplagt — og du trenger bare noen få av hver.</p>
-  </div>
-  <div class="trio">
-    <div class="glass reveal">
-      <div class="ic" style="background:rgba(59,130,246,.15)">📋</div>
-      <h3>Rutine</h3>
-      <div class="who">Barn-rapportert · ordnede steg</div>
-      <p>En ordnet rekke små steg som hører sammen — «Kle på seg → Pusse tenner → Spise frokost».</p>
-      <ul>
-        <li>Ligger øverst i barnets StarTap-liste</li>
-        <li>Barnet trykker seg gjennom hvert steg og claimer så én stjerne</li>
-        <li>Du godkjenner den — alle steg sammen = én stjerne</li>
-      </ul>
-      <span class="chip app">Godkjenning kreves</span>
-    </div>
-    <div class="glass reveal">
-      <div class="ic" style="background:rgba(255,197,61,.15)">✅</div>
-      <h3>Oppgave</h3>
-      <div class="who">Barn-rapportert · selvstendig</div>
-      <p>En enkeltstående handling — «Ryddet rommet». Barnet bestemmer selv når den er ferdig.</p>
-      <ul>
-        <li>Barnet trykker den selv i StarTap</li>
-        <li>Krever din godkjenning før den teller</li>
-        <li><i>Gjentakende</i> (daglig) eller <i>engangs</i></li>
-      </ul>
-      <span class="chip app">Godkjenning kreves</span>
-    </div>
-    <div class="glass reveal">
-      <div class="ic" style="background:rgba(52,211,153,.15)">🔄</div>
-      <h3>Syklus</h3>
-      <div class="who">Familie-synkronisert · sammen</div>
-      <p>Et felles innsjekk-ritual på tvers av kategorier — som «Morgenrunden» hele familien gjør i takt.</p>
-      <ul>
-        <li>Hvert barn sjekker inn; fremdriften er felles</li>
-        <li>Krediteres umiddelbart, ingen godkjenning</li>
-        <li>Avsluttes med en myk premie du velger — bonusstjerner valgfritt (standard 0)</li>
-      </ul>
-      <span class="chip appv">Umiddelbar innsjekk</span>
-    </div>
-  </div>
-  <div class="callout glass reveal" style="margin-top:20px">
-    <span class="ic">🧭</span>
-    <div>
-      <h4>Tommelfingerregel</h4>
-      <p>Flere ordnede steg som gir én stjerne → <b>Rutine</b>. En enkelthandling barnet rapporterer → <b>Oppgave</b>. Noe hele familien gjør sammen, i takt → <b>Syklus</b>.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<!-- FORELDREOPPSETT -->
-<section class="block wrap" id="parent">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Del 1 · På din iPhone</div>
-    <h2>Foreldreoppsett, steg for steg</h2>
-    <p>Alt dette gjør du én gang, fra din iPhone. Følg med — de fleste familier er ferdige på godt under ti minutter.</p>
+  <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="edit-steps.png" alt="Rediger rutinesteg" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Rediger stegene i en rutine i Admin — barnet trykker seg gjennom disse i StarTap.</div>
   </div>
 
-  <div class="steps">
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="#000"/>
-          <path d="M62 50c0-7 5.5-10.5 5.7-10.6-3.1-4.6-8-5.2-9.7-5.3-4.1-.4-8.1 2.4-10.2 2.4-2.1 0-5.3-2.4-8.7-2.3-4.5.07-8.6 2.6-10.9 6.6-4.7 8.1-1.2 20 3.3 26.5 2.2 3.2 4.8 6.8 8.2 6.7 3.3-.13 4.5-2.1 8.5-2.1s5.1 2.1 8.6 2.1c3.6-.06 5.8-3.2 8-6.5 2.5-3.7 3.5-7.3 3.6-7.5-.08-.03-6.9-2.7-7-10.6Z" fill="#fff"/>
-          <path d="M55 28c1.8-2.2 3-5.3 2.7-8.4-2.6.11-5.8 1.7-7.7 3.9-1.7 1.9-3.2 5.1-2.8 8.1 2.9.23 5.9-1.5 7.8-3.6Z" fill="#fff"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">1</span> Logg inn med Apple</h3>
-        <p>Den eneste måten å logge inn på — ingen passord å huske, ingen e-post nødvendig. Apple gir appen en privat identifikator og ingenting annet, med mindre du selv velger å dele det.</p>
-        <div class="tip">⭐ Barn logger aldri inn. De er profiler inne i familien din, valgt fra en liste på iPaden.</div>
+  <!-- BARNEMODUS -->
+  <section id="child" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#FFE0A6;margin-bottom:12px">Del 2 · På iPaden</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Barnas dashbord</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">iPaden er en rolig, alltid-på skjerm barna faktisk vil se på. Ingen innlogging og ingenting som kan ødelegges — de bare trykker.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:center">
+      <div data-reveal="1" style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5)"><img src="app-stars.png" alt="Stjernebrettet på iPad" loading="lazy" style="width:100%"></div>
+      <div data-reveal="1">
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px;margin-bottom:14px">
+          <h3 style="margin:0 0 8px;font-size:1.12rem">Tre sider du sveiper mellom</h3>
+          <div data-html="{{ threePages }}" style="color:#B6AED4;font-size:.93rem"></div>
+        </div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+          <h3 style="margin:0 0 8px;font-size:1.12rem">Trykk når ferdig</h3>
+          <div data-html="{{ tapDone }}" style="color:#B6AED4;font-size:.93rem"></div>
+        </div>
       </div>
     </div>
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.3)"/>
-          <text x="48" y="44" text-anchor="middle" font-size="34">🏡</text>
-          <rect x="22" y="58" width="52" height="11" rx="5.5" fill="rgba(255,255,255,.12)"/>
-          <rect x="22" y="58" width="34" height="11" rx="5.5" fill="#3B82F6"/>
-          <rect x="22" y="75" width="52" height="8" rx="4" fill="rgba(255,255,255,.08)"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">2</span> Gi familien et navn</h3>
-        <p>Dette vises øverst på dashbordet — «Familien Hansen», «Familien Berg», hva du vil. Du kan endre det senere i Innstillinger.</p>
-      </div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">🔄</span>
+      <div data-html="{{ morningRound }}"></div>
     </div>
+  </section>
 
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(255,197,61,.10)" stroke="rgba(255,197,61,.28)"/>
-          <circle cx="48" cy="36" r="18" fill="url(#pg)"/><text x="48" y="43" text-anchor="middle" font-size="18">🦊</text>
-          <rect x="20" y="62" width="56" height="9" rx="4.5" fill="rgba(255,255,255,.1)"/>
-          <text x="48" y="84" text-anchor="middle" font-size="11">⭐ mål 15</text>
-          <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">3</span> Legg til barna</h3>
-        <p>For hvert barn: et navn, en emoji-avatar (eller et bilde), og to ting som gjør magien — et <b>mål</b> (antall stjerner før et trofé, standard 15) og en <b>belønning</b> med dine egne ord, som «Kinokveld med pizza».</p>
-        <div class="tip">⭐ Hver profil sporer sine egne stjerner og oppgaver uavhengig — barn kan ikke dele én profil.</div>
-      </div>
-    </div>
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(248,113,113,.10)" stroke="rgba(248,113,113,.3)"/>
-          <rect x="32" y="40" width="32" height="26" rx="5" fill="none" stroke="#EAF0FF" stroke-width="3"/>
-          <path d="M37 40v-6a11 11 0 0 1 22 0v6" fill="none" stroke="#EAF0FF" stroke-width="3"/>
-          <circle cx="48" cy="52" r="3.5" fill="#FFC53D"/>
-          <text x="48" y="84" text-anchor="middle" font-size="11">PIN · Face ID</text>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">4</span> Sett en foreldre-PIN</h3>
-        <p>En 4-sifret kode låser foreldremodus så barna ikke roter seg inn i innstillinger fra iPaden. Face ID / Touch ID tilbys automatisk som raskere opplåsing. Et banner minner deg på det til det er gjort.</p>
-        <div class="tip">⚠️ Velg en kode du husker og oppbevar den trygt — du endrer eller fjerner den fra <span class="kbd">Innstillinger → Foreldre-PIN</span> mens du er innlogget.</div>
-      </div>
-    </div>
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(52,211,153,.10)" stroke="rgba(52,211,153,.3)"/>
-          <rect x="26" y="30" width="26" height="40" rx="5" fill="#0C1430" stroke="#EAF0FF" stroke-width="2.5"/>
-          <rect x="46" y="38" width="30" height="22" rx="4" fill="#0C1430" stroke="#34D399" stroke-width="2.5"/>
-          <path d="M40 50h8" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">5</span> Koble til iPaden</h3>
-        <p>Logg iPaden inn på samme Apple-ID, eller del familien din med iOS Familiedeling. Da kjører iPaden det alltid-på dashbordet for barna — dekket i Del 2 nedenfor.</p>
-        <div class="tip">⭐ Ser du ikke barna på iPaden? Sjekk at begge enhetene bruker samme Apple-ID og at appen er installert på begge.</div>
-      </div>
-    </div>
-
+  <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="approvals.png" alt="Godkjenninger" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Ventende godkjenninger på iPhone — godkjenn eller avvis hver, eller «Godkjenn alle».</div>
   </div>
-</section>
 
-<div class="wrap reveal" style="text-align:center;margin:4px auto 10px">
-  <img src="parent-menu.png" alt="Forelder-admin-meny" loading="lazy" style="width:100%;max-width:300px;border-radius:28px;border:1px solid var(--stroke);box-shadow:0 18px 50px rgba(0,0,0,.45)">
-  <div style="color:var(--ink-faint);font-size:.85rem;margin-top:8px">Forelder-hubben — godkjenninger, rutiner, oppgaver og profiler, bak en PIN.</div>
+  <!-- KALENDER & VÆR -->
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Fine ekstrafunksjoner</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Kalender og vær — null oppsett</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Familie-siden viser den delte kalenderen og lokalt vær automatisk. Ingenting å konfigurere inne i appen.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+        <span style="font-size:26px;flex:none">📅</span>
+        <div><h4 style="margin:0 0 4px;font-size:1.05rem">Delt familiekalender</h4><div data-html="{{ calBody }}" style="margin:0;color:#B6AED4;font-size:.93rem"></div></div>
+      </div>
+      <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+        <span style="font-size:26px;flex:none">☀️</span>
+        <div><h4 style="margin:0 0 4px;font-size:1.05rem">Lokalt vær</h4><p style="margin:0;color:#B6AED4;font-size:.93rem">Hentet fra Apple Vær med din omtrentlige posisjon — vi ser eller lagrer aldri hvor du er. Det oppdateres av seg selv; ingenting å slå på.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISER -->
+  <section id="plans" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Gratis og Premium</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Hva som er inkludert</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Start gratis med to barn. Oppgrader når familien — eller ambisjonene dine — vokser.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:0 auto">
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:24px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:28px">
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.35rem">Gratis</h3>
+        <div style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.9rem;margin:6px 0 18px">0 kr</div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Opptil 2 barneprofiler</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Kategorier merket «Gratis» (Morgenrutinen er inkludert)</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Stjerner, godkjenninger, trofeer — hele kjernesløyfen</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Kalender og vær på dashbordet</li>
+        </ul>
+      </div>
+      <div data-reveal="1" style="position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,197,61,.42);border-radius:24px;box-shadow:0 0 0 1px rgba(255,197,61,.18),0 22px 56px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:28px">
+        <span style="position:absolute;top:-13px;right:22px;background:linear-gradient(120deg,#FFC861,#FF9A3D);color:#3a2a00;font-size:.72rem;font-weight:800;padding:6px 13px;border-radius:999px">De fleste familier</span>
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.35rem">Premium</h3>
+        <div style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.9rem;margin:6px 0 18px">$4.99 <span style="font-size:.82rem;color:#8E86AE;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif">/mnd · eller $49.99 /år</span></div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Alle kategorier låst opp</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Opptil 4 profiler (ekstra plasser +$1.99/mnd)</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Fulle rutiner, oppgaver og sykluser</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Alt i Gratis</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:#8E86AE;font-size:.84rem;margin:16px auto 0;max-width:780px;text-align:center">Nådd en grense (som å legge til en 3. profil på Gratis)? Et opplåsingsvindu vises automatisk — det er forventet, ikke en feil. All betaling håndteres av Apple og vises i din lokale valuta; bruk «Gjenopprett kjøp» hvis noe ser feil ut.</p>
+  </section>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px"><div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)"></div></div>
+
+  <!-- FAQ -->
+  <section id="faq" style="max-width:860px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="margin:0 auto 24px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Hjelp og feilsøking</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Vanlige spørsmål</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Raske svar på det familier spør om mest. Trykk på et spørsmål for å utvide det.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ faqs }}" as="qa" hint-placeholder-count="8">
+        <div data-qa="1" data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 14px 36px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden">
+          <button onClick="{{ toggle }}" style="width:100%;text-align:left;background:none;border:none;color:#F1ECFF;font-size:1rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:14px">
+            <span style="flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:15px;background:rgba(168,85,247,.18);border:1px solid rgba(168,85,247,.32)">{{ qa.ic }}</span>
+            <span style="flex:1">{{ qa.q }}</span>
+            <span data-plus="1" style="margin-left:auto;font-size:1.5rem;color:#FF9FBC;transition:transform .3s;flex:none;line-height:1">+</span>
+          </button>
+          <div data-ans="1" style="max-height:0;overflow:hidden;transition:max-height .35s ease">
+            <div data-html="{{ qa.a }}" style="padding:0 22px 20px 64px;color:#B6AED4;font-size:.95rem"></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- BUNN-CTA -->
+  <section data-reveal="1" style="max-width:920px;margin:24px auto 0;padding:0 24px">
+    <div style="text-align:center;border-radius:30px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(236,72,153,.12),rgba(255,197,61,.10));box-shadow:0 30px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.10);padding:52px 28px">
+      <div style="font-size:32px;margin-bottom:10px">🚀</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.5px;margin:0 0 12px">Det var alt — gå og sett det opp</h2>
+      <p style="color:#D5CEEA;font-size:1.05rem;margin:0 auto 24px;max-width:480px">Last ned gratis og få familien i gang på under ti minutter. Trenger du hjelp? <a href="support.no.html" style="color:#FFD08A;font-weight:600">Hjelpen er her</a>.</p>
+      <div style="display:flex;justify-content:center"><a href="https://apps.apple.com/app/id6775283053" style="filter:drop-shadow(0 10px 24px rgba(0,0,0,.5))"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/no-no?size=250x83" alt="Last ned i App Store" style="height:56px;width:auto"></a></div>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:48px 24px 60px;color:#7C749E;border-top:1px solid rgba(255,255,255,.08);margin-top:56px">
+    <div style="display:flex;align-items:center;gap:11px;justify-content:center;margin-bottom:16px">
+      <span style="width:30px;height:30px;border-radius:9px;overflow:hidden;display:inline-block;box-shadow:0 4px 14px rgba(168,85,247,.4)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover"></span>
+      <span style="font-weight:700;font-size:1.06rem;color:#F4EFFF">OurFamilyHub</span>
+    </div>
+    <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:18px">
+      <a href="index.no.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Hjem</a>
+      <a href="support.no.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Hjelp</a>
+      <a href="privacy.no.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Personvern</a>
+      <a href="mailto:magbjurling@gmail.com" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Kontakt</a>
+    </div>
+    <p style="font-size:.82rem;margin:0">App Store-ID 6775283053 · © 2026 Magnus Bjurling</p>
+  </footer>
+
 </div>
-
-<!-- RUTINER & OPPGAVER OPPSETT -->
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Del 1 · fortsettelse</div>
-    <h2>Legg til rutiner og oppgaver</h2>
-    <p>Det er her dagen får form. Vårt råd: start fra standardoppsettet og juster — ikke bygg fra bunnen.</p>
-  </div>
-
-  <div class="two">
-    <div class="glass device-card reveal">
-      <div style="font-size:40px;margin-bottom:8px">📋</div>
-      <h3>Kategorier og rutiner</h3>
-      <div class="role">Innstillinger → Profiler og kategorier</div>
-      <p>Morgen- og kveldsrutiner er forhåndsutfylt. Slå dem av/på og rediger <b>stegene</b> — sjekklisten barnet trykker seg gjennom i StarTap.</p>
-      <ul class="feat">
-        <li><span class="dot">★</span> Kategorier er bare merkelapper for hvor en stjerne kom fra</li>
-        <li><span class="dot">★</span> Rediger steg når som helst; ingenting går tapt</li>
-        <li><span class="dot">★</span> Barna fullfører dem i StarTap; du godkjenner stjernen</li>
-      </ul>
-    </div>
-    <div class="glass device-card reveal">
-      <div style="font-size:40px;margin-bottom:8px">✅</div>
-      <h3>Oppgaver</h3>
-      <div class="role">Admin → Administrer oppgaver</div>
-      <p>Enkelthandlinger under en kategori. Velg en type og, om du vil, begrens den til bestemte ukedager.</p>
-      <ul class="feat">
-        <li><span class="dot">★</span> <b>Gjentakende</b> — én gang per dag per barn, nullstilles over natten</li>
-        <li><span class="dot">★</span> <b>Engangs</b> — blir liggende til du sletter den</li>
-        <li><span class="dot">★</span> Ukedagsbegrensninger, f.eks. «Pakke skolesekk» kun på hverdager</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="callout glass reveal" style="margin-top:20px">
-    <span class="ic">🌙</span>
-    <div>
-      <h4>Hva «nullstilles over natten» betyr</h4>
-      <p>Ved midnatt tømmes daglige oppgaver og rutinefremdrift, så det er blanke ark hver morgen. Stjerner som allerede er opptjent blir liggende på brettet — bare gjøremåls-statusen nullstilles.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<div class="wrap reveal" style="text-align:center;margin:4px auto 10px">
-  <img src="edit-steps.png" alt="Rediger rutinesteg" loading="lazy" style="width:100%;max-width:300px;border-radius:28px;border:1px solid var(--stroke);box-shadow:0 18px 50px rgba(0,0,0,.45)">
-  <div style="color:var(--ink-faint);font-size:.85rem;margin-top:8px">Rediger stegene i en rutine i Admin — barnet trykker seg gjennom disse i StarTap.</div>
-</div>
-
-<!-- BARNEMODUS -->
-<section class="block wrap" id="child">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Del 2 · På iPaden</div>
-    <h2>Barnas dashbord</h2>
-    <p>iPaden er en rolig, alltid-på skjerm barna faktisk vil se på. Ingen innlogging og ingenting som kan ødelegges — de bare trykker.</p>
-  </div>
-
-  <div class="two">
-    <div class="glass device-card reveal">
-      <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
-        <rect x="3" y="3" width="194" height="144" rx="16" fill="#0a1228" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-        <text x="18" y="28" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Stjerner</text>
-        <circle cx="38" cy="62" r="20" fill="url(#cg)"/><text x="38" y="69" text-anchor="middle" font-size="18">🦊</text>
-        <text x="38" y="98" text-anchor="middle" fill="#EAF0FF" font-size="10" font-weight="700" font-family="sans-serif">Emma</text>
-        <g transform="translate(78,46)">
-          <text font-size="15">⭐⭐⭐⭐⭐</text>
-          <text y="22" font-size="15">⭐⭐⭐<tspan fill="#2a3760">⭐⭐</tspan></text>
-        </g>
-        <rect x="78" y="96" width="104" height="9" rx="4.5" fill="rgba(255,255,255,.1)"/>
-        <rect x="78" y="96" width="56" height="9" rx="4.5" fill="#FFC53D"/>
-        <text x="78" y="126" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 til neste trofé 🏆</text>
-        <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-      </svg>
-      <h3>Tre sider du sveiper mellom</h3>
-      <p>Dashbordet veksler mellom <b>Stjerner</b> (brett + trofeer), <b>Oppgaver</b> (StarTap) og <b>Familie</b> (bilder, vær, delt kalender). Ingenting å konfigurere — det bare vises.</p>
-    </div>
-
-    <div class="glass device-card reveal">
-      <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
-        <rect x="3" y="3" width="194" height="144" rx="16" fill="#0a1228" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-        <text x="18" y="26" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Oppgaver · StarTap</text>
-        <g transform="translate(16,38)">
-          <rect width="80" height="44" rx="11" fill="rgba(59,130,246,.14)" stroke="rgba(59,130,246,.35)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🪥</text>
-          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Pusse tenner</text>
-        </g>
-        <g transform="translate(104,38)">
-          <rect width="80" height="44" rx="11" fill="rgba(52,211,153,.16)" stroke="rgba(52,211,153,.4)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🛏️</text>
-          <text x="40" y="37" text-anchor="middle" fill="#34D399" font-size="8.5" font-weight="700" font-family="sans-serif">✓ Venter</text>
-        </g>
-        <g transform="translate(16,92)">
-          <rect width="80" height="44" rx="11" fill="rgba(248,113,113,.12)" stroke="rgba(248,113,113,.35)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🧸</text>
-          <text x="40" y="37" text-anchor="middle" fill="#F87171" font-size="8.5" font-weight="700" font-family="sans-serif">Prøv igjen</text>
-        </g>
-        <g transform="translate(104,92)">
-          <rect width="80" height="44" rx="11" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🥗</text>
-          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Trykk når ferdig</text>
-        </g>
-      </svg>
-      <h3>Trykk når ferdig</h3>
-      <p>Et barn velger profilen sin, trykker en fullført oppgave, og den går til <b>venter</b> (grønn) for din godkjenning. Avviste oppgaver blir røde med «Prøv igjen» og kan prøves på nytt samme dag.</p>
-    </div>
-  </div>
-
-  <div class="callout glass reveal" style="margin-top:20px">
-    <span class="ic">🔄</span>
-    <div>
-      <h4>Valgfritt: Morgenrunden (en syklus)</h4>
-      <p>Sett opp en felles morgeninnsjekk fra <span class="kbd">Admin → Morgenrunde</span>. Barna sjekker inn etter hvert som de våkner, og går gjennom kategoriene ett steg om gangen — med en heiende dansescene, en soloppgang, og en gaveeske de trykker på til slutt. Den avsluttes med en myk premie du velger (bonusstjerner valgfritt, standard 0). Perfekt for skolemorgener.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<div class="wrap reveal" style="text-align:center;margin:4px auto 10px">
-  <img src="approvals.png" alt="Godkjenninger" loading="lazy" style="width:100%;max-width:300px;border-radius:28px;border:1px solid var(--stroke);box-shadow:0 18px 50px rgba(0,0,0,.45)">
-  <div style="color:var(--ink-faint);font-size:.85rem;margin-top:8px">Ventende godkjenninger på iPhone — godkjenn eller avvis hver, eller «Godkjenn alle».</div>
-</div>
-
-<!-- KALENDER & VÆR -->
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Fine ekstrafunksjoner</div>
-    <h2>Kalender og vær — null oppsett</h2>
-    <p>Familie-siden viser den delte kalenderen og lokalt vær automatisk. Ingenting å konfigurere inne i appen.</p>
-  </div>
-  <div class="two">
-    <div class="glass callout reveal">
-      <span class="ic">📅</span>
-      <div>
-        <h4>Delt familiekalender</h4>
-        <p>Kommende hendelser leses rett fra iPadens iOS-kalender. Bare pass på at det finnes en kalender med navnet «Family» (eller «Familie») og at appen har kalendertilgang i <span class="kbd">Innstillinger → Personvern → Kalendere</span>. Fungerer med iCloud-, Google- eller Outlook-kontoer lagt til i iOS.</p>
-      </div>
-    </div>
-    <div class="glass callout reveal">
-      <span class="ic">☀️</span>
-      <div>
-        <h4>Lokalt vær</h4>
-        <p>Hentet fra Apple Vær med din omtrentlige posisjon — vi ser eller lagrer aldri hvor du er. Det oppdateres av seg selv; ingenting å slå på.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRISER -->
-<section class="block wrap" id="plans">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Gratis og Premium</div>
-    <h2>Hva som er inkludert</h2>
-    <p>Start gratis med to barn. Oppgrader når familien — eller ambisjonene dine — vokser.</p>
-  </div>
-  <div class="tiers">
-    <div class="glass tier reveal">
-      <h3>Gratis</h3>
-      <div class="price">$0</div>
-      <ul>
-        <li><span class="dot" style="color:var(--gold)">★</span> Opptil 2 barneprofiler</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Kategorier merket «Gratis» (Morgenrutinen er inkludert)</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Stjerner, godkjenninger, trofeer — hele kjernesløyfen</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Kalender og vær på dashbordet</li>
-      </ul>
-    </div>
-    <div class="glass tier pro reveal">
-      <span class="badge-pop">De fleste familier</span>
-      <h3>Premium</h3>
-      <div class="price">$4.99<small> /mnd · eller $49.99 /år</small></div>
-      <ul>
-        <li><span class="dot" style="color:var(--gold)">★</span> Alle kategorier låst opp</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Opptil 4 profiler (ekstra plasser +$1.99/mnd)</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Fulle rutiner, oppgaver og sykluser</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Alt i Gratis</li>
-      </ul>
-    </div>
-  </div>
-  <p style="color:var(--ink-faint);font-size:.85rem;margin-top:14px">Nådd en grense (som å legge til en 3. profil på Gratis)? Et opplåsingsvindu vises automatisk — det er forventet, ikke en feil. All betaling håndteres av Apple og vises i din lokale valuta; bruk «Gjenopprett kjøp» hvis noe ser feil ut.</p>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<!-- FAQ -->
-<section class="block wrap" id="faq">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Hjelp og feilsøking</div>
-    <h2>Vanlige spørsmål</h2>
-    <p>Raske svar på det familier spør om mest. Trykk på et spørsmål for å utvide det.</p>
-  </div>
-
-  <div class="faq">
-    <div class="glass qa reveal">
-      <button><span class="qi">👶</span> Barnet mitt får ikke logget inn</button>
-      <div class="ans"><p>Det er med vilje — barn logger ikke inn i det hele tatt. De er profiler inne i familien din, valgt fra en liste på iPaden. Bare foreldre logger inn (med Apple).</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">⭐</span> En stjerne forsvant</button>
-      <div class="ans"><p>Oppgaven ble sannsynligvis avvist — se etter en rød markering og «Prøv igjen». Avviste og ventende oppgaver teller ikke mot totalen før du godkjenner dem.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">🏆</span> Jeg nådde målet, men fikk ikke trofé</button>
-      <div class="ans"><p>Trofeer tildeles automatisk i det øyeblikket et barn passerer målet sitt, og stjernebrettet nullstilles til neste runde. Dukker ikke et trofé opp med en gang, dra for å oppdatere eller åpne appen på nytt for å laste inn siste status.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">✏️</span> Hvordan endrer jeg et mål eller en belønning?</button>
-      <div class="ans"><p>Gå til <span class="kbd">Admin → Stjerner</span>, velg barnet og trykk Rediger. Oppdater målet eller belønningsteksten når som helst.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">📱</span> Jeg ser ikke barna på iPaden</button>
-      <div class="ans"><p>Sjekk at iPaden og iPhonen er logget inn på samme Apple-ID (eller deler via Familiedeling), og at appen er installert på begge enhetene.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">🔢</span> Hvordan fjerner jeg foreldre-PIN-en?</button>
-      <div class="ans"><p>Gå til <span class="kbd">Innstillinger → Foreldre-PIN → Fjern</span> og bekreft. Du må være innlogget som forelder for å gjøre dette, så oppbevar koden trygt.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">📅</span> Kalenderkortet er tomt</button>
-      <div class="ans"><p>Pass på at (a) det finnes en kalender med navnet «Family» eller «Familie» på iPaden, og (b) at appen har kalendertilgang under <span class="kbd">Innstillinger → Personvern → Kalendere</span>. Google-kalendere vises bare hvis kontoen er lagt til i iOS Innstillinger → Kalender.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">👥</span> Kan to barn dele én profil?</button>
-      <div class="ans"><p>Nei — hver profil er individuell og sporer sine egne stjerner og oppgaver. Gi hvert barn sin egen profil så fremdriften holdes adskilt.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- BUNN-CTA -->
-<div class="cta-section reveal">
-  <h2>Det var alt — gå og sett det opp</h2>
-  <p>Last ned gratis og få familien i gang på under ti minutter. Trenger du hjelp? <a href="support.no.html">Hjelpen er her</a>.</p>
-  <div class="appstore-wrap">
-    <a href="https://apps.apple.com/app/id6775283053" class="appstore-badge-img">
-      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-           alt="Last ned i App Store">
-    </a>
-  </div>
-</div>
-
-<footer>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
-    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px var(--blue-glow)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
-    <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
-  </div>
-  <div class="footer-links">
-    <a href="index.no.html">Hjem</a>
-    <a href="support.no.html">Hjelp</a>
-    <a href="privacy.no.html">Personvern</a>
-    <a href="mailto:magbjurling@gmail.com">Kontakt</a>
-  </div>
-  <div class="footer-lang"><a href="guide.html" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" class="active" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></div>
-  <p style="font-size:.82rem;margin:0">App Store-ID 6775283053 &middot; &copy; 2026 Magnus Bjurling</p>
-</footer>
-
-<script>
-const prog=document.getElementById('progress');
-addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const p=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
-  prog.style.width=p+'%';
-});
-
-const io=new IntersectionObserver((es)=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-document.querySelectorAll('.qa button').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const qa=b.parentElement;
-    const open=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
-    if(!open)qa.classList.add('open');
-  });
-});
-
-const icons=['⭐','🏆','📋','✅','🦊','🐻','🌙','☀️','🪥','🛏️','🥗','🧸','📅','🔄','🎯','💛'];
-const f=document.getElementById('floaties');
-for(let i=0;i<18;i++){
-  const s=document.createElement('span');
-  s.textContent=icons[i%icons.length];
-  s.style.left=Math.random()*100+'%';
-  s.style.top=Math.random()*100+'%';
-  s.style.fontSize=(18+Math.random()*26)+'px';
-  s.style.animationDuration=(9+Math.random()*10)+'s';
-  s.style.animationDelay=(-Math.random()*10)+'s';
-  f.appendChild(s);
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1080,&quot;height&quot;:820}}">
+class Component extends DCLogic {
+  componentDidMount(){
+    this.io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';this.io.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';this.io.observe(el);});
+    this._prog=()=>{const h=document.documentElement;const b=document.getElementById('ofh-prog');if(b)b.style.width=(h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100)+'%';};
+    window.addEventListener('scroll',this._prog,{passive:true});this._prog();
+    document.querySelectorAll('[data-html]').forEach(el=>{ el.innerHTML = el.getAttribute('data-html'); });
+  }
+  componentWillUnmount(){window.removeEventListener('scroll',this._prog);if(this.io)this.io.disconnect();}
+  toggle(e){
+    const card=e.currentTarget.closest('[data-qa]'); if(!card)return;
+    const ans=card.querySelector('[data-ans]'); const plus=card.querySelector('[data-plus]');
+    const isOpen=card.getAttribute('data-open')==='1';
+    document.querySelectorAll('[data-qa]').forEach(c=>{c.setAttribute('data-open','0');const a=c.querySelector('[data-ans]');if(a)a.style.maxHeight='0';const p=c.querySelector('[data-plus]');if(p)p.style.transform='none';});
+    if(!isOpen){card.setAttribute('data-open','1');ans.style.maxHeight=ans.scrollHeight+'px';if(plus)plus.style.transform='rotate(45deg)';}
+  }
+  renderVals(){
+    if(!this._floaties){const g=['⭐','✨','🌟','💫','🦊','🐻','🌙','🏆','🪥','🛏️','🥗','💛'];this._floaties=Array.from({length:14},(_,i)=>({g:g[i%g.length],l:Math.floor(Math.random()*94)+2,t:Math.floor(Math.random()*94)+2,s:15+Math.floor(Math.random()*20),d:11+Math.floor(Math.random()*12),dl:-Math.floor(Math.random()*12)}));}
+    const st='style="color:#F1ECFF;font-weight:700"';
+    const b='style="color:#F1ECFF;font-weight:700"';
+    const em='style="font-style:italic"';
+    const k='style="font-size:.84rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:2px 7px;color:#F1ECFF"';
+    const chipApp='display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(255,197,61,.12);color:#FFE0A6;border:1px solid rgba(255,197,61,.25)';
+    const chipV='display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(52,211,153,.12);color:#34D399;border:1px solid rgba(52,211,153,.3)';
+    const star='<span style="color:#FFC861;flex:none">★</span> ';
+    return {
+      floaties:this._floaties,
+      toggle:(e)=>this.toggle(e),
+      flow:[
+        {n:'1',t:'Barnet trykker',d:'På iPaden trykker barnet på en oppgave de har fullført i StarTap.'},
+        {n:'2',t:'Du godkjenner',d:'Den havner i «Venter» på din iPhone. Ett trykk for å godkjenne — eller avvise.'},
+        {n:'3',t:'Stjernen telles',d:'Godkjente stjerner fyller et brett, gruppert i femmere, mot målet.'},
+        {n:'4',t:'Trofé låses opp',d:'Nå målet → et trofé opptjenes, brettet nullstilles, og runden begynner på nytt.'}
+      ],
+      blocks:[
+        {ic:'📋',h:'Rutine',who:'Barn-rapportert · ordnede steg',p:'En ordnet rekke små steg som hører sammen — «Kle på seg → Pusse tenner → Spise frokost».',items:['Ligger øverst i barnets StarTap-liste','Barnet trykker seg gjennom hvert steg og claimer så én stjerne','Du godkjenner den — alle steg sammen = én stjerne'],chip:'<span style="'+chipApp+'">Godkjenning kreves</span>'},
+        {ic:'✅',h:'Oppgave',who:'Barn-rapportert · selvstendig',p:'En enkeltstående handling — «Ryddet rommet». Barnet bestemmer selv når den er ferdig.',items:['Barnet trykker den selv i StarTap','Krever din godkjenning før den teller','Gjentakende (daglig) eller engangs'],chip:'<span style="'+chipApp+'">Godkjenning kreves</span>'},
+        {ic:'🔄',h:'Syklus',who:'Familie-synkronisert · sammen',p:'Et felles innsjekk-ritual på tvers av kategorier — som «Morgenrunden» hele familien gjør i takt.',items:['Hvert barn sjekker inn; fremdriften er felles','Krediteres umiddelbart, ingen godkjenning','Avsluttes med en myk premie du velger — bonusstjerner valgfritt (standard 0)'],chip:'<span style="'+chipV+'">Umiddelbar innsjekk</span>'}
+      ],
+      ruleOfThumb:'<h4 style="margin:0 0 4px;font-size:1.05rem">Tommelfingerregel</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Flere ordnede steg som gir én stjerne → <b '+b+'>Rutine</b>. En enkelthandling barnet rapporterer → <b '+b+'>Oppgave</b>. Noe hele familien gjør sammen, i takt → <b '+b+'>Syklus</b>.</p>',
+      setupSteps:[
+        {n:'1',ic:'🍎',h:'Logg inn med Apple',hasTip:true,body:'<p style="margin:0">Den eneste måten å logge inn på — ingen passord å huske, ingen e-post nødvendig. Apple gir appen en privat identifikator og ingenting annet, med mindre du selv velger å dele det.</p>',tip:'⭐ Barn logger aldri inn. De er profiler inne i familien din, valgt fra en liste på iPaden.'},
+        {n:'2',ic:'🏡',h:'Gi familien et navn',hasTip:false,body:'<p style="margin:0">Dette vises øverst på dashbordet — «Familien Hansen», «Familien Berg», hva du vil. Du kan endre det senere i Innstillinger.</p>'},
+        {n:'3',ic:'🦊',h:'Legg til barna',hasTip:true,body:'<p style="margin:0">For hvert barn: et navn, en emoji-avatar (eller et bilde), og to ting som gjør magien — et <b '+b+'>mål</b> (antall stjerner før et trofé, standard 15) og en <b '+b+'>belønning</b> med dine egne ord, som «Kinokveld med pizza».</p>',tip:'⭐ Hver profil sporer sine egne stjerner og oppgaver uavhengig — barn kan ikke dele én profil.'},
+        {n:'4',ic:'🔒',h:'Sett en foreldre-PIN',hasTip:true,body:'<p style="margin:0">En 4-sifret kode låser foreldremodus så barna ikke roter seg inn i innstillinger fra iPaden. Face ID / Touch ID tilbys automatisk som raskere opplåsing. Et banner minner deg på det til det er gjort.</p>',tip:'⚠️ Velg en kode du husker og oppbevar den trygt — du endrer eller fjerner den fra <span '+k+'>Innstillinger → Foreldre-PIN</span> mens du er innlogget.'},
+        {n:'5',ic:'📲',h:'Koble til iPaden',hasTip:true,body:'<p style="margin:0">Logg iPaden inn på samme Apple-ID, eller del familien din med iOS Familiedeling. Da kjører iPaden det alltid-på dashbordet for barna.</p>',tip:'⭐ Ser du ikke barna på iPaden? Sjekk at begge enhetene bruker samme Apple-ID og at appen er installert på begge.'}
+      ],
+      catBody:'<p style="margin:0">Morgen- og kveldsrutiner er forhåndsutfylt. Slå dem av/på og rediger <b '+b+'>stegene</b> — sjekklisten barnet trykker seg gjennom i StarTap.</p>',
+      taskLi1:star+'<span><b '+b+'>Gjentakende</b> — én gang per dag per barn, nullstilles over natten</span>',
+      taskLi2:star+'<span><b '+b+'>Engangs</b> — blir liggende til du sletter den</span>',
+      threePages:'<p style="margin:0">Dashbordet veksler mellom <b '+b+'>Stjerner</b> (brett + trofeer), <b '+b+'>Oppgaver</b> (StarTap) og <b '+b+'>Familie</b> (bilder, vær, delt kalender). Ingenting å konfigurere — det bare vises.</p>',
+      tapDone:'<p style="margin:0">Et barn velger profilen sin, trykker en fullført oppgave, og den går til <b '+b+'>venter</b> (grønn) for din godkjenning. Avviste oppgaver blir røde med «Prøv igjen» og kan prøves på nytt samme dag.</p>',
+      morningRound:'<h4 style="margin:0 0 4px;font-size:1.05rem">Valgfritt: Morgenrunden (en syklus)</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Sett opp en felles morgeninnsjekk fra <span '+k+'>Admin → Morgenrunde</span>. Barna sjekker inn etter hvert som de våkner, og går gjennom kategoriene ett steg om gangen — med en heiende dansescene, en soloppgang, og en gaveeske de trykker på til slutt. Den avsluttes med en myk premie du velger (bonusstjerner valgfritt, standard 0). Perfekt for skolemorgener.</p>',
+      calBody:'<p style="margin:0">Kommende hendelser leses rett fra iPadens iOS-kalender. Bare pass på at det finnes en kalender med navnet «Family» (eller «Familie») og at appen har kalendertilgang i <span '+k+'>Innstillinger → Personvern → Kalendere</span>. Fungerer med iCloud-, Google- eller Outlook-kontoer lagt til i iOS.</p>',
+      faqs:[
+        {ic:'👶',q:'Barnet mitt får ikke logget inn',a:'Det er med vilje — barn logger ikke inn i det hele tatt. De er profiler inne i familien din, valgt fra en liste på iPaden. Bare foreldre logger inn (med Apple).'},
+        {ic:'⭐',q:'En stjerne forsvant',a:'Oppgaven ble sannsynligvis avvist — se etter en rød markering og «Prøv igjen». Avviste og ventende oppgaver teller ikke mot totalen før du godkjenner dem.'},
+        {ic:'🏆',q:'Jeg nådde målet, men fikk ikke trofé',a:'Trofeer tildeles automatisk i det øyeblikket et barn passerer målet sitt, og stjernebrettet nullstilles til neste runde. Dukker ikke et trofé opp med en gang, dra for å oppdatere eller åpne appen på nytt for å laste inn siste status.'},
+        {ic:'✏️',q:'Hvordan endrer jeg et mål eller en belønning?',a:'Gå til <span '+k+'>Admin → Stjerner</span>, velg barnet og trykk Rediger. Oppdater målet eller belønningsteksten når som helst.'},
+        {ic:'📱',q:'Jeg ser ikke barna på iPaden',a:'Sjekk at iPaden og iPhonen er logget inn på samme Apple-ID (eller deler via Familiedeling), og at appen er installert på begge enhetene.'},
+        {ic:'🔢',q:'Hvordan fjerner jeg foreldre-PIN-en?',a:'Gå til <span '+k+'>Innstillinger → Foreldre-PIN → Fjern</span> og bekreft. Du må være innlogget som forelder for å gjøre dette, så oppbevar koden trygt.'},
+        {ic:'📅',q:'Kalenderkortet er tomt',a:'Pass på at (a) det finnes en kalender med navnet «Family» eller «Familie» på iPaden, og (b) at appen har kalendertilgang under <span '+k+'>Innstillinger → Personvern → Kalendere</span>. Google-kalendere vises bare hvis kontoen er lagt til i iOS Innstillinger → Kalender.'},
+        {ic:'👥',q:'Kan to barn dele én profil?',a:'Nei — hver profil er individuell og sporer sine egne stjerner og oppgaver. Gi hvert barn sin egen profil så fremdriften holdes adskilt.'}
+      ]
+    };
+  }
 }
 </script>
 </body>

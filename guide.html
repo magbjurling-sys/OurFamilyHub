@@ -1,824 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OurFamilyHub — Setup & User Guide</title>
-<meta name="description" content="Get your family up and running on OurFamilyHub in under 10 minutes. A friendly, step-by-step setup and user guide for parents.">
-<style>
-:root{
-  --blue:#1A56C4;
-  --blue-2:#3B82F6;
-  --blue-glow:rgba(59,130,246,.35);
-  --gold:#FFC53D;
-  --gold-soft:#FFE08A;
-  --bg-0:#070B1A;
-  --bg-1:#0C1430;
-  --bg-2:#121E45;
-  --ink:#EAF0FF;
-  --ink-dim:#A7B4D6;
-  --ink-faint:#6F7DA6;
-  --card:rgba(255,255,255,.055);
-  --card-2:rgba(255,255,255,.085);
-  --stroke:rgba(255,255,255,.12);
-  --stroke-2:rgba(255,255,255,.20);
-  --green:#34D399;
-  --red:#F87171;
-  --radius:22px;
-  --maxw:980px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(1200px 700px at 15% -10%, rgba(59,130,246,.20), transparent 60%),
-    radial-gradient(1000px 600px at 100% 0%, rgba(255,197,61,.10), transparent 55%),
-    radial-gradient(900px 800px at 50% 120%, rgba(59,130,246,.12), transparent 60%),
-    linear-gradient(180deg,var(--bg-0),var(--bg-1) 40%,var(--bg-0));
-  background-attachment:fixed;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-a{color:var(--blue-2);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-
-/* floating background icons */
-.floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.floaties span{position:absolute;font-size:26px;opacity:.10;animation:drift linear infinite}
-@keyframes drift{
-  0%{transform:translateY(20px) rotate(0deg)}
-  50%{transform:translateY(-30px) rotate(12deg)}
-  100%{transform:translateY(20px) rotate(0deg)}
-}
-
-/* NAV */
-header.nav{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  background:rgba(7,11,26,.62);
-  border-bottom:1px solid var(--stroke);
-}
-.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;color:var(--ink);text-decoration:none}
-.brand .logo{width:32px;height:32px;border-radius:9px;overflow:hidden;box-shadow:0 6px 18px var(--blue-glow);flex-shrink:0}
-.brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--ink-dim);font-size:.86rem;font-weight:600;padding:7px 12px;border-radius:999px;transition:.2s}
-.nav-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-.nav-links a.active{color:var(--ink);background:var(--card-2)}
-.nav-dl{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff !important;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px var(--blue-glow);transition:.2s}
-.nav-dl:hover{opacity:.88;text-decoration:none;transform:translateY(-1px)}
-.lang-switch{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden}
-.lang-switch a{padding:6px 11px;font-size:.76rem;font-weight:800;letter-spacing:.3px;color:var(--ink-dim);transition:.2s}
-.lang-switch a:hover{color:var(--ink);text-decoration:none}
-.lang-switch a.active{background:var(--card-2);color:var(--ink)}
-@media(max-width:720px){.nav-links{display:none}}
-.footer-lang{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden;margin-bottom:18px}
-.footer-lang a{padding:6px 12px;font-size:.78rem;font-weight:800;color:var(--ink-dim);transition:.2s}
-.footer-lang a:hover{color:var(--ink);text-decoration:none}
-.footer-lang a.active{background:var(--card-2);color:var(--ink)}
-
-/* HERO */
-.hero{position:relative;z-index:1;text-align:center;padding:72px 0 36px}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.78rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
-  color:var(--gold-soft);
-  background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.25);
-  padding:7px 14px;border-radius:999px;margin-bottom:22px
-}
-.hero h1{
-  font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.05;margin:.2em 0 .25em;
-  font-weight:850;letter-spacing:-1.2px
-}
-.hero h1 .grad{
-  background:linear-gradient(120deg,#fff 10%,var(--gold-soft) 55%,var(--blue-2) 110%);
-  -webkit-background-clip:text;background-clip:text;color:transparent
-}
-.hero p.lead{font-size:clamp(1.02rem,2.4vw,1.28rem);color:var(--ink-dim);max-width:640px;margin:0 auto 28px}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-.btn{
-  display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.96rem;
-  padding:13px 22px;border-radius:14px;cursor:pointer;border:1px solid transparent;transition:.22s
-}
-.btn-primary{background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff;box-shadow:0 10px 30px var(--blue-glow)}
-.btn-primary:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 16px 40px var(--blue-glow)}
-.btn-ghost{background:var(--card);border-color:var(--stroke-2);color:var(--ink)}
-.btn-ghost:hover{background:var(--card-2);text-decoration:none}
-.time-pill{margin-top:16px;color:var(--ink-faint);font-size:.85rem}
-
-/* hero device float */
-.hero-stage{position:relative;z-index:1;margin:30px auto 0;max-width:560px;display:flex;justify-content:center;gap:18px;align-items:flex-end}
-.float-anim{animation:bob 5s ease-in-out infinite}
-.float-anim.b{animation-delay:-2.5s}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-
-/* SECTION */
-section.block{position:relative;z-index:1;padding:54px 0}
-.sec-head{margin-bottom:30px;max-width:680px}
-.sec-tag{font-size:.76rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-2);margin-bottom:10px}
-.sec-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .35em;letter-spacing:-.6px;font-weight:800}
-.sec-head p{color:var(--ink-dim);font-size:1.05rem;margin:0}
-
-/* glass card */
-.glass{
-  background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:0 18px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)
-}
-
-/* concept trio */
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:780px){.trio{grid-template-columns:1fr}}
-.trio .glass{padding:22px}
-.trio .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;margin-bottom:14px}
-.trio h3{margin:.1em 0 .3em;font-size:1.18rem}
-.trio .who{font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
-.trio p{color:var(--ink-dim);font-size:.94rem;margin:0 0 12px}
-.trio ul{margin:0;padding-left:18px;color:var(--ink-dim);font-size:.88rem}
-.trio li{margin-bottom:5px}
-.chip{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;margin-top:6px}
-.chip.app{background:rgba(255,197,61,.12);color:var(--gold-soft);border:1px solid rgba(255,197,61,.25)}
-.chip.appv{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.3)}
-
-/* star flow */
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
-@media(max-width:780px){.flow{grid-template-columns:1fr 1fr}}
-.flow .step{padding:20px;text-align:center;position:relative}
-.flow .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-weight:800;
-  background:linear-gradient(140deg,var(--blue),var(--blue-2));box-shadow:0 6px 18px var(--blue-glow)}
-.flow .step h4{margin:0 0 6px;font-size:1rem}
-.flow .step p{margin:0;font-size:.86rem;color:var(--ink-dim)}
-.flow .arr{position:absolute;right:-11px;top:34px;color:var(--ink-faint);font-size:20px;z-index:2}
-@media(max-width:780px){.flow .arr{display:none}}
-
-/* steps (walkthrough) */
-.steps{display:flex;flex-direction:column;gap:20px;counter-reset:s}
-.stepcard{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;padding:24px}
-@media(max-width:680px){.stepcard{grid-template-columns:1fr;text-align:center}}
-.stepcard .visual{display:flex;justify-content:center}
-.stepcard .body h3{margin:0 0 8px;font-size:1.28rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-@media(max-width:680px){.stepcard .body h3{justify-content:center}}
-.stepnum{
-  flex:none;width:30px;height:30px;border-radius:9px;display:inline-grid;place-items:center;
-  font-size:.95rem;font-weight:800;background:linear-gradient(140deg,var(--blue),var(--blue-2));
-  box-shadow:0 6px 16px var(--blue-glow)
-}
-.stepcard .body p{margin:0 0 8px;color:var(--ink-dim)}
-.stepcard .tip{
-  font-size:.85rem;color:var(--gold-soft);background:rgba(255,197,61,.08);
-  border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px
-}
-.kbd{font-size:.82rem;background:var(--card-2);border:1px solid var(--stroke);border-radius:6px;padding:2px 7px;color:var(--ink)}
-
-/* device columns */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
-@media(max-width:780px){.two{grid-template-columns:1fr}}
-.device-card{padding:26px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.device-card svg{margin-bottom:18px}
-.device-card h3{margin:0 0 6px;font-size:1.3rem}
-.device-card .role{font-size:.76rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--blue-2);margin-bottom:12px}
-.device-card p{color:var(--ink-dim);font-size:.95rem;margin:0}
-
-/* feature list */
-.feat{list-style:none;padding:0;margin:14px 0 0;text-align:left;width:100%}
-.feat li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--stroke);font-size:.92rem;color:var(--ink-dim)}
-.feat li:first-child{border-top:none}
-.feat li .dot{color:var(--gold);flex:none}
-
-/* FAQ */
-.faq{display:flex;flex-direction:column;gap:12px}
-.qa{padding:0;overflow:hidden}
-.qa button{
-  width:100%;text-align:left;background:none;border:none;color:var(--ink);
-  font-size:1.02rem;font-weight:650;padding:18px 22px;cursor:pointer;
-  display:flex;align-items:center;gap:14px;font-family:inherit
-}
-.qa button .plus{margin-left:auto;font-size:1.4rem;color:var(--blue-2);transition:.3s;flex:none}
-.qa.open button .plus{transform:rotate(45deg)}
-.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--ink-dim)}
-.qa .ans p{margin:0;padding:0 22px 20px 56px;font-size:.95rem}
-.qa.open .ans{max-height:280px}
-.qa .qi{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;
-  background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.3)}
-
-/* tiers */
-.tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:680px){.tiers{grid-template-columns:1fr}}
-.tier{padding:24px;position:relative}
-.tier.pro{border-color:rgba(255,197,61,.4);box-shadow:0 0 0 1px rgba(255,197,61,.2),0 18px 50px rgba(0,0,0,.4)}
-.tier h3{margin:0 0 4px;font-size:1.3rem}
-.tier .price{font-size:1.6rem;font-weight:800;margin:6px 0 14px}
-.tier .price small{font-size:.85rem;color:var(--ink-faint);font-weight:500}
-.tier ul{list-style:none;padding:0;margin:0}
-.tier li{padding:7px 0;font-size:.92rem;color:var(--ink-dim);display:flex;gap:9px}
-.badge-pop{position:absolute;top:-12px;right:20px;background:linear-gradient(140deg,var(--gold),#FFB020);color:#3a2a00;
-  font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* footer */
-.cta-section{position:relative;z-index:1;text-align:center;padding:60px 22px}
-.cta-section h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.5px;margin:0 0 .4em}
-.cta-section p{color:var(--ink-dim);font-size:1.05rem;margin:0 auto 28px;max-width:460px}
-.appstore-wrap{display:flex;justify-content:center;flex-wrap:wrap;align-items:center}
-.appstore-badge-img{display:inline-block;transition:.2s;filter:drop-shadow(0 8px 20px rgba(0,0,0,.5))}
-.appstore-badge-img:hover{transform:translateY(-2px);text-decoration:none}
-.appstore-badge-img img{height:54px;width:auto;display:block}
-footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:40px}
-footer a{color:var(--ink-dim)}
-.footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
-.footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-
-/* progress bar */
-#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
-  background:linear-gradient(90deg,var(--gold),var(--blue-2));box-shadow:0 0 12px var(--blue-glow)}
-
-/* star pop animation */
-@keyframes pop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-.starpop{animation:pop .5s ease both}
-
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke-2),transparent);margin:8px 0}
-.callout{padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
-.callout .ic{font-size:26px;flex:none}
-.callout h4{margin:0 0 4px}
-.callout p{margin:0;color:var(--ink-dim);font-size:.94rem}
-</style>
-<script>
-(function(){try{if(localStorage.getItem('ofh_lang'))return;var l=(navigator.language||navigator.userLanguage||'').toLowerCase();if(l.indexOf('nb')===0||l.indexOf('nn')===0||l.indexOf('no')===0){location.replace('guide.no.html');}}catch(e){}})();
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:#F1ECFF;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:#0B0A1F}
+a{text-decoration:none;color:inherit}
+img{display:block}
+@keyframes ofhDrift{0%{transform:translateY(8px) rotate(0deg)}50%{transform:translateY(-26px) rotate(12deg)}100%{transform:translateY(8px) rotate(0deg)}}
+</style>
+</helmet>
 
-<div id="progress"></div>
-<div class="floaties" id="floaties"></div>
+<div id="ofh-prog" style="position:fixed;top:0;left:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,#FF7EA5,#FFC861);box-shadow:0 0 14px rgba(255,158,120,.6)"></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <span class="logo"><img src="icon.png" alt="OurFamilyHub icon"></span>
-      OurFamilyHub
-    </a>
-    <nav class="nav-links">
-      <a href="guide.html" class="active">Guide</a>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Download</a>
-      <span class="lang-switch"><a href="guide.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></span>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<div class="hero wrap">
-  <span class="eyebrow">⭐ Family setup guide</span>
-  <h1>Turn everyday routines into<br><span class="grad">a game your kids love</span></h1>
-  <p class="lead">OurFamilyHub rewards kids with stars for finishing routines and tasks — and lets you run the whole thing from your iPhone. This guide takes you from download to a working family in under 10 minutes.</p>
-  <div class="cta-row">
-    <a href="#parent" class="btn btn-primary">Start the 10-minute setup →</a>
-    <a href="#concept" class="btn btn-ghost">First, how does it work?</a>
-  </div>
-  <div class="time-pill">No spreadsheets. No accounts for kids. Just one parent sign-in.</div>
-
-  <div class="hero-stage">
-    <!-- iPhone -->
-    <svg class="float-anim" width="150" height="300" viewBox="0 0 150 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPhone admin view">
-      <rect x="6" y="6" width="138" height="288" rx="30" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-      <rect x="14" y="14" width="122" height="272" rx="24" fill="#0a1228"/>
-      <rect x="55" y="20" width="40" height="7" rx="3.5" fill="rgba(255,255,255,.15)"/>
-      <text x="26" y="52" fill="#EAF0FF" font-size="11" font-weight="700" font-family="sans-serif">Admin</text>
-      <circle cx="75" cy="92" r="26" fill="url(#g1)"/>
-      <text x="75" y="99" text-anchor="middle" font-size="22">🦊</text>
-      <text x="75" y="138" text-anchor="middle" fill="#EAF0FF" font-size="11" font-weight="700" font-family="sans-serif">Emma</text>
-      <g transform="translate(33,150)">
-        <text font-size="13">⭐⭐⭐⭐⭐</text>
-        <text y="22" font-size="13">⭐⭐⭐<tspan fill="#2a3760">⭐⭐</tspan></text>
-      </g>
-      <rect x="26" y="196" width="98" height="30" rx="9" fill="rgba(52,211,153,.15)" stroke="rgba(52,211,153,.4)"/>
-      <text x="75" y="215" text-anchor="middle" fill="#34D399" font-size="9.5" font-weight="700" font-family="sans-serif">✓ Approve task</text>
-      <rect x="26" y="234" width="98" height="30" rx="9" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
-      <text x="75" y="253" text-anchor="middle" fill="#A7B4D6" font-size="9.5" font-weight="600" font-family="sans-serif">Edit steps</text>
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <!-- iPad -->
-    <svg class="float-anim b" width="230" height="180" viewBox="0 0 230 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="iPad dashboard">
-      <rect x="4" y="4" width="222" height="172" rx="18" fill="#0C1430" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-      <rect x="12" y="12" width="206" height="156" rx="12" fill="#0a1228"/>
-      <text x="24" y="34" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">The Hansens</text>
-      <text x="200" y="34" text-anchor="end" font-size="13">☀️ 18°</text>
-      <circle cx="42" cy="74" r="20" fill="url(#g2)"/><text x="42" y="81" text-anchor="middle" font-size="18">🦊</text>
-      <circle cx="96" cy="74" r="20" fill="rgba(255,255,255,.07)"/><text x="96" y="81" text-anchor="middle" font-size="18">🐻</text>
-      <g transform="translate(135,60)">
-        <rect width="78" height="48" rx="11" fill="rgba(255,197,61,.10)" stroke="rgba(255,197,61,.3)"/>
-        <text x="39" y="20" text-anchor="middle" font-size="13">⭐⭐⭐⭐</text>
-        <text x="39" y="38" text-anchor="middle" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 stars</text>
-      </g>
-      <rect x="24" y="120" width="84" height="32" rx="9" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.35)"/>
-      <text x="66" y="140" text-anchor="middle" fill="#3B82F6" font-size="9" font-weight="700" font-family="sans-serif">Tap when done</text>
-      <rect x="118" y="120" width="92" height="32" rx="9" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/>
-      <text x="164" y="140" text-anchor="middle" fill="#A7B4D6" font-size="9" font-weight="600" font-family="sans-serif">🏆 Trophies</text>
-      <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-    </svg>
-  </div>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 720px at 10% -10%,rgba(168,85,247,.20),transparent 60%),radial-gradient(1000px 620px at 102% 2%,rgba(255,197,61,.09),transparent 55%),radial-gradient(960px 820px at 50% 120%,rgba(236,72,153,.14),transparent 60%)"></div>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <sc-for list="{{ floaties }}" as="fl" hint-placeholder-count="14">
+    <span style="position:absolute;left:{{ fl.l }}%;top:{{ fl.t }}%;font-size:{{ fl.s }}px;opacity:.12;animation:ofhDrift linear infinite;animation-duration:{{ fl.d }}s;animation-delay:{{ fl.dl }}s">{{ fl.g }}</span>
+  </sc-for>
 </div>
 
-<!-- CONCEPT -->
-<section class="block wrap" id="concept">
-  <div class="sec-head reveal">
-    <div class="sec-tag">The big idea</div>
-    <h2>A star economy the whole family understands</h2>
-    <p>Kids earn stars for things they do. Stars build toward a goal. Hit the goal and a trophy unlocks — plus a real-world reward you choose. Here's the loop.</p>
+<div style="position:relative;z-index:1">
+
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,10,31,.66);border-bottom:1px solid rgba(255,255,255,.10)">
+    <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:13px 24px">
+      <a href="index.html" style="display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;color:#F4EFFF">
+        <span style="width:34px;height:34px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(168,85,247,.45);flex-shrink:0"><img src="icon.png" alt="OurFamilyHub" style="width:100%;height:100%;object-fit:cover"></span>
+        OurFamilyHub
+      </a>
+      <nav style="margin-left:auto;display:flex;gap:4px;align-items:center">
+        <a href="guide.html" style="color:#F4EFFF;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.10)">Guide</a>
+        <a href="support.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Support</a>
+        <a href="privacy.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Privacy</a>
+        <a href="https://apps.apple.com/app/id6775283053" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-size:.86rem;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(255,158,120,.35);margin-left:6px;white-space:nowrap">Download</a>
+        <span style="display:inline-flex;border:1px solid rgba(255,255,255,.18);border-radius:999px;overflow:hidden;margin-left:8px">
+          <a href="guide.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#F4EFFF;background:rgba(255,255,255,.10)">EN</a>
+          <a href="guide.no.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#B6AED4">NO</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px">
+    <section style="text-align:center;padding:66px 0 40px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#FFE0A6;background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.28);padding:8px 15px;border-radius:999px;margin-bottom:22px">⭐ Family setup guide</span>
+      <h1 style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(2.3rem,5vw,3.7rem);line-height:1.04;letter-spacing:-1px;margin:0 auto 18px;max-width:800px">From download to a working family in <span style="background:linear-gradient(100deg,#FF8FB1,#FFC861);-webkit-background-clip:text;background-clip:text;color:transparent">under 10 minutes</span></h1>
+      <p style="font-size:clamp(1.02rem,1.7vw,1.22rem);color:#C2BAD9;max-width:620px;margin:0 auto 28px">OurFamilyHub rewards kids with stars for completing routines and tasks — and lets you run everything from your own iPhone. This guide takes you through the whole setup.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
+        <a href="#parent" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-weight:700;font-size:.96rem;padding:13px 22px;border-radius:14px;box-shadow:0 10px 28px rgba(255,158,120,.35)">Start setup →</a>
+        <a href="#concept" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#F1ECFF;font-weight:700;font-size:.96rem;padding:13px 22px;border-radius:14px">First: how does it work?</a>
+      </div>
+      <div style="color:#8E86AE;font-size:.88rem">No spreadsheets. No accounts for kids. Just one parent login.</div>
+    </section>
   </div>
 
-  <div class="flow reveal">
-    <div class="glass step">
-      <div class="n">1</div><h4>Kid taps</h4>
-      <p>On the iPad, your child taps a task they've finished in StarTap.</p>
-      <div class="arr">→</div>
+  <!-- KONSEPT -->
+  <section id="concept" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">The big idea</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">A star economy the whole family gets</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Kids earn stars for things they do. Stars build toward a goal. Reach the goal and a trophy unlocks — plus a real-world reward you choose.</p>
     </div>
-    <div class="glass step">
-      <div class="n">2</div><h4>You approve</h4>
-      <p>It lands in “Pending” on your iPhone. One tap to approve — or reject.</p>
-      <div class="arr">→</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <sc-for list="{{ flow }}" as="s" hint-placeholder-count="4">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px 20px;text-align:center">
+          <div style="width:42px;height:42px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem;color:#21122e;background:linear-gradient(135deg,#FF7EA5,#FFC861);box-shadow:0 8px 20px rgba(255,158,120,.35)">{{ s.n }}</div>
+          <h4 style="margin:0 0 7px;font-size:1.05rem;font-weight:700">{{ s.t }}</h4>
+          <p style="margin:0;font-size:.9rem;color:#B6AED4">{{ s.d }}</p>
+        </div>
+      </sc-for>
     </div>
-    <div class="glass step">
-      <div class="n">3</div><h4>Star counts</h4>
-      <p>Approved stars fill a board, grouped in fives, toward the goal.</p>
-      <div class="arr">→</div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">💡</span>
+      <div><h4 style="margin:0 0 4px;font-size:1.05rem">Why the approval step?</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">It keeps you in control and means kids can\'t "cheat" their way to stars. Rejected tasks show red with a friendly "Try again" and can be redone the same day.</p></div>
     </div>
-    <div class="glass step">
-      <div class="n">4</div><h4>Trophy unlocks</h4>
-      <p>Reach the goal → a trophy is earned, the board resets, the cycle begins again.</p>
+  </section>
+
+  <!-- TRE BYGGEKLOSSER -->
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Three building blocks</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Routines, tasks and cycles</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">They look alike but work differently. Once you know the difference, setup becomes obvious — and you only need a few of each.</p>
     </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="3">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+          <div style="width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;margin-bottom:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10)">{{ b.ic }}</div>
+          <h3 style="margin:0 0 4px;font-size:1.18rem;font-weight:700">{{ b.h }}</h3>
+          <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#8E86AE;margin-bottom:10px">{{ b.who }}</div>
+          <p style="color:#B6AED4;font-size:.93rem;margin:0 0 12px">{{ b.p }}</p>
+          <ul style="margin:0 0 12px;padding-left:18px;color:#B6AED4;font-size:.88rem">
+            <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
+              <li style="margin-bottom:5px">{{ it }}</li>
+            </sc-for>
+          </ul>
+          <span data-html="{{ b.chip }}"></span>
+        </div>
+      </sc-for>
+    </div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">🧭</span>
+      <div data-html="{{ ruleOfThumb }}"></div>
+    </div>
+  </section>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px"><div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)"></div></div>
+
+  <!-- FORELDREOPPSETT -->
+  <section id="parent" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Part 1 · On your iPhone</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Parent setup, step by step</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">You do all of this once, from your iPhone. Most families are done in well under ten minutes.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto">
+      <sc-for list="{{ setupSteps }}" as="st" hint-placeholder-count="5">
+        <div data-reveal="1" style="display:grid;grid-template-columns:84px 1fr;gap:22px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+          <div style="width:84px;height:84px;border-radius:20px;display:grid;place-items:center;font-size:38px;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.25)">{{ st.ic }}</div>
+          <div>
+            <h3 style="margin:0 0 8px;font-size:1.22rem;display:flex;align-items:center;gap:10px"><span style="flex:none;width:30px;height:30px;border-radius:9px;display:inline-grid;place-items:center;font-size:.95rem;font-weight:800;color:#21122e;background:linear-gradient(135deg,#FF7EA5,#FFC861)">{{ st.n }}</span>{{ st.h }}</h3>
+            <div data-html="{{ st.body }}" style="color:#B6AED4;font-size:.95rem"></div>
+            <sc-if value="{{ st.hasTip }}" hint-placeholder-val="{{ false }}">
+              <div data-html="{{ st.tip }}" style="font-size:.86rem;color:#FFE0A6;background:rgba(255,197,61,.08);border-left:3px solid #FFC861;padding:9px 13px;border-radius:0 8px 8px 0;margin-top:12px"></div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="parent-menu.png" alt="Parent admin menu" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">The parent hub — approvals, routines, tasks and profiles, behind a PIN.</div>
   </div>
 
-  <div class="callout glass reveal" style="margin-top:24px">
-    <span class="ic">💡</span>
-    <div>
-      <h4>Why the approval step?</h4>
-      <p>It keeps you in control and means kids can't “cheat” their way to stars. Rejected tasks show up red with a friendly “Try again” and can be redone the same day.</p>
+  <!-- RUTINER & OPPGAVER -->
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Part 1 · continued</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Add routines and tasks</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">This is where the day takes shape. Our advice: start from the default setup and adjust — don\'t build from scratch.</p>
     </div>
-  </div>
-</section>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
+        <div style="font-size:38px;margin-bottom:10px">📋</div>
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Categories and routines</h3>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Settings → Profiles and categories</div>
+        <div data-html="{{ catBody }}" style="color:#B6AED4;font-size:.93rem;margin-bottom:12px"></div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Categories are just labels for where a star came from</li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Edit steps any time; nothing is lost</li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Kids complete them in StarTap; you approve the star</li>
+        </ul>
+      </div>
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
+        <div style="font-size:38px;margin-bottom:10px">✅</div>
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Tasks</h3>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Admin → Manage tasks</div>
+        <p style="color:#B6AED4;font-size:.93rem;margin:0 0 12px">Single actions under a category. Choose a type and, if you like, limit it to specific weekdays.</p>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li data-html="{{ taskLi1 }}" style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"></li>
+          <li data-html="{{ taskLi2 }}" style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"></li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Weekday limits, e.g. "Pack school bag" on weekdays only</li>
+        </ul>
+      </div>
+    </div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">🌙</span>
+      <div><h4 style="margin:0 0 4px;font-size:1.05rem">What "resets overnight" means</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">At midnight, daily tasks and routine progress are cleared, so it\'s a clean slate every morning. Stars already earned stay on the board — only the to-do status resets.</p></div>
+    </div>
+  </section>
 
-<!-- ROUTINE vs TASK vs CYCLE -->
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Three building blocks</div>
-    <h2>Routines, Tasks &amp; Cycles</h2>
-    <p>They look similar, but each works differently. Knowing the difference makes setup obvious — and you'll only ever need a few of each.</p>
-  </div>
-  <div class="trio">
-    <div class="glass reveal">
-      <div class="ic" style="background:rgba(59,130,246,.15)">📋</div>
-      <h3>Routine</h3>
-      <div class="who">Kid-reported · ordered steps</div>
-      <p>An ordered set of small steps that belong together — “Get dressed → Brush teeth → Eat breakfast.”</p>
-      <ul>
-        <li>Sits at the top of the child&#39;s StarTap list</li>
-        <li>The child taps through every step, then claims one star</li>
-        <li>You approve it — all steps together = one star</li>
-      </ul>
-      <span class="chip app">Approval required</span>
-    </div>
-    <div class="glass reveal">
-      <div class="ic" style="background:rgba(255,197,61,.15)">✅</div>
-      <h3>Task</h3>
-      <div class="who">Kid-reported · independent</div>
-      <p>A single, standalone action — “Tidied my room.” The child decides when it's done.</p>
-      <ul>
-        <li>Kid taps it in StarTap themselves</li>
-        <li>Needs your approval before it counts</li>
-        <li><i>Recurring</i> (daily) or <i>one-off</i></li>
-      </ul>
-      <span class="chip app">Approval required</span>
-    </div>
-    <div class="glass reveal">
-      <div class="ic" style="background:rgba(52,211,153,.15)">🔄</div>
-      <h3>Cycle</h3>
-      <div class="who">Family-synced · together</div>
-      <p>A shared check-in ritual across categories — like the “Morning Round” the whole family does in step.</p>
-      <ul>
-        <li>Each kid checks in; progress is shared</li>
-        <li>Credited instantly, no approval</li>
-        <li>Ends with a soft reward you choose — bonus stars optional (default 0)</li>
-      </ul>
-      <span class="chip appv">Instant check-in</span>
-    </div>
-  </div>
-  <div class="callout glass reveal" style="margin-top:20px">
-    <span class="ic">🧭</span>
-    <div>
-      <h4>Rule of thumb</h4>
-      <p>Several ordered steps that earn one star → <b>Routine</b>. A single action the kid reports → <b>Task</b>. Something the whole family does together, in sync → <b>Cycle</b>.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<!-- PARENT SETUP -->
-<section class="block wrap" id="parent">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Part 1 · On your iPhone</div>
-    <h2>Parent setup, step by step</h2>
-    <p>You'll do all of this once, from your iPhone. Follow along — most families finish in well under ten minutes.</p>
+  <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="edit-steps.png" alt="Edit routine steps" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Edit the steps of a routine in Admin — the child taps through these in StarTap.</div>
   </div>
 
-  <div class="steps">
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="#000"/>
-          <path d="M62 50c0-7 5.5-10.5 5.7-10.6-3.1-4.6-8-5.2-9.7-5.3-4.1-.4-8.1 2.4-10.2 2.4-2.1 0-5.3-2.4-8.7-2.3-4.5.07-8.6 2.6-10.9 6.6-4.7 8.1-1.2 20 3.3 26.5 2.2 3.2 4.8 6.8 8.2 6.7 3.3-.13 4.5-2.1 8.5-2.1s5.1 2.1 8.6 2.1c3.6-.06 5.8-3.2 8-6.5 2.5-3.7 3.5-7.3 3.6-7.5-.08-.03-6.9-2.7-7-10.6Z" fill="#fff"/>
-          <path d="M55 28c1.8-2.2 3-5.3 2.7-8.4-2.6.11-5.8 1.7-7.7 3.9-1.7 1.9-3.2 5.1-2.8 8.1 2.9.23 5.9-1.5 7.8-3.6Z" fill="#fff"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">1</span> Sign in with Apple</h3>
-        <p>The only way to sign in — no password to remember, no email required. Apple gives the app a private identifier and nothing else unless you choose to share it.</p>
-        <div class="tip">⭐ Kids never sign in. They're profiles inside your family, picked from a list on the iPad.</div>
+  <!-- BARNEMODUS -->
+  <section id="child" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#FFE0A6;margin-bottom:12px">Part 2 · On the iPad</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">The kids dashboard</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">The iPad is a calm, always-on screen kids actually want to look at. No login and nothing to break — they just tap.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:center">
+      <div data-reveal="1" style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5)"><img src="app-stars.png" alt="The star board on iPad" loading="lazy" style="width:100%"></div>
+      <div data-reveal="1">
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px;margin-bottom:14px">
+          <h3 style="margin:0 0 8px;font-size:1.12rem">Three pages you swipe between</h3>
+          <div data-html="{{ threePages }}" style="color:#B6AED4;font-size:.93rem"></div>
+        </div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+          <h3 style="margin:0 0 8px;font-size:1.12rem">Tap when done</h3>
+          <div data-html="{{ tapDone }}" style="color:#B6AED4;font-size:.93rem"></div>
+        </div>
       </div>
     </div>
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.3)"/>
-          <text x="48" y="44" text-anchor="middle" font-size="34">🏡</text>
-          <rect x="22" y="58" width="52" height="11" rx="5.5" fill="rgba(255,255,255,.12)"/>
-          <rect x="22" y="58" width="34" height="11" rx="5.5" fill="#3B82F6"/>
-          <rect x="22" y="75" width="52" height="8" rx="4" fill="rgba(255,255,255,.08)"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">2</span> Name your family</h3>
-        <p>This shows at the top of the dashboard — “The Hansens,” “The Smiths,” whatever you like. You can change it later in Settings.</p>
-      </div>
+    <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
+      <span style="font-size:26px;flex:none">🔄</span>
+      <div data-html="{{ morningRound }}"></div>
     </div>
+  </section>
 
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(255,197,61,.10)" stroke="rgba(255,197,61,.28)"/>
-          <circle cx="48" cy="36" r="18" fill="url(#pg)"/><text x="48" y="43" text-anchor="middle" font-size="18">🦊</text>
-          <rect x="20" y="62" width="56" height="9" rx="4.5" fill="rgba(255,255,255,.1)"/>
-          <text x="48" y="84" text-anchor="middle" font-size="11">⭐ goal 15</text>
-          <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">3</span> Add your kids</h3>
-        <p>For each child: a name, an emoji avatar (or a photo), and two things that make the magic work — a <b>goal</b> (stars needed before a trophy, default 15) and a <b>reward</b> in your own words, like “Movie night with pizza.”</p>
-        <div class="tip">⭐ Each profile tracks its own stars and tasks independently — kids can't share one profile.</div>
-      </div>
-    </div>
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(248,113,113,.10)" stroke="rgba(248,113,113,.3)"/>
-          <rect x="32" y="40" width="32" height="26" rx="5" fill="none" stroke="#EAF0FF" stroke-width="3"/>
-          <path d="M37 40v-6a11 11 0 0 1 22 0v6" fill="none" stroke="#EAF0FF" stroke-width="3"/>
-          <circle cx="48" cy="52" r="3.5" fill="#FFC53D"/>
-          <text x="48" y="84" text-anchor="middle" font-size="11">PIN · Face ID</text>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">4</span> Set a parent PIN</h3>
-        <p>A 4-digit code locks parent mode so kids can't wander into settings from the iPad. Face ID / Touch ID is offered automatically as a faster unlock. A banner reminds you until this is done.</p>
-        <div class="tip">⚠️ Pick a code you'll remember and keep it somewhere safe — you change or remove it from <span class="kbd">Settings → Parent PIN</span> while signed in.</div>
-      </div>
-    </div>
-
-    <div class="glass stepcard reveal">
-      <div class="visual">
-        <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
-          <rect width="96" height="96" rx="20" fill="rgba(52,211,153,.10)" stroke="rgba(52,211,153,.3)"/>
-          <rect x="26" y="30" width="26" height="40" rx="5" fill="#0C1430" stroke="#EAF0FF" stroke-width="2.5"/>
-          <rect x="46" y="38" width="30" height="22" rx="4" fill="#0C1430" stroke="#34D399" stroke-width="2.5"/>
-          <path d="M40 50h8" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3><span class="stepnum">5</span> Connect the iPad</h3>
-        <p>Sign the iPad into the same Apple ID, or share your family with iOS Family Sharing. The iPad then runs the always-on dashboard for the kids — covered in Part 2 below.</p>
-        <div class="tip">⭐ Don't see your kids on the iPad? Make sure both devices use the same Apple ID and the app is installed on both.</div>
-      </div>
-    </div>
-
+  <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="approvals.png" alt="Approvals" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Pending approvals on iPhone — approve or reject each, or "Approve all".</div>
   </div>
-</section>
 
-<div class="wrap reveal" style="text-align:center;margin:4px auto 10px">
-  <img src="parent-menu.png" alt="Parent admin menu" loading="lazy" style="width:100%;max-width:300px;border-radius:28px;border:1px solid var(--stroke);box-shadow:0 18px 50px rgba(0,0,0,.45)">
-  <div style="color:var(--ink-faint);font-size:.85rem;margin-top:8px">The parent admin hub — approvals, routines, tasks and profiles, behind a PIN.</div>
+  <!-- KALENDER & VÆR -->
+  <section style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Nice extras</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Calendar and weather — zero setup</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">The Family page shows the shared calendar and local weather automatically. Nothing to configure inside the app.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+        <span style="font-size:26px;flex:none">📅</span>
+        <div><h4 style="margin:0 0 4px;font-size:1.05rem">Shared family calendar</h4><div data-html="{{ calBody }}" style="margin:0;color:#B6AED4;font-size:.93rem"></div></div>
+      </div>
+      <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
+        <span style="font-size:26px;flex:none">☀️</span>
+        <div><h4 style="margin:0 0 4px;font-size:1.05rem">Local weather</h4><p style="margin:0;color:#B6AED4;font-size:.93rem">Pulled from Apple Weather using your approximate location — we never see or store where you are. It updates on its own; nothing to switch on.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISER -->
+  <section id="plans" style="max-width:1080px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Free & Premium</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">What\'s included</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Start free with two kids. Upgrade when your family — or your ambitions — grow.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:0 auto">
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:24px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:28px">
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.35rem">Free</h3>
+        <div style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.9rem;margin:6px 0 18px">$0</div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Up to 2 child profiles</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Categories marked "Free" (the Morning routine is included)</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Stars, approvals, trophies — the entire core loop</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Calendar and weather on the dashboard</li>
+        </ul>
+      </div>
+      <div data-reveal="1" style="position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,197,61,.42);border-radius:24px;box-shadow:0 0 0 1px rgba(255,197,61,.18),0 22px 56px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:28px">
+        <span style="position:absolute;top:-13px;right:22px;background:linear-gradient(120deg,#FFC861,#FF9A3D);color:#3a2a00;font-size:.72rem;font-weight:800;padding:6px 13px;border-radius:999px">Most families</span>
+        <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.35rem">Premium</h3>
+        <div style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.9rem;margin:6px 0 18px">$4.99 <span style="font-size:.82rem;color:#8E86AE;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif">/mo · or $49.99 /yr</span></div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Every category unlocked</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Up to 4 profiles (extra slots +$1.99/mo)</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Full routines, tasks and cycles</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Everything in Free</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:#8E86AE;font-size:.84rem;margin:16px auto 0;max-width:780px;text-align:center">Hit a limit (like adding a 3rd profile on Free)? An unlock prompt appears automatically — that\'s expected, not a bug. All billing is handled by Apple and shown in your local currency; use "Restore purchases" if something looks off.</p>
+  </section>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px"><div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)"></div></div>
+
+  <!-- FAQ -->
+  <section id="faq" style="max-width:860px;margin:0 auto;padding:48px 24px">
+    <div data-reveal="1" style="margin:0 auto 24px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Help & troubleshooting</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Frequently asked questions</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Quick answers to what families ask most. Tap a question to expand it.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ faqs }}" as="qa" hint-placeholder-count="8">
+        <div data-qa="1" data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 14px 36px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden">
+          <button onClick="{{ toggle }}" style="width:100%;text-align:left;background:none;border:none;color:#F1ECFF;font-size:1rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:14px">
+            <span style="flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:15px;background:rgba(168,85,247,.18);border:1px solid rgba(168,85,247,.32)">{{ qa.ic }}</span>
+            <span style="flex:1">{{ qa.q }}</span>
+            <span data-plus="1" style="margin-left:auto;font-size:1.5rem;color:#FF9FBC;transition:transform .3s;flex:none;line-height:1">+</span>
+          </button>
+          <div data-ans="1" style="max-height:0;overflow:hidden;transition:max-height .35s ease">
+            <div data-html="{{ qa.a }}" style="padding:0 22px 20px 64px;color:#B6AED4;font-size:.95rem"></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- BUNN-CTA -->
+  <section data-reveal="1" style="max-width:920px;margin:24px auto 0;padding:0 24px">
+    <div style="text-align:center;border-radius:30px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(236,72,153,.12),rgba(255,197,61,.10));box-shadow:0 30px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.10);padding:52px 28px">
+      <div style="font-size:32px;margin-bottom:10px">🚀</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.5px;margin:0 0 12px">That\'s it — go set it up</h2>
+      <p style="color:#D5CEEA;font-size:1.05rem;margin:0 auto 24px;max-width:480px">Download free and get your family going in under ten minutes. Need help? <a href="support.html" style="color:#FFD08A;font-weight:600">Support is here</a>.</p>
+      <div style="display:flex;justify-content:center"><a href="https://apps.apple.com/app/id6775283053" style="filter:drop-shadow(0 10px 24px rgba(0,0,0,.5))"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="height:56px;width:auto"></a></div>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:48px 24px 60px;color:#7C749E;border-top:1px solid rgba(255,255,255,.08);margin-top:56px">
+    <div style="display:flex;align-items:center;gap:11px;justify-content:center;margin-bottom:16px">
+      <span style="width:30px;height:30px;border-radius:9px;overflow:hidden;display:inline-block;box-shadow:0 4px 14px rgba(168,85,247,.4)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover"></span>
+      <span style="font-weight:700;font-size:1.06rem;color:#F4EFFF">OurFamilyHub</span>
+    </div>
+    <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:18px">
+      <a href="index.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Home</a>
+      <a href="support.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Support</a>
+      <a href="privacy.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Privacy</a>
+      <a href="mailto:magbjurling@gmail.com" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Contact</a>
+    </div>
+    <p style="font-size:.82rem;margin:0">App Store ID 6775283053 · © 2026 Magnus Bjurling</p>
+  </footer>
+
 </div>
-
-<!-- ROUTINES & TASKS SETUP -->
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Part 1 · continued</div>
-    <h2>Add routines and tasks</h2>
-    <p>This is where the day takes shape. Our advice: start from the defaults and tweak — don't build from scratch.</p>
-  </div>
-
-  <div class="two">
-    <div class="glass device-card reveal">
-      <div style="font-size:40px;margin-bottom:8px">📋</div>
-      <h3>Categories &amp; routines</h3>
-      <div class="role">Settings → Profiles &amp; categories</div>
-      <p>Morning and Evening routines come pre-filled. Toggle them on/off and edit their <b>steps</b> — the checklist the child taps through in StarTap.</p>
-      <ul class="feat">
-        <li><span class="dot">★</span> Categories are just labels for where a star came from</li>
-        <li><span class="dot">★</span> Edit steps any time; no data is lost</li>
-        <li><span class="dot">★</span> Children complete them in StarTap; you approve the star</li>
-      </ul>
-    </div>
-    <div class="glass device-card reveal">
-      <div style="font-size:40px;margin-bottom:8px">✅</div>
-      <h3>Tasks</h3>
-      <div class="role">Admin → Manage tasks</div>
-      <p>Single actions under a category. Pick a type and, if you like, limit it to certain weekdays.</p>
-      <ul class="feat">
-        <li><span class="dot">★</span> <b>Recurring</b> — once per day per kid, resets overnight</li>
-        <li><span class="dot">★</span> <b>One-off</b> — stays until you delete it</li>
-        <li><span class="dot">★</span> Weekday limits, e.g. “Pack school bag” on weekdays only</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="callout glass reveal" style="margin-top:20px">
-    <span class="ic">🌙</span>
-    <div>
-      <h4>What “resets overnight” means</h4>
-      <p>At midnight, daily tasks and routine progress clear so the slate is fresh each morning. Stars already earned stay on the board — only the to-do state resets.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<div class="wrap reveal" style="text-align:center;margin:4px auto 10px">
-  <img src="edit-steps.png" alt="Editing routine steps" loading="lazy" style="width:100%;max-width:300px;border-radius:28px;border:1px solid var(--stroke);box-shadow:0 18px 50px rgba(0,0,0,.45)">
-  <div style="color:var(--ink-faint);font-size:.85rem;margin-top:8px">Editing a routine's steps in Admin — the child taps through these in StarTap.</div>
-</div>
-
-<!-- CHILD MODE -->
-<section class="block wrap" id="child">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Part 2 · On the iPad</div>
-    <h2>The kids' dashboard</h2>
-    <p>The iPad is a calm, always-on screen the kids actually want to look at. There's no login and nothing to break — they just tap.</p>
-  </div>
-
-  <div class="two">
-    <div class="glass device-card reveal">
-      <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
-        <rect x="3" y="3" width="194" height="144" rx="16" fill="#0a1228" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-        <text x="18" y="28" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Stars</text>
-        <circle cx="38" cy="62" r="20" fill="url(#cg)"/><text x="38" y="69" text-anchor="middle" font-size="18">🦊</text>
-        <text x="38" y="98" text-anchor="middle" fill="#EAF0FF" font-size="10" font-weight="700" font-family="sans-serif">Emma</text>
-        <g transform="translate(78,46)">
-          <text font-size="15">⭐⭐⭐⭐⭐</text>
-          <text y="22" font-size="15">⭐⭐⭐<tspan fill="#2a3760">⭐⭐</tspan></text>
-        </g>
-        <rect x="78" y="96" width="104" height="9" rx="4.5" fill="rgba(255,255,255,.1)"/>
-        <rect x="78" y="96" width="56" height="9" rx="4.5" fill="#FFC53D"/>
-        <text x="78" y="126" fill="#FFE08A" font-size="9" font-weight="700" font-family="sans-serif">8 / 15 to the next trophy 🏆</text>
-        <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1A56C4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-      </svg>
-      <h3>Three swipeable pages</h3>
-      <p>The dashboard pages between <b>Stars</b> (board + trophies), <b>Tasks</b> (StarTap), and <b>Family</b> (photos, weather, shared calendar). Nothing to configure — it just shows.</p>
-    </div>
-
-    <div class="glass device-card reveal">
-      <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
-        <rect x="3" y="3" width="194" height="144" rx="16" fill="#0a1228" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
-        <text x="18" y="26" fill="#EAF0FF" font-size="11" font-weight="800" font-family="sans-serif">Tasks · StarTap</text>
-        <g transform="translate(16,38)">
-          <rect width="80" height="44" rx="11" fill="rgba(59,130,246,.14)" stroke="rgba(59,130,246,.35)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🪥</text>
-          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Brush teeth</text>
-        </g>
-        <g transform="translate(104,38)">
-          <rect width="80" height="44" rx="11" fill="rgba(52,211,153,.16)" stroke="rgba(52,211,153,.4)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🛏️</text>
-          <text x="40" y="37" text-anchor="middle" fill="#34D399" font-size="8.5" font-weight="700" font-family="sans-serif">✓ Pending</text>
-        </g>
-        <g transform="translate(16,92)">
-          <rect width="80" height="44" rx="11" fill="rgba(248,113,113,.12)" stroke="rgba(248,113,113,.35)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🧸</text>
-          <text x="40" y="37" text-anchor="middle" fill="#F87171" font-size="8.5" font-weight="700" font-family="sans-serif">Try again</text>
-        </g>
-        <g transform="translate(104,92)">
-          <rect width="80" height="44" rx="11" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)"/>
-          <text x="40" y="22" text-anchor="middle" font-size="18">🥗</text>
-          <text x="40" y="37" text-anchor="middle" fill="#A7B4D6" font-size="8.5" font-family="sans-serif">Tap when done</text>
-        </g>
-      </svg>
-      <h3>Tap when done</h3>
-      <p>A kid picks their profile, taps a finished task, and it goes <b>pending</b> (green) for your approval. Rejected tasks turn red with “Try again” and can be retried the same day.</p>
-    </div>
-  </div>
-
-  <div class="callout glass reveal" style="margin-top:20px">
-    <span class="ic">🔄</span>
-    <div>
-      <h4>Optional: the Morning Round (a Cycle)</h4>
-      <p>Set up a shared morning check-in from <span class="kbd">Admin → Morning Round</span>. The kids check in as they wake, then move through your categories one step at a time — with a cheering dance scene, a sunrise, and a tap-to-open gift at the end. It finishes with a soft reward you choose (bonus stars optional, default 0). Great for school mornings.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<div class="wrap reveal" style="text-align:center;margin:4px auto 10px">
-  <img src="approvals.png" alt="Approvals screen" loading="lazy" style="width:100%;max-width:300px;border-radius:28px;border:1px solid var(--stroke);box-shadow:0 18px 50px rgba(0,0,0,.45)">
-  <div style="color:var(--ink-faint);font-size:.85rem;margin-top:8px">Pending approvals on iPhone — approve or reject each, or tap “Approve all”.</div>
-</div>
-
-<!-- CALENDAR & WEATHER -->
-<section class="block wrap">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Nice extras</div>
-    <h2>Calendar &amp; weather — zero setup</h2>
-    <p>The Family page shows your shared calendar and local weather automatically. Nothing to configure inside the app.</p>
-  </div>
-  <div class="two">
-    <div class="glass callout reveal">
-      <span class="ic">📅</span>
-      <div>
-        <h4>Shared family calendar</h4>
-        <p>Upcoming events read straight from the iPad's iOS Calendar. Just make sure a calendar named “Family” (or “Familie”) exists and the app has Calendar access in <span class="kbd">Settings → Privacy → Calendars</span>. Works with iCloud, Google or Outlook accounts added to iOS.</p>
-      </div>
-    </div>
-    <div class="glass callout reveal">
-      <span class="ic">☀️</span>
-      <div>
-        <h4>Local weather</h4>
-        <p>Pulled from Apple Weather using your approximate location — we never see or store where you are. It updates on its own; there's nothing to turn on.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLANS -->
-<section class="block wrap" id="plans">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Free &amp; Premium</div>
-    <h2>What's included</h2>
-    <p>Start free with two kids. Upgrade when your family — or your ambitions — grow.</p>
-  </div>
-  <div class="tiers">
-    <div class="glass tier reveal">
-      <h3>Free</h3>
-      <div class="price">$0</div>
-      <ul>
-        <li><span class="dot" style="color:var(--gold)">★</span> Up to 2 child profiles</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Categories marked “Free” (Morning routine included)</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Stars, approvals, trophies — the full core loop</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Calendar &amp; weather on the dashboard</li>
-      </ul>
-    </div>
-    <div class="glass tier pro reveal">
-      <span class="badge-pop">Most families</span>
-      <h3>Premium</h3>
-      <div class="price">$4.99<small> /mo · or $49.99 /yr</small></div>
-      <ul>
-        <li><span class="dot" style="color:var(--gold)">★</span> Every category unlocked</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Up to 4 profiles (extra slots +$1.99/mo)</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Full routines, tasks &amp; cycles</li>
-        <li><span class="dot" style="color:var(--gold)">★</span> Everything in Free</li>
-      </ul>
-    </div>
-  </div>
-  <p style="color:var(--ink-faint);font-size:.85rem;margin-top:14px">Hit a limit (like adding a 3rd profile on Free)? An unlock screen appears automatically — that's expected, not an error. After purchasing, features can take a few minutes to unlock; use “Restore purchases” if something looks off.</p>
-</section>
-
-<div class="section-divider wrap"></div>
-
-<!-- FAQ -->
-<section class="block wrap" id="faq">
-  <div class="sec-head reveal">
-    <div class="sec-tag">Help &amp; troubleshooting</div>
-    <h2>Common questions</h2>
-    <p>Quick answers to the things families ask most. Tap a question to expand it.</p>
-  </div>
-
-  <div class="faq">
-    <div class="glass qa reveal">
-      <button><span class="qi">👶</span> My child can't log in</button>
-      <div class="ans"><p>That's by design — children don't log in at all. They're profiles inside your family, chosen from a list on the iPad. Only parents sign in (with Apple).</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">⭐</span> A star disappeared</button>
-      <div class="ans"><p>The task was probably rejected — look for a red marker and “Try again.” Rejected and pending tasks don't count toward the total until you approve them.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">🏆</span> I hit the goal but got no trophy</button>
-      <div class="ans"><p>Trophies are awarded automatically the moment a child crosses their goal, and the star board resets for the next round. If a trophy doesn't appear right away, pull to refresh or reopen the app to load the latest count.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">✏️</span> How do I change a goal or reward?</button>
-      <div class="ans"><p>Go to <span class="kbd">Admin → Stars</span>, pick the child, and tap Edit. Update the goal number or the reward text any time.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">📱</span> I don't see my kids on the iPad</button>
-      <div class="ans"><p>Check that the iPad and iPhone are signed into the same Apple ID (or share via Family Sharing), and that the app is installed on both devices.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">🔢</span> How do I remove the parent PIN?</button>
-      <div class="ans"><p>Go to <span class="kbd">Settings → Parent PIN → Remove</span> and confirm. You'll need to be signed in as the parent to do this, so keep your code somewhere safe.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">📅</span> The calendar card is empty</button>
-      <div class="ans"><p>Make sure (a) a calendar named “Family” or “Familie” exists on the iPad, and (b) the app has Calendar access under <span class="kbd">Settings → Privacy → Calendars</span>. Google calendars only appear if the account is added in iOS Settings → Calendar.</p></div>
-    </div>
-    <div class="glass qa reveal">
-      <button><span class="qi">👥</span> Can two kids share one profile?</button>
-      <div class="ans"><p>No — each profile is individual and tracks its own stars and tasks. Give every child their own profile so progress stays separate.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- BOTTOM CTA -->
-<div class="cta-section reveal">
-  <h2>That's everything — go set it up</h2>
-  <p>Download free and have your family running in under ten minutes. Need a hand? <a href="support.html">Support is here</a>.</p>
-  <div class="appstore-wrap">
-    <a href="https://apps.apple.com/app/id6775283053" class="appstore-badge-img">
-      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-           alt="Download on the App Store">
-    </a>
-  </div>
-</div>
-
-<footer>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
-    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px var(--blue-glow)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
-    <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
-  </div>
-  <div class="footer-links">
-    <a href="guide.html">Setup Guide</a>
-    <a href="support.html">Support</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:magbjurling@gmail.com">Contact</a>
-  </div>
-  <div class="footer-lang"><a href="guide.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="guide.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></div>
-  <p style="font-size:.82rem;margin:0">App Store ID 6775283053 &middot; &copy; 2026 Magnus Bjurling</p>
-</footer>
-
-<script>
-// progress bar
-const prog=document.getElementById('progress');
-addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const p=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
-  prog.style.width=p+'%';
-});
-
-// reveal on scroll
-const io=new IntersectionObserver((es)=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// FAQ accordion
-document.querySelectorAll('.qa button').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const qa=b.parentElement;
-    const open=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
-    if(!open)qa.classList.add('open');
-  });
-});
-
-// floating background icons
-const icons=['⭐','🏆','📋','✅','🦊','🐻','🌙','☀️','🪥','🛏️','🥗','🧸','📅','🔄','🎯','💛'];
-const f=document.getElementById('floaties');
-for(let i=0;i<18;i++){
-  const s=document.createElement('span');
-  s.textContent=icons[i%icons.length];
-  s.style.left=Math.random()*100+'%';
-  s.style.top=Math.random()*100+'%';
-  s.style.fontSize=(18+Math.random()*26)+'px';
-  s.style.animationDuration=(9+Math.random()*10)+'s';
-  s.style.animationDelay=(-Math.random()*10)+'s';
-  f.appendChild(s);
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1080,&quot;height&quot;:820}}">
+class Component extends DCLogic {
+  componentDidMount(){
+    this.io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';this.io.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';this.io.observe(el);});
+    this._prog=()=>{const h=document.documentElement;const b=document.getElementById('ofh-prog');if(b)b.style.width=(h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100)+'%';};
+    window.addEventListener('scroll',this._prog,{passive:true});this._prog();
+    document.querySelectorAll('[data-html]').forEach(el=>{ el.innerHTML = el.getAttribute('data-html'); });
+  }
+  componentWillUnmount(){window.removeEventListener('scroll',this._prog);if(this.io)this.io.disconnect();}
+  toggle(e){
+    const card=e.currentTarget.closest('[data-qa]'); if(!card)return;
+    const ans=card.querySelector('[data-ans]'); const plus=card.querySelector('[data-plus]');
+    const isOpen=card.getAttribute('data-open')==='1';
+    document.querySelectorAll('[data-qa]').forEach(c=>{c.setAttribute('data-open','0');const a=c.querySelector('[data-ans]');if(a)a.style.maxHeight='0';const p=c.querySelector('[data-plus]');if(p)p.style.transform='none';});
+    if(!isOpen){card.setAttribute('data-open','1');ans.style.maxHeight=ans.scrollHeight+'px';if(plus)plus.style.transform='rotate(45deg)';}
+  }
+  renderVals(){
+    if(!this._floaties){const g=['⭐','✨','🌟','💫','🦊','🐻','🌙','🏆','🪥','🛏️','🥗','💛'];this._floaties=Array.from({length:14},(_,i)=>({g:g[i%g.length],l:Math.floor(Math.random()*94)+2,t:Math.floor(Math.random()*94)+2,s:15+Math.floor(Math.random()*20),d:11+Math.floor(Math.random()*12),dl:-Math.floor(Math.random()*12)}));}
+    const st='style="color:#F1ECFF;font-weight:700"';
+    const b='style="color:#F1ECFF;font-weight:700"';
+    const em='style="font-style:italic"';
+    const k='style="font-size:.84rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:2px 7px;color:#F1ECFF"';
+    const chipApp='display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(255,197,61,.12);color:#FFE0A6;border:1px solid rgba(255,197,61,.25)';
+    const chipV='display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(52,211,153,.12);color:#34D399;border:1px solid rgba(52,211,153,.3)';
+    const star='<span style="color:#FFC861;flex:none">★</span> ';
+    return {
+      floaties:this._floaties,
+      toggle:(e)=>this.toggle(e),
+      flow:[
+        {n:'1',t:'Kid taps',d:'On the iPad, the child taps a task they\'ve finished in StarTap.'},
+        {n:'2',t:'You approve',d:'It lands in "Pending" on your iPhone. One tap to approve — or reject.'},
+        {n:'3',t:'The star counts',d:'Approved stars fill a board, grouped in fives, toward the goal.'},
+        {n:'4',t:'Trophy unlocks',d:'Reach the goal → a trophy is earned, the board resets, and the cycle starts over.'}
+      ],
+      blocks:[
+        {ic:'📋',h:'Routine',who:'Kid-reported · ordered steps',p:'An ordered series of small steps that belong together — "Get dressed → Brush teeth → Eat breakfast".',items:['Sits at the top of the child\'s StarTap list','The child taps through each step, then claims one star','You approve it — all steps together = one star'],chip:'<span style="'+chipApp+'">Approval required</span>'},
+        {ic:'✅',h:'Task',who:'Kid-reported · standalone',p:'A single standalone action — "Tidied the room". The child decides when it\'s done.',items:['The child taps it themselves in StarTap','Requires your approval before it counts','Recurring (daily) or one-time'],chip:'<span style="'+chipApp+'">Approval required</span>'},
+        {ic:'🔄',h:'Cycle',who:'Family-synced · together',p:'A shared check-in ritual across categories — like the "Morning Round" the whole family does in sync.',items:['Each child checks in; progress is shared','Credited immediately, no approval','Ends with a soft reward you choose — bonus stars optional (default 0)'],chip:'<span style="'+chipV+'">Instant check-in</span>'}
+      ],
+      ruleOfThumb:'<h4 style="margin:0 0 4px;font-size:1.05rem">Rule of thumb</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Several ordered steps that give one star → <b '+b+'>Routine</b>. A single action the child reports → <b '+b+'>Task</b>. Something the whole family does together, in sync → <b '+b+'>Cycle</b>.</p>',
+      setupSteps:[
+        {n:'1',ic:'🍎',h:'Sign in with Apple',hasTip:true,body:'<p style="margin:0">The only way to sign in — no passwords to remember, no email required. Apple gives the app a private identifier and nothing else, unless you choose to share it.</p>',tip:'⭐ Kids never sign in. They are profiles inside your family, chosen from a list on the iPad.'},
+        {n:'2',ic:'🏡',h:'Name your family',hasTip:false,body:'<p style="margin:0">This shows at the top of the dashboard — "The Hansen Family", "The Berg Family", whatever you like. You can change it later in Settings.</p>'},
+        {n:'3',ic:'🦊',h:'Add your kids',hasTip:true,body:'<p style="margin:0">For each child: a name, an emoji avatar (or a photo), and two things that make the magic — a <b '+b+'>goal</b> (number of stars before a trophy, default 15) and a <b '+b+'>reward</b> in your own words, like "Movie night with pizza".</p>',tip:'⭐ Each profile tracks its own stars and tasks independently — kids can\'t share one profile.'},
+        {n:'4',ic:'🔒',h:'Set a parent PIN',hasTip:true,body:'<p style="margin:0">A 4-digit code locks parent mode so kids can\'t wander into settings from the iPad. Face ID / Touch ID is offered automatically as faster unlocking. A banner reminds you until it\'s done.</p>',tip:'⚠️ Choose a code you\'ll remember and keep it safe — you change or remove it from <span '+k+'>Settings → Parent PIN</span> while signed in.'},
+        {n:'5',ic:'📲',h:'Connect the iPad',hasTip:true,body:'<p style="margin:0">Sign the iPad in with the same Apple ID, or share your family with iOS Family Sharing. Then the iPad runs the always-on dashboard for the kids.</p>',tip:'⭐ Not seeing the kids on the iPad? Check that both devices use the same Apple ID and that the app is installed on both.'}
+      ],
+      catBody:'<p style="margin:0">Morning and evening routines are pre-filled. Toggle them on/off and edit the <b '+b+'>steps</b> — the checklist the child taps through in StarTap.</p>',
+      taskLi1:star+'<span><b '+b+'>Recurring</b> — once per day per child, resets overnight</span>',
+      taskLi2:star+'<span><b '+b+'>One-time</b> — stays until you delete it</span>',
+      threePages:'<p style="margin:0">The dashboard switches between <b '+b+'>Stars</b> (board + trophies), <b '+b+'>Tasks</b> (StarTap) and <b '+b+'>Family</b> (photos, weather, shared calendar). Nothing to configure — it just shows.</p>',
+      tapDone:'<p style="margin:0">A child selects their profile, taps a finished task, and it goes to <b '+b+'>pending</b> (green) for your approval. Rejected tasks turn red with "Try again" and can be retried the same day.</p>',
+      morningRound:'<h4 style="margin:0 0 4px;font-size:1.05rem">Optional: the Morning Round (a cycle)</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Set up a shared morning check-in from <span '+k+'>Admin → Morning Round</span>. Kids check in as they wake up and move through the categories one step at a time — with a cheering dance scene, a sunrise, and a gift box they tap at the end. It ends with a soft reward you choose (bonus stars optional, default 0). Perfect for school mornings.</p>',
+      calBody:'<p style="margin:0">Upcoming events are read straight from the iPad\'s iOS calendar. Just make sure there is a calendar named "Family" (or "Familie") and that the app has calendar access in <span '+k+'>Settings → Privacy → Calendars</span>. Works with iCloud, Google or Outlook accounts added in iOS.</p>',
+      faqs:[
+        {ic:'👶',q:'My child can\'t sign in',a:'That\'s by design — kids don\'t sign in at all. They are profiles inside your family, chosen from a list on the iPad. Only parents sign in (with Apple).'},
+        {ic:'⭐',q:'A star disappeared',a:'The task was probably rejected — look for a red mark and "Try again". Rejected and pending tasks don\'t count toward the total until you approve them.'},
+        {ic:'🏆',q:'I reached the goal but got no trophy',a:'Trophies are awarded automatically the moment a child passes their goal, and the star board resets for the next round. If a trophy doesn\'t appear right away, pull to refresh or reopen the app to load the latest status.'},
+        {ic:'✏️',q:'How do I change a goal or reward?',a:'Go to <span '+k+'>Admin → Stars</span>, select the child and tap Edit. Update the goal or reward text any time.'},
+        {ic:'📱',q:'I don\'t see the kids on the iPad',a:'Check that the iPad and iPhone are signed in with the same Apple ID (or share via Family Sharing), and that the app is installed on both devices.'},
+        {ic:'🔢',q:'How do I remove the parent PIN?',a:'Go to <span '+k+'>Settings → Parent PIN → Remove</span> and confirm. You must be signed in as a parent to do this, so keep the code safe.'},
+        {ic:'📅',q:'The calendar card is empty',a:'Make sure (a) a calendar named "Family" or "Familie" exists on the iPad, and (b) the app has calendar access under <span '+k+'>Settings → Privacy → Calendars</span>. Google calendars only appear if the account is added in iOS Settings → Calendar.'},
+        {ic:'👥',q:'Can two kids share one profile?',a:'No — each profile is individual and tracks its own stars and tasks. Give each child their own profile so progress stays separate.'}
+      ]
+    };
+  }
 }
 </script>
 </body>

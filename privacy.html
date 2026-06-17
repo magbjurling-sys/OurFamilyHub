@@ -1,182 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — OurFamilyHub</title>
-<meta name="description" content="OurFamilyHub privacy policy. We collect as little data as possible and never use it for advertising or tracking.">
-<style>
-:root{
-  --blue:#1A56C4;--blue-2:#3B82F6;--blue-glow:rgba(59,130,246,.35);
-  --gold:#FFC53D;--gold-soft:#FFE08A;
-  --bg-0:#070B1A;--bg-1:#0C1430;
-  --ink:#EAF0FF;--ink-dim:#A7B4D6;--ink-faint:#6F7DA6;
-  --card:rgba(255,255,255,.055);--card-2:rgba(255,255,255,.085);
-  --stroke:rgba(255,255,255,.12);--stroke-2:rgba(255,255,255,.20);
-  --green:#34D399;--radius:22px;--maxw:980px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:radial-gradient(1200px 700px at 15% -10%,rgba(59,130,246,.20),transparent 60%),radial-gradient(1000px 600px at 100% 0%,rgba(255,197,61,.10),transparent 55%),radial-gradient(900px 800px at 50% 120%,rgba(59,130,246,.12),transparent 60%),linear-gradient(180deg,var(--bg-0),var(--bg-1) 40%,var(--bg-0));background-attachment:fixed;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:var(--blue-2);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-.floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.floaties span{position:absolute;opacity:.08;animation:drift linear infinite}
-@keyframes drift{0%{transform:translateY(20px) rotate(0deg)}50%{transform:translateY(-30px) rotate(12deg)}100%{transform:translateY(20px) rotate(0deg)}}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(7,11,26,.62);border-bottom:1px solid var(--stroke)}
-.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:1.02rem;color:var(--ink);text-decoration:none}
-.brand .logo{width:32px;height:32px;border-radius:9px;overflow:hidden;box-shadow:0 6px 18px var(--blue-glow);flex-shrink:0}
-.brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--ink-dim);font-size:.86rem;font-weight:600;padding:7px 12px;border-radius:999px;transition:.2s}
-.nav-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-.nav-links a.active{color:var(--ink);background:var(--card-2)}
-.nav-dl{display:inline-flex;align-items:center;background:linear-gradient(140deg,var(--blue),var(--blue-2));color:#fff !important;font-size:.83rem;font-weight:700;padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px var(--blue-glow);transition:.2s}
-.nav-dl:hover{opacity:.88;text-decoration:none;transform:translateY(-1px)}
-.lang-switch{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden}
-.lang-switch a{padding:6px 11px;font-size:.76rem;font-weight:800;letter-spacing:.3px;color:var(--ink-dim);transition:.2s}
-.lang-switch a:hover{color:var(--ink);text-decoration:none}
-.lang-switch a.active{background:var(--card-2);color:var(--ink)}
-@media(max-width:720px){.nav-links{display:none}}
-.footer-lang{display:inline-flex;border:1px solid var(--stroke-2);border-radius:999px;overflow:hidden;margin-bottom:18px}
-.footer-lang a{padding:6px 12px;font-size:.78rem;font-weight:800;color:var(--ink-dim);transition:.2s}
-.footer-lang a:hover{color:var(--ink);text-decoration:none}
-.footer-lang a.active{background:var(--card-2);color:var(--ink)}
-.hero{position:relative;z-index:1;text-align:center;padding:60px 0 30px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold-soft);background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.25);padding:7px 14px;border-radius:999px;margin-bottom:22px}
-.hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:.2em 0 .3em;font-weight:800;letter-spacing:-1px}
-.hero p.lead{font-size:1.08rem;color:var(--ink-dim);max-width:520px;margin:0 auto}
-.doc{position:relative;z-index:1;padding:10px 0 40px}
-.legal{padding:34px 36px}
-@media(max-width:600px){.legal{padding:26px 22px}}
-.legal .meta{display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:8px;border-bottom:1px solid var(--stroke);color:var(--ink-faint);font-size:.86rem}
-.legal .meta .ic{font-size:24px}
-.legal h2{font-size:1.15rem;font-weight:750;margin:28px 0 6px;letter-spacing:-.2px}
-.legal p{color:var(--ink-dim);font-size:.96rem;margin:0 0 12px}
-.legal ul{color:var(--ink-dim);font-size:.96rem;margin:0 0 12px;padding-left:20px}
-.legal li{margin-bottom:6px}
-.legal strong{color:var(--ink)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-footer{position:relative;z-index:1;text-align:center;padding:50px 22px 60px;color:var(--ink-faint);border-top:1px solid var(--stroke);margin-top:20px}
-footer a{color:var(--ink-dim)}
-.footer-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.footer-links a{font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px;transition:.2s}
-.footer-links a:hover{color:var(--ink);background:var(--card);text-decoration:none}
-.glass{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
-#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--gold),var(--blue-2));box-shadow:0 0 12px var(--blue-glow)}
-</style>
-<script>
-(function(){try{if(localStorage.getItem('ofh_lang'))return;var l=(navigator.language||navigator.userLanguage||'').toLowerCase();if(l.indexOf('nb')===0||l.indexOf('nn')===0||l.indexOf('no')===0){location.replace('privacy.no.html');}}catch(e){}})();
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:#F1ECFF;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:#0B0A1F}
+a{text-decoration:none;color:inherit}
+img{display:block}
+@keyframes ofhDrift{0%{transform:translateY(8px) rotate(0deg)}50%{transform:translateY(-26px) rotate(12deg)}100%{transform:translateY(8px) rotate(0deg)}}
+</style>
+</helmet>
 
-<div id="progress"></div>
-<div class="floaties" id="floaties"></div>
+<div id="ofh-prog" style="position:fixed;top:0;left:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,#FF7EA5,#FFC861);box-shadow:0 0 14px rgba(255,158,120,.6)"></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <span class="logo"><img src="icon.png" alt="OurFamilyHub icon"></span>
-      OurFamilyHub
-    </a>
-    <nav class="nav-links">
-      <a href="guide.html">Guide</a>
-      <a href="support.html">Support</a>
-      <a href="privacy.html" class="active">Privacy</a>
-      <a href="https://apps.apple.com/app/id6775283053" class="nav-dl">Download</a>
-      <span class="lang-switch"><a href="privacy.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="privacy.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></span>
-    </nav>
-  </div>
-</header>
-
-<div class="hero wrap">
-  <span class="eyebrow">⭐ OurFamilyHub</span>
-  <h1>Privacy Policy</h1>
-  <p class="lead">We collect as little data as possible and never use it for advertising or tracking.</p>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 720px at 10% -10%,rgba(168,85,247,.20),transparent 60%),radial-gradient(1000px 620px at 102% 2%,rgba(255,197,61,.09),transparent 55%),radial-gradient(960px 820px at 50% 120%,rgba(236,72,153,.14),transparent 60%)"></div>
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <sc-for list="{{ floaties }}" as="fl" hint-placeholder-count="10">
+    <span style="position:absolute;left:{{ fl.l }}%;top:{{ fl.t }}%;font-size:{{ fl.s }}px;opacity:.12;animation:ofhDrift linear infinite;animation-duration:{{ fl.d }}s;animation-delay:{{ fl.dl }}s">{{ fl.g }}</span>
+  </sc-for>
 </div>
 
-<div class="doc wrap">
-  <div class="glass legal reveal">
-    <div class="meta"><span class="ic">🔒</span> <span>Last updated: June 2026 &middot; App Store ID 6775283053</span></div>
+<div style="position:relative;z-index:1">
 
-    <p>OurFamilyHub is designed to collect as little personal data as possible and to never use your data for advertising or tracking.</p>
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,10,31,.66);border-bottom:1px solid rgba(255,255,255,.10)">
+    <div style="max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:13px 24px">
+      <a href="index.html" style="display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.06rem;color:#F4EFFF">
+        <span style="width:34px;height:34px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(168,85,247,.45);flex-shrink:0"><img src="icon.png" alt="OurFamilyHub" style="width:100%;height:100%;object-fit:cover"></span>
+        OurFamilyHub
+      </a>
+      <nav style="margin-left:auto;display:flex;gap:4px;align-items:center">
+        <a href="guide.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Guide</a>
+        <a href="support.html" style="color:#B6AED4;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px">Support</a>
+        <a href="privacy.html" style="color:#F4EFFF;font-size:.88rem;font-weight:600;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.10)">Privacy</a>
+        <a href="https://apps.apple.com/app/id6775283053" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(120deg,#FF7EA5,#FFC861);color:#21122e;font-size:.86rem;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(255,158,120,.35);margin-left:6px;white-space:nowrap">Download</a>
+        <span style="display:inline-flex;border:1px solid rgba(255,255,255,.18);border-radius:999px;overflow:hidden;margin-left:8px">
+          <a href="privacy.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#F4EFFF;background:rgba(255,255,255,.10)">EN</a>
+          <a href="privacy.no.html" style="padding:7px 11px;font-size:.76rem;font-weight:800;letter-spacing:.4px;color:#B6AED4">NO</a>
+        </span>
+      </nav>
+    </div>
+  </header>
 
-    <h2>1. Who controls your data</h2>
-    <p>The data controller is the individual operator of OurFamilyHub. For any privacy question or request, contact <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a>.</p>
+  <div style="max-width:840px;margin:0 auto;padding:0 24px">
+    <section style="text-align:center;padding:64px 0 26px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#FFE0A6;background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.28);padding:8px 15px;border-radius:999px;margin-bottom:22px">🔒 OurFamilyHub</span>
+      <h1 style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:-.8px;margin:0 0 14px">Privacy Policy</h1>
+      <p style="font-size:1.1rem;color:#C2BAD9;max-width:520px;margin:0 auto">We collect as little data as possible — and never use it for advertising or tracking.</p>
+    </section>
 
-    <h2>2. Accounts and who signs in</h2>
-    <p>Only a parent or guardian creates an account, using <strong>Sign in with Apple</strong>. We receive a unique Apple user identifier and, if you choose to share it, your name and an email address (which may be a private Apple relay address).</p>
-    <p>Children do not sign in or have accounts. A child exists in OurFamilyHub only as a profile created and managed by the parent — a first name or nickname, an emoji or optional photo, and a reward text that the parent writes.</p>
-
-    <h2>3. What we collect and why</h2>
-    <ul>
-      <li><strong>Account data</strong> (Apple user ID, optional name/email) — to authenticate the parent and link the family's data to the account.</li>
-      <li><strong>Family content</strong> (profile names, emojis, star counts, categories, routine steps, reward text) — to provide the core features and sync them across devices in real time.</li>
-      <li><strong>Subscription status</strong> — to know whether premium features are active. Purchases are handled by Apple; we never see your payment card details.</li>
-      <li><strong>Calendar data</strong> (optional) — if you have added a calendar account to your device's iOS Settings, we read upcoming events directly on-device using Apple's EventKit framework. No calendar data is ever sent to our servers.</li>
-      <li><strong>Approximate location</strong> (optional) — used on-device by Apple's WeatherKit to show local weather. We do not store your location or location history.</li>
-      <li><strong>Profile photos</strong> (optional) — stored in Firebase Storage in the EU. You can delete them by removing the profile.</li>
-    </ul>
-
-    <h2>4. Children's privacy</h2>
-    <p>OurFamilyHub is intended for use by parents and guardians. We do not knowingly collect personal information directly from children. Information about a child is entered by the parent and is minimised by design — a first name or nickname is sufficient.</p>
-    <p>We comply with applicable children's privacy laws, including the EU GDPR and the U.S. Children's Online Privacy Protection Act (COPPA). A parent can edit or delete a child's profile at any time within the app.</p>
-
-    <h2>5. How your data is stored</h2>
-    <p>OurFamilyHub uses Google Firebase (Authentication, Cloud Firestore, Cloud Functions, and Cloud Storage) as its backend. Data is stored in Google Cloud data centres in the European Union (Finland). Access is restricted by security rules so that only the authenticated parents of a family can read or write that family's data.</p>
-
-    <h2>6. What we do not do</h2>
-    <ul>
-      <li>We do not display advertising.</li>
-      <li>We do not use third-party advertising or analytics tracking SDKs.</li>
-      <li>We do not sell or rent your personal data.</li>
-      <li>We do not build advertising profiles of you or your children.</li>
-    </ul>
-
-    <h2>7. Sharing</h2>
-    <p>We share data only with the service providers needed to run the app (Google Firebase as our hosting/backend processor, and Apple for authentication and subscription processing), and only as required to provide the service. We may disclose information if required by law.</p>
-
-    <h2>8. Data retention and deletion</h2>
-    <p>We keep your data for as long as your account is active. You can delete individual child profiles in the app at any time. To delete your entire account and all associated family data, email <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a>. We will erase your data within 30 days, except where retention is required by law.</p>
-
-    <h2>9. Your rights</h2>
-    <p>Depending on where you live, you may have the right to access, correct, export or delete your personal data, to object to or restrict certain processing, and to withdraw consent. Under the GDPR our legal bases are performance of a contract (providing the app) and your consent (e.g. for optional calendar and location features). To exercise any right, contact <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a>. You also have the right to complain to your local data protection authority.</p>
-
-    <h2>10. Changes to this policy</h2>
-    <p>We may update this policy from time to time. We will update the "Last updated" date above, and significant changes will be communicated in the app.</p>
-
-    <h2>11. Contact</h2>
-    <p>Questions? Email <a href="mailto:magbjurling@gmail.com">magbjurling@gmail.com</a>.</p>
+    <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:26px;box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:38px 40px;margin-bottom:40px">
+      <div style="display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.10);color:#8E86AE;font-size:.86rem">
+        <span style="font-size:24px">🔒</span><span>Last updated: June 2026 · App Store ID 6775283053</span>
+      </div>
+      <p style="color:#C2BAD9;font-size:.98rem;margin:0 0 14px">OurFamilyHub is built to collect as little personal data as possible, and to never use your data for advertising or tracking.</p>
+      <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="11">
+        <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.22rem;margin:26px 0 8px;letter-spacing:-.2px">{{ sec.h }}</h2>
+        <div data-html="{{ sec.body }}"></div>
+      </sc-for>
+    </div>
   </div>
+
+  <footer style="text-align:center;padding:48px 24px 60px;color:#7C749E;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="display:flex;align-items:center;gap:11px;justify-content:center;margin-bottom:16px">
+      <span style="width:30px;height:30px;border-radius:9px;overflow:hidden;display:inline-block;box-shadow:0 4px 14px rgba(168,85,247,.4)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover"></span>
+      <span style="font-weight:700;font-size:1.06rem;color:#F4EFFF">OurFamilyHub</span>
+    </div>
+    <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:18px">
+      <a href="index.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Home</a>
+      <a href="guide.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Setup Guide</a>
+      <a href="support.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Support</a>
+      <a href="mailto:magbjurling@gmail.com" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Contact</a>
+    </div>
+    <p style="font-size:.82rem;margin:0">© 2026 Magnus Bjurling</p>
+  </footer>
+
 </div>
-
-<footer>
-  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px">
-    <span style="width:28px;height:28px;border-radius:8px;overflow:hidden;display:inline-block;box-shadow:0 4px 12px var(--blue-glow)"><img src="icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
-    <span style="font-weight:800;font-size:1.02rem;color:var(--ink)">OurFamilyHub</span>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="guide.html">Setup Guide</a>
-    <a href="support.html">Support</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </div>
-  <div class="footer-lang"><a href="privacy.html" class="active" onclick="try{localStorage.setItem('ofh_lang','en')}catch(e){}">EN</a><a href="privacy.no.html" onclick="try{localStorage.setItem('ofh_lang','nb')}catch(e){}">NO</a></div>
-  <p style="font-size:.82rem;margin:0">&copy; 2026 Magnus Bjurling</p>
-</footer>
-
-<script>
-const prog=document.getElementById('progress');
-addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const icons=['⭐','🏆','📋','✅','🦊','🐻','🌙','☀️','🎯','💛','🌟','🎉'];
-const f=document.getElementById('floaties');
-for(let i=0;i<12;i++){const s=document.createElement('span');s.textContent=icons[i%icons.length];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(18+Math.random()*20)+'px';s.style.animationDuration=(9+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*10)+'s';f.appendChild(s)}
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:900,&quot;height&quot;:760}}">
+class Component extends DCLogic {
+  componentDidMount(){
+    this.io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';this.io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';this.io.observe(el);});
+    this._prog=()=>{const h=document.documentElement;const b=document.getElementById('ofh-prog');if(b)b.style.width=(h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100)+'%';};
+    window.addEventListener('scroll',this._prog,{passive:true});this._prog();
+    // render rich html sections
+    document.querySelectorAll('[data-html]').forEach(el=>{ el.innerHTML = el.getAttribute('data-html'); });
+  }
+  componentWillUnmount(){window.removeEventListener('scroll',this._prog);if(this.io)this.io.disconnect();}
+  renderVals(){
+    if(!this._floaties){const g=['⭐','✨','🌟','💫','⭐','🌙'];this._floaties=Array.from({length:10},(_,i)=>({g:g[i%g.length],l:Math.floor(Math.random()*94)+2,t:Math.floor(Math.random()*90)+2,s:15+Math.floor(Math.random()*18),d:11+Math.floor(Math.random()*12),dl:-Math.floor(Math.random()*12)}));}
+    const p='style="color:#C2BAD9;font-size:.98rem;margin:0 0 14px"';
+    const ul='style="color:#C2BAD9;font-size:.98rem;margin:0 0 14px;padding-left:20px"';
+    const li='style="margin-bottom:6px"';
+    const st='style="color:#F1ECFF;font-weight:700"';
+    const a='style="color:#FF9FBC;font-weight:600"';
+    const mail='<a href="mailto:magbjurling@gmail.com" '+a+'>magbjurling@gmail.com</a>';
+    return {
+      floaties:this._floaties,
+      sections:[
+        {h:'1. Who controls your data', body:'<p '+p+'>The data controller is the individual operator of OurFamilyHub. For any privacy questions or requests, contact '+mail+'.</p>'},
+        {h:'2. Accounts and who signs in', body:'<p '+p+'>Only a parent or guardian creates an account, with <strong '+st+'>Sign in with Apple</strong>. We receive a unique Apple user identifier and, if you choose to share it, your name and an email address (which may be a private Apple relay address).</p><p '+p+'>Children do not sign in and do not have accounts. A child exists in OurFamilyHub only as a profile created and managed by the parent — a first name or nickname, an emoji or an optional photo, and reward text the parent writes.</p>'},
+        {h:'3. What we collect and why', body:'<ul '+ul+'><li '+li+'><strong '+st+'>Account data</strong> (Apple user ID, optional name/email) — to authenticate the parent and link the family\'s data to the account.</li><li '+li+'><strong '+st+'>Family content</strong> (profile names, emojis, star counts, categories, routine steps, reward text) — to deliver the core features and sync them across devices in real time.</li><li '+li+'><strong '+st+'>Subscription status</strong> — to know whether premium features are active. Purchases are handled by Apple; we never see your card details.</li><li '+li+'><strong '+st+'>Calendar data</strong> (optional) — if you have added a calendar account in the device\'s iOS settings, we read upcoming events directly on the device using Apple\'s EventKit framework. No calendar data is ever sent to our servers.</li><li '+li+'><strong '+st+'>Approximate location</strong> (optional) — used on the device by Apple\'s WeatherKit to show local weather. We do not store your location or location history.</li><li '+li+'><strong '+st+'>Profile photos</strong> (optional) — stored in Firebase Storage in the EU. You can delete them by removing the profile.</li></ul>'},
+        {h:'4. Children\'s privacy', body:'<p '+p+'>OurFamilyHub is intended for use by parents and guardians. We do not knowingly collect personal data directly from children. Information about a child is entered by the parent and is minimized by design — a first name or nickname is enough.</p><p '+p+'>We comply with applicable children\u2019s privacy laws, including the EU GDPR and the US Children\u2019s Online Privacy Protection Act (COPPA). A parent can edit or delete a child\u2019s profile at any time in the app.</p>'},
+        {h:'5. How your data is stored', body:'<p '+p+'>OurFamilyHub uses Google Firebase (Authentication, Cloud Firestore, Cloud Functions and Cloud Storage) as its backend. Data is stored in Google Cloud data centers in the European Union (Finland). Access is restricted by security rules so that only the authenticated parents in a family can read or write that family\'s data.</p>'},
+        {h:'6. What we don\'t do', body:'<ul '+ul+'><li '+li+'>We do not show ads.</li><li '+li+'>We do not use third-party advertising or analytics tracking SDKs.</li><li '+li+'>We do not sell or rent your personal data.</li><li '+li+'>We do not build advertising profiles of you or your children.</li></ul>'},
+        {h:'7. Sharing', body:'<p '+p+'>We only share data with the service providers needed to run the app (Google Firebase as our hosting/backend processor, and Apple for authentication and subscription handling), and only to the extent necessary to deliver the service. We may disclose information if required by law.</p>'},
+        {h:'8. Data retention and deletion', body:'<p '+p+'>We keep your data as long as your account is active. You can delete individual child profiles in the app at any time. To delete your entire account and all associated family data, email '+mail+'. We delete your data within 30 days unless retention is required by law.</p>'},
+        {h:'9. Your rights', body:'<p '+p+'>Depending on where you live, you may have the right to access, correct, export or delete your personal data, to object to or restrict certain processing, and to withdraw consent. Under the GDPR, our legal bases are performance of a contract (providing the app) and your consent (e.g. for the optional calendar and location features). To exercise a right, contact '+mail+'. You also have the right to lodge a complaint with your local data protection authority.</p>'},
+        {h:'10. Changes to this policy', body:'<p '+p+'>We may update this policy from time to time. We will update the "Last updated" date at the top, and material changes will be communicated in the app.</p>'},
+        {h:'11. Contact', body:'<p '+p+'>Questions? Email '+mail+'.</p>'}
+      ]
+    };
+  }
+}
 </script>
 </body>
 </html>
