@@ -86,25 +86,25 @@ img{display:block}
   <section id="releases" style="max-width:1080px;margin:0 auto;padding:48px 24px">
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Release notes</div>
-      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">What just shipped</h2>
-      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Newest first. Each update rolls out through the App Store — keep automatic updates on and your family gets the latest by itself.</p>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">What's new in OurFamilyHub</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Here's the overview of everything released in the app. We update this page every time a new version is out on the App Store.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px;max-width:820px;margin:0 auto">
-      <sc-for list="{{ releases }}" as="r" hint-placeholder-count="4">
-        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px 26px">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px">
+      <sc-for list="{{ releases }}" as="r" hint-placeholder-count="2">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
             <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:.92rem;color:#21122e;background:linear-gradient(135deg,#FF7EA5,#FFC861);padding:5px 12px;border-radius:999px;box-shadow:0 8px 20px rgba(255,158,120,.3)">v{{ r.v }}</span>
             <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.22rem">{{ r.title }}</h3>
             <span style="margin-left:auto;color:#8E86AE;font-size:.85rem;font-weight:600">{{ r.date }}</span>
           </div>
+          <p style="margin:0 0 6px;color:#C2BAD9;font-size:.97rem">{{ r.lead }}</p>
+          <div style="font-size:.74rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#8E86AE;margin:16px 0 4px">{{ r.intro }}</div>
           <ul style="list-style:none;padding:0;margin:0">
-            <sc-for list="{{ r.items }}" as="it" hint-placeholder-count="3">
-              <li style="display:flex;gap:6px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.93rem;color:#C2BAD9">
-                <span data-html="{{ it.chip }}" style="flex:none"></span>
-                <span>{{ it.text }}</span>
-              </li>
+            <sc-for list="{{ r.features }}" as="f" hint-placeholder-count="6">
+              <li style="display:flex;gap:10px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.93rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span><span><b style="color:#F1ECFF;font-weight:700">{{ f.n }}</b> — {{ f.d }}</span></li>
             </sc-for>
           </ul>
+          <p style="margin:16px 0 0;color:#B6AED4;font-size:.92rem;font-style:italic">{{ r.note }}</p>
         </div>
       </sc-for>
     </div>
@@ -196,31 +196,32 @@ class Component extends DCLogic {
   renderVals(){
     if(!this._floaties){const g=['⭐','✨','🌟','💫','🦊','🐻','🌙','🏆','🪥','🛏️','🥗','💛'];this._floaties=Array.from({length:14},(_,i)=>({g:g[i%g.length],l:Math.floor(Math.random()*94)+2,t:Math.floor(Math.random()*94)+2,s:15+Math.floor(Math.random()*20),d:11+Math.floor(Math.random()*12),dl:-Math.floor(Math.random()*12)}));}
     // ---- Edit release notes and roadmap here ----
-    const C={n:{bg:'rgba(52,211,153,.12)',fg:'#34D399',bd:'rgba(52,211,153,.3)',label:'New'},i:{bg:'rgba(127,176,255,.12)',fg:'#7FB0FF',bd:'rgba(127,176,255,.3)',label:'Improved'},f:{bg:'rgba(255,197,61,.12)',fg:'#FFE0A6',bd:'rgba(255,197,61,.28)',label:'Fixed'}};
-    const chip=(t)=>{const c=C[t];return '<span style="display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:'+c.bg+';color:'+c.fg+';border:1px solid '+c.bd+'">'+c.label+'</span>';};
-    const rel=(v,date,title,items)=>({v,date,title,items:items.map(([t,text])=>({chip:chip(t),text}))});
     return {
       floaties:this._floaties,
       releases:[
-        rel('1.1','June 16, 2026','Morning Round',[
-          ['n','Morning Round — the family\'s shared morning ritual: kids check in when they wake up, get cheered on while getting dressed, and are met with a sunrise and a surprise reward once everyone is ready.'],
-          ['n','Confetti when stars are approved, and a big reward celebration at the end of the morning round.'],
-          ['n','You can now delete your account directly in the app.'],
-          ['i','Routines and tasks are tidied up — kids request stars and you approve them, now with a handy Approve All button.'],
-          ['i','A nicer, more content-rich layout on both iPhone and iPad.'],
-          ['i','Strengthened privacy and security behind the scenes.']
-        ]),
-        rel('1.0','June 15, 2026','OurFamilyHub launches 🎉',[
-          ['n','Star economy with stars, approvals and trophies.'],
-          ['n','Sign in with Apple, parent PIN / Face ID, and child profiles with no login.'],
-          ['n','Shared family calendar and local weather on the dashboard.'],
-          ['n','Fully available in English and Norwegian.']
-        ])
+        {
+          v:'1.0', date:'June 2026', title:'The very first version 🎉',
+          lead:'The very first version of OurFamilyHub is here! We\'ve gathered everything a family needs to make everyday routines visible, playful and rewarding — all in one place.',
+          intro:'Here from day one',
+          features:[
+            {n:'Star boards', d:'Each child has their own personal star board on the iPad. Stars fill in groups of 5, step by step toward a trophy, so progress is always visible.'},
+            {n:'Trophy shelf', d:'Every completed star board earns a trophy on the shelf. The shelf grows over time, so kids watch their own effort build up.'},
+            {n:'Step-by-step routines', d:'Run morning and evening routines together with your child, one step at a time, with "Do it together now".'},
+            {n:'Morning Round', d:'Our family-synced check-in ritual. Kids check in through the day\'s categories one after another, and once everyone is in, bonus stars are handed out automatically. Morning chaos becomes teamwork.'},
+            {n:'Tasks with approval', d:'Kids report finished tasks themselves, and you approve or reject with one tap from your iPhone. You get a notification when kids are done.'},
+            {n:'Family calendar', d:'The family\'s shared calendar appears right on the dashboard, pulled straight from the iOS Calendar.'},
+            {n:'Family photos', d:'A slideshow of family photos on the dashboard, from the "familyhub" album in Photos.'},
+            {n:'Weather widget', d:'A little help with picking clothes in the morning.'},
+            {n:'Six languages', d:'Norwegian, English, German, Spanish, Hindi and Chinese (Simplified).'},
+            {n:'Safe for kids', d:'Sign in with Apple for parents. No passwords and no accounts for the kids.'}
+          ],
+          note:'iPhone is the parents\' control panel, and the iPad is the kids\' always-on family dashboard. No login for kids, no distractions.'
+        }
       ],
       roadmap:[
-        {h:'Considering',ic:'🗒️',color:'#C79BFF',items:['Web and Android version','Weekly recap by email','Custom reward images','More languages']},
+        {h:'Considering',ic:'🗒️',color:'#C79BFF',items:['Web and Android version','Weekly recap by email','Custom reward images','More categories and themes']},
         {h:'In progress',ic:'🛠️',color:'#7FB0FF',items:['Push alert when something needs approval','Recurring weekly tasks','Lock-screen widget']},
-        {h:'Just shipped',ic:'✅',color:'#34D399',items:['Morning Round','Approve All button','Delete account in app','Confetti & reward celebration']}
+        {h:'Just shipped',ic:'✅',color:'#34D399',items:['Star boards & trophy shelf','Morning Round','Tasks with approval','Six languages']}
       ]
     };
   }

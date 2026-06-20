@@ -86,25 +86,25 @@ img{display:block}
   <section id="releases" style="max-width:1080px;margin:0 auto;padding:48px 24px">
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Release notes</div>
-      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Hva som nettopp er lansert</h2>
-      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Nyeste øverst. Hver oppdatering ruller ut via App Store — pass på at automatiske oppdateringer er på, så får familien det siste av seg selv.</p>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Hva er nytt i OurFamilyHub</h2>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Her finner du oversikten over hva som er sluppet i appen. Vi oppdaterer siden hver gang en ny versjon er ute på App Store.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px;max-width:820px;margin:0 auto">
-      <sc-for list="{{ releases }}" as="r" hint-placeholder-count="4">
-        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px 26px">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px">
+      <sc-for list="{{ releases }}" as="r" hint-placeholder-count="2">
+        <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 28px">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
             <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:.92rem;color:#21122e;background:linear-gradient(135deg,#FF7EA5,#FFC861);padding:5px 12px;border-radius:999px;box-shadow:0 8px 20px rgba(255,158,120,.3)">v{{ r.v }}</span>
             <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.22rem">{{ r.title }}</h3>
             <span style="margin-left:auto;color:#8E86AE;font-size:.85rem;font-weight:600">{{ r.date }}</span>
           </div>
+          <p style="margin:0 0 6px;color:#C2BAD9;font-size:.97rem">{{ r.lead }}</p>
+          <div style="font-size:.74rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#8E86AE;margin:16px 0 4px">{{ r.intro }}</div>
           <ul style="list-style:none;padding:0;margin:0">
-            <sc-for list="{{ r.items }}" as="it" hint-placeholder-count="3">
-              <li style="display:flex;gap:6px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.93rem;color:#C2BAD9">
-                <span data-html="{{ it.chip }}" style="flex:none"></span>
-                <span>{{ it.text }}</span>
-              </li>
+            <sc-for list="{{ r.features }}" as="f" hint-placeholder-count="6">
+              <li style="display:flex;gap:10px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.93rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span><span><b style="color:#F1ECFF;font-weight:700">{{ f.n }}</b> — {{ f.d }}</span></li>
             </sc-for>
           </ul>
+          <p style="margin:16px 0 0;color:#B6AED4;font-size:.92rem;font-style:italic">{{ r.note }}</p>
         </div>
       </sc-for>
     </div>
@@ -196,31 +196,32 @@ class Component extends DCLogic {
   renderVals(){
     if(!this._floaties){const g=['⭐','✨','🌟','💫','🦊','🐻','🌙','🏆','🪥','🛏️','🥗','💛'];this._floaties=Array.from({length:14},(_,i)=>({g:g[i%g.length],l:Math.floor(Math.random()*94)+2,t:Math.floor(Math.random()*94)+2,s:15+Math.floor(Math.random()*20),d:11+Math.floor(Math.random()*12),dl:-Math.floor(Math.random()*12)}));}
     // ---- Endre release notes og roadmap her ----
-    const C={n:{bg:'rgba(52,211,153,.12)',fg:'#34D399',bd:'rgba(52,211,153,.3)',label:'Nytt'},i:{bg:'rgba(127,176,255,.12)',fg:'#7FB0FF',bd:'rgba(127,176,255,.3)',label:'Forbedret'},f:{bg:'rgba(255,197,61,.12)',fg:'#FFE0A6',bd:'rgba(255,197,61,.28)',label:'Fikset'}};
-    const chip=(t)=>{const c=C[t];return '<span style="display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:'+c.bg+';color:'+c.fg+';border:1px solid '+c.bd+'">'+c.label+'</span>';};
-    const rel=(v,date,title,items)=>({v,date,title,items:items.map(([t,text])=>({chip:chip(t),text}))});
     return {
       floaties:this._floaties,
       releases:[
-        rel('1.1','16. juni 2026','Morgenrunden',[
-          ['n','Morgenrunden — familiens felles morgenritual: barna sjekker inn når de våkner, heies frem mens de kler på seg, og møtes av en soloppgang og en overraskelsesbelønning når alle er klare.'],
-          ['n','Konfetti når stjerner godkjennes, og en stor belønningsfeiring på slutten av morgenrunden.'],
-          ['n','Du kan nå slette kontoen din direkte i appen.'],
-          ['i','Rutiner og oppgaver er ryddet opp — barna ber om stjerner og du godkjenner, nå med en praktisk «Godkjenn alle»-knapp.'],
-          ['i','Et penere og mer innholdsrikt oppsett på både iPhone og iPad.'],
-          ['i','Styrket personvern og sikkerhet bak kulissene.']
-        ]),
-        rel('1.0','15. juni 2026','OurFamilyHub er lansert 🎉',[
-          ['n','Stjerneøkonomi med stjerner, godkjenninger og trofeer.'],
-          ['n','Logg inn med Apple, foreldre-PIN/Face ID, og barneprofiler uten innlogging.'],
-          ['n','Delt familiekalender og lokalt vær på dashbordet.'],
-          ['n','Fullstendig på norsk og engelsk.']
-        ])
+        {
+          v:'1.0', date:'Juni 2026', title:'Den aller første versjonen 🎉',
+          lead:'Den aller første versjonen av OurFamilyHub er her! Vi har samlet alt familien trenger for å gjøre hverdagsrutinene synlige, lekne og belønnende — på ett sted.',
+          intro:'Dette er med fra start',
+          features:[
+            {n:'Stjernetavler', d:'Hvert barn har sin egen personlige stjernetavle på iPaden. Stjernene fylles i grupper på 5, steg for steg mot et trofé, slik at fremgangen alltid er synlig.'},
+            {n:'Trofé-hylle', d:'Hvert fullført stjernebrett gir et trofé på hyllen. Hyllen vokser over tid, så barna ser sin egen innsats bygge seg opp.'},
+            {n:'Rutiner steg for steg', d:'Kjør morgen- og kveldsrutiner sammen med barnet, ett steg om gangen, med «Gjør det sammen nå».'},
+            {n:'Morgenrunden', d:'Vårt familiesynkroniserte sjekk-inn-ritual. Barna sjekker inn gjennom dagens kategorier i tur og orden, og når alle er med, deles bonusstjerner ut automatisk. Morgenkaos blir til lagspill.'},
+            {n:'Oppgaver med godkjenning', d:'Barna rapporterer fullførte oppgaver selv, og du godkjenner eller avviser med ett trykk fra iPhone. Du får varsel når barna er ferdige.'},
+            {n:'Familiekalender', d:'Familiens delte kalender vises rett på dashboardet, hentet direkte fra iOS Kalender.'},
+            {n:'Familiefoto', d:'Lysbildefremvisning av familiebildene på dashboardet, fra «familyhub»-albumet i Bilder.'},
+            {n:'Vær-widget', d:'Litt hjelp til klesvalget om morgenen.'},
+            {n:'Seks språk', d:'Norsk, engelsk, tysk, spansk, hindi og kinesisk (forenklet).'},
+            {n:'Trygt for barna', d:'Sign in with Apple for foreldre. Ingen passord og ingen kontoer for barna.'}
+          ],
+          note:'iPhone er foreldrenes kontrollpanel, og iPaden er barnas alltid-på familiedashboard. Ingen innlogging for barna, ingen distraksjoner.'
+        }
       ],
       roadmap:[
-        {h:'Vurderes',ic:'🗒️',color:'#C79BFF',items:['Web- og Android-versjon','Ukentlig oppsummering på e-post','Egendefinerte belønningsbilder','Flere språk']},
+        {h:'Vurderes',ic:'🗒️',color:'#C79BFF',items:['Web- og Android-versjon','Ukentlig oppsummering på e-post','Egendefinerte belønningsbilder','Flere kategorier og temaer']},
         {h:'Under arbeid',ic:'🛠️',color:'#7FB0FF',items:['Push-varsel når noe venter på godkjenning','Tilbakevendende ukeoppgaver','Widget for låseskjerm']},
-        {h:'Nettopp lansert',ic:'✅',color:'#34D399',items:['Morgenrunden','«Godkjenn alle»-knapp','Slett konto i appen','Konfetti og belønningsfeiring']}
+        {h:'Nettopp lansert',ic:'✅',color:'#34D399',items:['Stjernetavler og trofé-hylle','Morgenrunden','Oppgaver med godkjenning','Seks språk']}
       ]
     };
   }
