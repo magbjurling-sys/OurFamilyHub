@@ -1,0 +1,15 @@
+{
+  "name": "ourfamilyhub-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OurFamilyHub marketing site + vendored dc-runtime bundle (support.js)",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3",
+    "vitest": "^2.1.9"
+  }
+}
