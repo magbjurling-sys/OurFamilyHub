@@ -202,33 +202,25 @@ class Component extends DCLogic {
     return {
       floaties:this._floaties,
       releases:[
-        rel('1.3','June 2026','Morning Round joy',[
-          ['n','The Morning Round gained a new dance scene and a gift box kids tap at the end.'],
-          ['n','Choose bonus stars for finishing the Morning Round (default 0).'],
-          ['i','Faster loading of the star board on iPad.'],
-          ['f','A trophy sometimes did not appear immediately when the goal was reached.']
+        rel('1.1','June 16, 2026','Morning Round',[
+          ['n','Morning Round — the family\'s shared morning ritual: kids check in when they wake up, get cheered on while getting dressed, and are met with a sunrise and a surprise reward once everyone is ready.'],
+          ['n','Confetti when stars are approved, and a big reward celebration at the end of the morning round.'],
+          ['n','You can now delete your account directly in the app.'],
+          ['i','Routines and tasks are tidied up — kids request stars and you approve them, now with a handy Approve All button.'],
+          ['i','A nicer, more content-rich layout on both iPhone and iPad.'],
+          ['i','Strengthened privacy and security behind the scenes.']
         ]),
-        rel('1.2','May 2026','Calendar & weather',[
-          ['n','Shared family calendar reads straight from the iOS "Family" calendar.'],
-          ['n','Local weather on the Family page — with zero setup.'],
-          ['i','"Approve all" for pending tasks on iPhone.'],
-          ['f','Rejected tasks could rarely stay stuck in red.']
-        ]),
-        rel('1.1','April 2026','More profiles & categories',[
-          ['n','Premium: up to 4 child profiles and every category unlocked.'],
-          ['i','Edit routine steps without losing progress.'],
-          ['f','The star count could display incorrectly right after a trophy.']
-        ]),
-        rel('1.0','March 2026','OurFamilyHub is live 🎉',[
+        rel('1.0','June 15, 2026','OurFamilyHub launches 🎉',[
           ['n','Star economy with stars, approvals and trophies.'],
           ['n','Sign in with Apple, parent PIN / Face ID, and child profiles with no login.'],
+          ['n','Shared family calendar and local weather on the dashboard.'],
           ['n','Fully available in English and Norwegian.']
         ])
       ],
       roadmap:[
         {h:'Considering',ic:'🗒️',color:'#C79BFF',items:['Web and Android version','Weekly recap by email','Custom reward images','More languages']},
         {h:'In progress',ic:'🛠️',color:'#7FB0FF',items:['Push alert when something needs approval','Recurring weekly tasks','Lock-screen widget']},
-        {h:'Just shipped',ic:'✅',color:'#34D399',items:['Shared family calendar','Local weather','Morning Round cycle','Up to 4 profiles']}
+        {h:'Just shipped',ic:'✅',color:'#34D399',items:['Morning Round','Approve All button','Delete account in app','Confetti & reward celebration']}
       ]
     };
   }
