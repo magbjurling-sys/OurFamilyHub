@@ -297,7 +297,7 @@ img{display:block}
     <div data-reveal="1" style="max-width:680px;margin:0 auto 38px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">See it in action</div>
       <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.5px;margin:0 0 12px">A peek inside OurFamilyHub</h2>
-      <p style="color:#B6AED4;font-size:1.06rem;margin:0">Real screens from the app — the calm dashboard kids watch, the tasks they tap, and the trophy moment they're chasing.</p>
+      <p style="color:#B6AED4;font-size:1.06rem;margin:0">Real screens from the app — the rewards you set up, cash out, parent admin and the board kids watch.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <sc-for list="{{ shots }}" as="shot" hint-placeholder-count="6">
@@ -491,12 +491,12 @@ class Component extends DCLogic {
         'Shared Morning Round check-in'
       ],
       shots: [
-        { img: 'app-stars.png', t: 'The star board', d: 'Each child\'s stars, goal and reward.' },
-        { img: 'app-tasks.png', t: 'StarTap', d: 'Kids tap a finished task; it waits for your OK.' },
-        { img: 'app-trophy.png', t: 'Trophy time', d: 'Reach the goal and the reward unlocks.' },
-        { img: 'mr-dance.jpg', t: 'Morning Round', d: 'Dance through getting dressed — the whole family checks in.' },
-        { img: 'mr-reward.jpg', t: 'A soft reward', d: 'Finish the round and the reward you chose appears.' },
-        { img: 'parent-menu.png', t: 'Parent admin', d: 'Approve, edit and manage profiles from your iPhone.' }
+        { img: 'nettside-bilder/v3-premiestige.png', t: 'Reward ladder', d: 'Build a ladder of rewards kids save toward — from ice cream to a big surprise.' },
+        { img: 'nettside-bilder/v3-ukelonn.png', t: 'Allowance & cash out', d: 'Give stars a cash value and let kids cash in via Vipps, Venmo or PayPal.' },
+        { img: 'nettside-bilder/v3-cashout-mottaker.png', t: 'Ready to cash in', d: 'Save the payee info once — and cash out is safe and ready.' },
+        { img: 'nettside-bilder/v3-foreldre-hub.png', t: 'Parent admin', d: 'Stars, rewards, approvals and profiles — all run from your iPhone.' },
+        { img: 'app-stars.png', t: 'The star board', d: 'Each child\'s stars, goal and next reward.' },
+        { img: 'app-trophy.png', t: 'Trophy time', d: 'Reach the goal and the reward unlocks.' }
       ],
       features: [
         { ic: '⭐', t: 'Stars, trophies & streaks', d: 'Kids collect stars and hit goals that earn trophies from bronze to diamond. Days in a row build a flame 🔥 that keeps the rhythm going.' },

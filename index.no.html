@@ -297,7 +297,7 @@ img{display:block}
     <div data-reveal="1" style="max-width:680px;margin:0 auto 38px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Se det i bruk</div>
       <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.5px;margin:0 0 12px">Et innblikk i OurFamilyHub</h2>
-      <p style="color:#B6AED4;font-size:1.06rem;margin:0">Ekte skjermer fra appen — det rolige dashbordet barna følger med på, oppgavene de trykker på, og trofé-øyeblikket de jager.</p>
+      <p style="color:#B6AED4;font-size:1.06rem;margin:0">Ekte skjermer fra appen — belønningene du setter opp, cash out, forelder-admin og brettet barna følger med på.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <sc-for list="{{ shots }}" as="shot" hint-placeholder-count="6">
@@ -491,12 +491,12 @@ class Component extends DCLogic {
         'Felles morgenrunde-innsjekk'
       ],
       shots: [
-        { img: 'app-stars.png', t: 'Stjernebrettet', d: 'Hvert barns stjerner, mål og belønning.' },
-        { img: 'app-tasks.png', t: 'StarTap', d: 'Barna trykker en fullført oppgave; den venter på din OK.' },
-        { img: 'app-trophy.png', t: 'Trofé-tid', d: 'Nå målet, og belønningen låses opp.' },
-        { img: 'mr-dance.jpg', t: 'Morgenrunde', d: 'Dans gjennom påkledningen — hele familien sjekker inn.' },
-        { img: 'mr-reward.jpg', t: 'En myk premie', d: 'Fullfør runden, og premien du valgte dukker opp.' },
-        { img: 'parent-menu.png', t: 'Forelder-admin', d: 'Godkjenn, rediger og styr profiler fra iPhonen.' }
+        { img: 'nettside-bilder/v3-premiestige.png', t: 'Premie-stige', d: 'Bygg en stige av premier barna sparer mot — fra is til stor overraskelse.' },
+        { img: 'nettside-bilder/v3-ukelonn.png', t: 'Ukelønn & cash out', d: 'Gi stjerner en kroneverdi, og la barna veksle inn via Vipps, Venmo eller PayPal.' },
+        { img: 'nettside-bilder/v3-cashout-mottaker.png', t: 'Klar for innveksling', d: 'Lagre mottakerinfo én gang — så er cash out trygt og klart.' },
+        { img: 'nettside-bilder/v3-foreldre-hub.png', t: 'Forelder-admin', d: 'Stjerner, belønninger, godkjenninger og profiler — styrt fra din iPhone.' },
+        { img: 'app-stars.png', t: 'Stjernebrettet', d: 'Hvert barns stjerner, mål og neste premie.' },
+        { img: 'app-trophy.png', t: 'Trofé-tid', d: 'Nå målet, og belønningen låses opp.' }
       ],
       features: [
         { ic: '⭐', t: 'Stjerner, trofeer & streaks', d: 'Barna samler stjerner og når mål som gir trofeer fra bronse til diamant. Dager på rad bygger en flamme 🔥 som holder rytmen.' },
