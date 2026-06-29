@@ -280,7 +280,7 @@ img{display:block}
         <div>
           <div style="font-size:.74rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#FFE0A6;margin-bottom:6px">iPad (always-on)</div>
           <h3 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.3rem">Kids dashboard</h3>
-          <p style="margin:0 0 14px;color:#B6AED4;font-size:.92rem">A calm, beautiful screen kids use without any login. Nothing to break.</p>
+          <p style="margin:0 0 14px;color:#B6AED4;font-size:.92rem">A calm, beautiful screen kids use without any login. It dims when no one's using it and wakes on a tap — never just black.</p>
           <ul style="list-style:none;padding:0;margin:0">
             <sc-for list="{{ kidFeatures }}" as="kf" hint-placeholder-count="4">
               <li style="display:flex;gap:9px;padding:7px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.88rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span>{{ kf }}</li>
@@ -322,6 +322,32 @@ img{display:block}
       </div>
     </div>
     <p style="color:#C2BAD9;font-size:.95rem;margin:20px auto 0;max-width:920px;text-align:center"><b style="color:#F1ECFF">Still no child account, still your control.</b> You approve everything that matters, and unlink the device whenever you like.</p>
+  </section>
+
+  <!-- ============ WIDGETS & STANDBY ============ -->
+  <section id="ambient" style="max-width:1120px;margin:0 auto;padding:56px 24px">
+    <div data-reveal="1" style="max-width:720px;margin:0 auto 38px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">New · Works with the screens you have</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.5px;margin:0 0 12px">The family board — on any screen</h2>
+      <p style="color:#B6AED4;font-size:1.06rem;margin:0">Not everyone has a spare iPad. With widgets and StandBy, a phone becomes a little family board — and the Morning Round shows live while it's running.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 24px">
+        <div style="font-size:30px;margin-bottom:12px">🧩</div>
+        <h3 style="margin:0 0 8px;font-size:1.12rem;font-weight:700">Widgets</h3>
+        <p style="margin:0;color:#B6AED4;font-size:.93rem">Child status (stars, streak, next reward), the day plan and pending approvals on the Home or Lock Screen. Pin to one child — a tap opens the right screen.</p>
+      </div>
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 24px">
+        <div style="font-size:30px;margin-bottom:12px">🌙</div>
+        <h3 style="margin:0 0 8px;font-size:1.12rem;font-weight:700">StandBy</h3>
+        <p style="margin:0;color:#B6AED4;font-size:.93rem">Set the phone on its charger in landscape and it becomes a calm, ambient family board — no iPad required.</p>
+      </div>
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 24px">
+        <div style="font-size:30px;margin-bottom:12px">⏱️</div>
+        <h3 style="margin:0 0 8px;font-size:1.12rem;font-weight:700">Live Activity</h3>
+        <p style="margin:0;color:#B6AED4;font-size:.93rem">The Morning Round's progress shows on the Lock Screen and in the Dynamic Island while it's running.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ============ SE DET I BRUK ============ -->
@@ -531,7 +557,7 @@ class Component extends DCLogic {
         { img: 'app-trophy.png', t: 'Trophy time', d: 'Reach the goal and the reward unlocks.' }
       ],
       features: [
-        { ic: '⭐', t: 'Stars, trophies & streaks', d: 'Kids collect stars and hit goals that earn trophies from bronze to diamond. Days in a row build a flame 🔥 that keeps the rhythm going.' },
+        { ic: '⭐', t: 'Stars, trophies & streaks', d: 'Kids collect stars and hit goals that earn trophies from bronze to diamond. Days in a row build a flame 🔥, and each child has their own colour that follows them everywhere.' },
         { ic: '🎁', t: 'Reward ladder', d: 'Named rewards you decide on, unlocking as stars add up — from an ice cream to the cinema, tailored to each child.' },
         { ic: '💸', t: 'Cash out', d: 'Cash in saved stars for real pocket money via Vipps, Venmo or PayPal. You open your own payment app and complete the payment yourself — the app never moves money.' },
         { ic: '💬', t: 'Question of the day', d: 'Each child gets one age-based question a day (200 questions, ages 5–16) — a conversation starter at dinner or bedtime. No points, no right answer, nothing stored.' },

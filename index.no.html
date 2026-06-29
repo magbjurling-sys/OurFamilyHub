@@ -280,7 +280,7 @@ img{display:block}
         <div>
           <div style="font-size:.74rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#FFE0A6;margin-bottom:6px">iPad (alltid på)</div>
           <h3 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.3rem">Barnas dashbord</h3>
-          <p style="margin:0 0 14px;color:#B6AED4;font-size:.92rem">En rolig, vakker skjerm barna bruker uten innlogging. Ingenting å ødelegge.</p>
+          <p style="margin:0 0 14px;color:#B6AED4;font-size:.92rem">En rolig, vakker skjerm barna bruker uten innlogging. Den demper seg når ingen bruker den, og våkner av et trykk — aldri svart.</p>
           <ul style="list-style:none;padding:0;margin:0">
             <sc-for list="{{ kidFeatures }}" as="kf" hint-placeholder-count="4">
               <li style="display:flex;gap:9px;padding:7px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.88rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span>{{ kf }}</li>
@@ -322,6 +322,32 @@ img{display:block}
       </div>
     </div>
     <p style="color:#C2BAD9;font-size:.95rem;margin:20px auto 0;max-width:920px;text-align:center"><b style="color:#F1ECFF">Fortsatt ingen barnekonto, fortsatt din kontroll.</b> Du godkjenner alt som teller, og kobler fra enheten når du vil.</p>
+  </section>
+
+  <!-- ============ WIDGETS & STANDBY ============ -->
+  <section id="ambient" style="max-width:1120px;margin:0 auto;padding:56px 24px">
+    <div data-reveal="1" style="max-width:720px;margin:0 auto 38px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Nytt · Funker med skjermene dere har</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.5px;margin:0 0 12px">Familiebrettet — på enhver skjerm</h2>
+      <p style="color:#B6AED4;font-size:1.06rem;margin:0">Ikke alle har en iPad til overs. Med widgets og StandBy blir telefonen et lite familiebrett — og morgenrunden vises live mens den pågår.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 24px">
+        <div style="font-size:30px;margin-bottom:12px">🧩</div>
+        <h3 style="margin:0 0 8px;font-size:1.12rem;font-weight:700">Widgets</h3>
+        <p style="margin:0;color:#B6AED4;font-size:.93rem">Barn-status (stjerner, streak, neste premie), Dagens plan og Ventende godkjenninger på Hjem- eller Låseskjerm. Knytt til ett barn — trykk åpner riktig skjerm.</p>
+      </div>
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 24px">
+        <div style="font-size:30px;margin-bottom:12px">🌙</div>
+        <h3 style="margin:0 0 8px;font-size:1.12rem;font-weight:700">StandBy</h3>
+        <p style="margin:0;color:#B6AED4;font-size:.93rem">Legg telefonen på lader i liggende stilling, så blir den et rolig, ambient familiebrett — uten en iPad i det hele tatt.</p>
+      </div>
+      <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px 24px">
+        <div style="font-size:30px;margin-bottom:12px">⏱️</div>
+        <h3 style="margin:0 0 8px;font-size:1.12rem;font-weight:700">Live Activity</h3>
+        <p style="margin:0;color:#B6AED4;font-size:.93rem">Morgenrundens fremdrift vises på låseskjermen og i Dynamic Island mens den pågår.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ============ SE DET I BRUK ============ -->
@@ -531,7 +557,7 @@ class Component extends DCLogic {
         { img: 'app-trophy.png', t: 'Trofé-tid', d: 'Nå målet, og belønningen låses opp.' }
       ],
       features: [
-        { ic: '⭐', t: 'Stjerner, trofeer & streaks', d: 'Barna samler stjerner og når mål som gir trofeer fra bronse til diamant. Dager på rad bygger en flamme 🔥 som holder rytmen.' },
+        { ic: '⭐', t: 'Stjerner, trofeer & streaks', d: 'Barna samler stjerner og når mål som gir trofeer fra bronse til diamant. Dager på rad bygger en flamme 🔥, og hvert barn har sin egen farge som følger dem overalt.' },
         { ic: '🎁', t: 'Premie-stige', d: 'Navngitte belønninger dere bestemmer, som låses opp ved oppsparte stjerner — fra en is til kino, tilpasset hvert barn.' },
         { ic: '💸', t: 'Cash out', d: 'Veksle sparte stjerner til ekte lommepenger via Vipps, Venmo eller PayPal. Du åpner din egen betalingsapp og fullfører betalingen selv — appen flytter aldri penger.' },
         { ic: '💬', t: 'Dagens spørsmål', d: 'Hvert barn får ett aldersbasert spørsmål om dagen (200 spørsmål, alder 5–16) — en samtalestarter ved middagen eller leggetid. Ingen poeng, ingen fasit, ingenting lagres.' },
