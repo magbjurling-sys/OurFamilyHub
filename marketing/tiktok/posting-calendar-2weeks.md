@@ -1,8 +1,10 @@
 # OurFamilyHub — TikTok 2-Week Posting Calendar
 
-**Start:** Mon 29 Jun 2026 · **Goal:** App installs · **Cadence:** 4×/week (Mon/Wed/Fri/Sun)
+**Start:** Tue 30 Jun 2026 · **Goal:** App installs · **Cadence:** 4×/week
 **Captions:** copy from `9-shorts-publishing-pack.md` (matched by short # below).
 **Best post times for parents:** ~07:30 (morning scroll) or ~20:30 (after kids' bedtime). Pick one and stay consistent.
+
+> 🔔 **Reminders are live in Google Calendar** (Europe/Oslo) — one event per post with the caption inside it. Evening posts ping you 60 + 15 min before; morning posts ping you the evening before + 60 + 15 min before, so you always have lead time.
 
 ---
 
@@ -10,7 +12,7 @@
 
 | Date | Day | Short | Caption to use | Time |
 |------|-----|-------|----------------|------|
-| 29 Jun | Mon | **#3** Chores kids can actually follow | Pack §3 | 20:30 |
+| 30 Jun | Tue | **#3** Chores kids can actually follow | Pack §3 | 20:30 |
 | 1 Jul | Wed | **#1** Stop repeating yourself every morning | Pack §1 | 07:30 |
 | 3 Jul | Fri | **#6** Less nagging. More stars. | Pack §6 | 20:30 |
 | 5 Jul | Sun | **#5** Make screen time something they earn | Pack §5 | 20:30 |
