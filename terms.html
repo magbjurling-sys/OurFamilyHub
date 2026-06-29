@@ -20,6 +20,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
 
+  ttq.holdConsent();
   ttq.load('D91CHVRC77U49J863US0');
   ttq.page();
 }(window, document, 'ttq');
@@ -34,6 +35,47 @@ document.addEventListener('click',function(e){
     ttq.track('ClickButton',{content_name:name||'App Store',content_type:'product'});
   }
 },true);
+</script>
+<!-- OFH cookie consent -->
+<script>
+(function(){
+  var KEY='ofh-consent';
+  var no=/\.no\.html?($|[?#])/.test(location.pathname)||/(^|\/)[a-z]*\.no\b/.test(location.pathname);
+  var T=no?{title:'Vi bruker informasjonskapsler',body:'Vi bruker TikTok-pixel for å måle besøk og forbedre markedsføringen vår. Du bestemmer — og kan ombestemme deg når som helst.',accept:'Godta',decline:'Avvis',more:'Personvern',privacy:'privacy.no.html',reopen:'Informasjonskapsler'}:{title:'We use cookies',body:'We use the TikTok pixel to measure visits and improve our marketing. You decide — and can change your mind anytime.',accept:'Accept',decline:'Decline',more:'Privacy',privacy:'privacy.html',reopen:'Cookies'};
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function set(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function apply(v){try{if(window.ttq){if(v==='granted'){ttq.grantConsent();}else{ttq.revokeConsent();}}}catch(e){}}
+  function el(tag,css,html){var n=document.createElement(tag);if(css)n.style.cssText=css;if(html!=null)n.innerHTML=html;return n;}
+  function showReopen(){
+    if(document.getElementById('ofh-cookie-reopen'))return;
+    var b=el('button','position:fixed;left:14px;bottom:14px;z-index:2147483000;display:inline-flex;align-items:center;gap:7px;background:rgba(11,10,31,.82);color:#C2BAD9;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 14px;font:600 12px/1 -apple-system,BlinkMacSystemFont,sans-serif;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 22px rgba(0,0,0,.4)','🍪 '+T.reopen);
+    b.id='ofh-cookie-reopen';b.onclick=function(){b.remove();banner();};
+    document.body.appendChild(b);
+  }
+  function banner(){
+    if(document.getElementById('ofh-cookie-banner'))return;
+    var wrap=el('div','position:fixed;left:0;right:0;bottom:0;z-index:2147483001;display:flex;justify-content:center;padding:16px;pointer-events:none');
+    wrap.id='ofh-cookie-banner';
+    var card=el('div','pointer-events:auto;max-width:560px;width:100%;background:rgba(17,15,38,.96);border:1px solid rgba(255,255,255,.14);border-radius:20px;box-shadow:0 26px 60px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:20px 22px;color:#F1ECFF;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',sans-serif');
+    var h=el('div','font-weight:700;font-size:1rem;margin-bottom:6px',T.title);
+    var p=el('div','color:#C2BAD9;font-size:.9rem;line-height:1.5;margin-bottom:14px',T.body+' <a href="'+T.privacy+'" style="color:#FFC861;text-decoration:underline">'+T.more+'</a>');
+    var row=el('div','display:flex;gap:10px;flex-wrap:wrap');
+    var dec=el('button','flex:1;min-width:120px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#F1ECFF;font-weight:700;font-size:.9rem;padding:11px 16px;border-radius:12px;cursor:pointer',T.decline);
+    var acc=el('button','flex:1;min-width:120px;background:linear-gradient(120deg,#FF7EA5,#FFC861);border:none;color:#21122e;font-weight:800;font-size:.9rem;padding:11px 16px;border-radius:12px;cursor:pointer',T.accept);
+    dec.onclick=function(){set('denied');apply('denied');wrap.remove();showReopen();};
+    acc.onclick=function(){set('granted');apply('granted');wrap.remove();showReopen();};
+    row.appendChild(dec);row.appendChild(acc);
+    card.appendChild(h);card.appendChild(p);card.appendChild(row);wrap.appendChild(card);
+    document.body.appendChild(wrap);
+  }
+  function init(){
+    var v=get();
+    if(v==='granted'){apply('granted');showReopen();}
+    else if(v==='denied'){apply('denied');showReopen();}
+    else{banner();}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
 </script>
 </head>
 <body>
