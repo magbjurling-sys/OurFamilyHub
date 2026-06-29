@@ -25,6 +25,16 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 }(window, document, 'ttq');
 </script>
 <!-- TikTok Pixel Code End -->
+<!-- OFH event tracking -->
+<script>
+document.addEventListener('click',function(e){
+  var t=e.target;var a=t&&t.closest?t.closest('a[href*="apps.apple.com"]'):null;
+  if(a&&window.ttq){
+    var name=((a.textContent||'App Store').trim().replace(/\s+/g,' ')).slice(0,60);
+    ttq.track('ClickButton',{content_name:name||'App Store',content_type:'product'});
+  }
+},true);
+</script>
 </head>
 <body>
   <h1>FamilyHub Terms of Service</h1>
