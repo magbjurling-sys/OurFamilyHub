@@ -164,9 +164,9 @@ img{display:block}
       <a href="guide.no.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Oppsettsguide</a>
       <a href="support.no.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Hjelp</a>
       <a href="updates.no.html" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Nyheter</a>
-      <a href="mailto:magbjurling@gmail.com" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Kontakt</a>
+      <a href="mailto:post@noemaholdings.no" style="font-size:.88rem;font-weight:600;color:#B6AED4;padding:6px 13px;border-radius:999px">Kontakt</a>
     </div>
-    <p style="font-size:.82rem;margin:0">© 2026 Magnus Bjurling</p>
+    <p style="font-size:.82rem;margin:0">© 2026 Noema Holdings AS</p>
   </footer>
 
 </div>
@@ -189,11 +189,11 @@ class Component extends DCLogic {
     const li='style="margin-bottom:6px"';
     const st='style="color:#F1ECFF;font-weight:700"';
     const a='style="color:#FF9FBC;font-weight:600"';
-    const mail='<a href="mailto:magbjurling@gmail.com" '+a+'>magbjurling@gmail.com</a>';
+    const mail='<a href="mailto:post@noemaholdings.no" '+a+'>post@noemaholdings.no</a>';
     return {
       floaties:this._floaties,
       sections:[
-        {h:'1. Hvem som kontrollerer dataene dine', body:'<p '+p+'>Behandlingsansvarlig er den enkelte operatøren av OurFamilyHub. For alle personvernspørsmål eller -forespørsler, kontakt '+mail+'.</p>'},
+        {h:'1. Hvem som kontrollerer dataene dine', body:'<p '+p+'>Behandlingsansvarlig for OurFamilyHub er <strong '+st+'>Noema Holdings AS</strong> (org.nr 938 008 345), Lilleruts vei 1, 1364 Fornebu, Norge. For alle personvernspørsmål eller -forespørsler, kontakt '+mail+'.</p>'},
         {h:'2. Kontoer og hvem som logger inn', body:'<p '+p+'>Bare en forelder eller foresatt oppretter en konto, med <strong '+st+'>Logg inn med Apple</strong>. Vi mottar en unik Apple-brukeridentifikator og, hvis du velger å dele det, navnet ditt og en e-postadresse (som kan være en privat Apple-videresendingsadresse).</p><p '+p+'>Barn logger ikke inn og har ikke kontoer. Et barn finnes i OurFamilyHub kun som en profil opprettet og administrert av forelderen — et fornavn eller kallenavn, en emoji eller et valgfritt bilde, og en belønningstekst forelderen skriver.</p>'},
         {h:'3. Hva vi samler inn og hvorfor', body:'<ul '+ul+'><li '+li+'><strong '+st+'>Kontodata</strong> (Apple-bruker-ID, valgfritt navn/e-post) — for å autentisere forelderen og knytte familiens data til kontoen.</li><li '+li+'><strong '+st+'>Familieinnhold</strong> (profilnavn, emojier, stjernetall, kategorier, rutinesteg, belønningstekst, premie-stiger og — hvis du slår på ukelønn — stjerneverdier, spart saldo og utbetalingshistorikk) — for å levere kjernefunksjonene og synkronisere dem mellom enheter i sanntid. Ukelønn registrerer familiens egne penger; vi behandler ingen faktisk betaling.</li><li '+li+'><strong '+st+'>Abonnementsstatus</strong> — for å vite om premium-funksjoner er aktive. Kjøp håndteres av Apple; vi ser aldri kortopplysningene dine.</li><li '+li+'><strong '+st+'>Kalenderdata</strong> (valgfritt) — hvis du har lagt til en kalenderkonto i enhetens iOS-innstillinger, leser vi kommende hendelser direkte på enheten med Apples EventKit-rammeverk. Ingen kalenderdata sendes noensinne til våre servere.</li><li '+li+'><strong '+st+'>Omtrentlig posisjon</strong> (valgfritt) — brukes på enheten av Apples WeatherKit for å vise lokalt vær. Vi lagrer ikke posisjonen din eller posisjonshistorikk.</li><li '+li+'><strong '+st+'>Profilbilder</strong> (valgfritt) — lagres i Firebase Storage i EU. Du kan slette dem ved å fjerne profilen.</li><li '+li+'><strong '+st+'>Cash out-forespørsler</strong> — beløp og status når et barn ber om å veksle inn stjerner. Vi lagrer ingen kort- eller bankopplysninger; appen åpner din egen betalingsapp (Vipps, Venmo eller PayPal) forhåndsutfylt, og flytter aldri penger selv.</li><li '+li+'><strong '+st+'>Dagens spørsmål</strong> — barnas svar skrives ikke inn og lagres ikke. Spørsmålene er kun en samtalestarter.</li></ul>'},
         {h:'4. Barns personvern', body:'<p '+p+'>OurFamilyHub er ment for bruk av foreldre og foresatte. Vi samler ikke bevisst inn personopplysninger direkte fra barn. Informasjon om et barn legges inn av forelderen og er minimert i utgangspunktet — et fornavn eller kallenavn er nok.</p><p '+p+'>Vi følger gjeldende lover om barns personvern, inkludert EUs GDPR og den amerikanske Children\u2019s Online Privacy Protection Act (COPPA). En forelder kan redigere eller slette et barns profil når som helst i appen.</p>'},
