@@ -1,3 +1,5 @@
-node_modules/
-coverage/
+.export-tmp*
 .vitest/
+coverage/
+node_modules
+node_modules/
