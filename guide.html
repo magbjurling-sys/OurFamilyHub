@@ -223,7 +223,7 @@ img{display:block}
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Part 1 · On your iPhone</div>
       <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Parent setup, step by step</h2>
-      <p style="color:#B6AED4;font-size:1.05rem;margin:0">You do all of this once, from your iPhone. Most families are done in well under ten minutes.</p>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">You do all of this once, from your iPhone. Most families are done in well under ten minutes. Afterwards, everything lives in the tabs at the bottom — Today, The kids, Chores and Family board — with Settings behind the gear at the top right.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto">
       <sc-for list="{{ setupSteps }}" as="st" hint-placeholder-count="5">
@@ -242,8 +242,8 @@ img{display:block}
   </section>
 
   <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
-    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="parent-menu.png" alt="Parent admin menu" loading="lazy" style="width:100%"></div>
-    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">The parent hub — approvals, routines, tasks and profiles, behind a PIN.</div>
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="parent-menu.png" alt="Parent settings" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Settings — kids, activities, rewards and devices. On the iPad they sit behind a PIN.</div>
   </div>
 
   <!-- RUTINER & OPPGAVER -->
@@ -257,18 +257,18 @@ img{display:block}
       <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
         <div style="font-size:38px;margin-bottom:10px">📋</div>
         <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Categories and routines</h3>
-        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Settings → Profiles and categories</div>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Settings → Activities</div>
         <div data-html="{{ catBody }}" style="color:#B6AED4;font-size:.93rem;margin-bottom:12px"></div>
         <ul style="list-style:none;padding:0;margin:0">
           <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Categories are just labels for where a star came from</li>
           <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Edit steps any time; nothing is lost</li>
-          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Kids complete them in StarTap; you approve the star</li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Kids complete them on the family board or their own phone; you approve the star</li>
         </ul>
       </div>
       <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
         <div style="font-size:38px;margin-bottom:10px">✅</div>
         <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Tasks</h3>
-        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Admin → Manage tasks</div>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">The Chores tab</div>
         <p style="color:#B6AED4;font-size:.93rem;margin:0 0 12px">Single actions under a category. Choose a type and, if you like, limit it to specific weekdays.</p>
         <ul style="list-style:none;padding:0;margin:0">
           <li data-html="{{ taskLi1 }}" style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"></li>
@@ -285,21 +285,21 @@ img{display:block}
 
   <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
     <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="edit-steps.png" alt="Edit routine steps" loading="lazy" style="width:100%"></div>
-    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Edit the steps of a routine in Admin — the child taps through these in StarTap.</div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Edit the steps of a routine under Settings → Activities — the child taps through them on the family board.</div>
   </div>
 
   <!-- BARNEMODUS -->
   <section id="child" style="max-width:1080px;margin:0 auto;padding:48px 24px">
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#FFE0A6;margin-bottom:12px">Part 2 · On the iPad</div>
-      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">The kids dashboard</h2>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">The family board on the iPad</h2>
       <p style="color:#B6AED4;font-size:1.05rem;margin:0">The iPad is a calm, always-on screen kids actually want to look at. No login and nothing to break — they just tap.</p>
     </div>
     <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:center">
       <div data-reveal="1" style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5)"><img src="app-stars.png" alt="The star board on iPad" loading="lazy" style="width:100%"></div>
       <div data-reveal="1">
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px;margin-bottom:14px">
-          <h3 style="margin:0 0 8px;font-size:1.12rem">Three pages you swipe between</h3>
+          <h3 style="margin:0 0 8px;font-size:1.12rem">The menu at the top</h3>
           <div data-html="{{ threePages }}" style="color:#B6AED4;font-size:.93rem"></div>
         </div>
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
@@ -316,7 +316,7 @@ img{display:block}
 
   <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
     <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="approvals.png" alt="Approvals" loading="lazy" style="width:100%"></div>
-    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Pending approvals on iPhone — approve or reject each, or "Approve all".</div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Approvals sit under "Waiting for you" in the Today tab on iPhone — approve or reject each, or "Approve all".</div>
   </div>
 
   <!-- KALENDER & VÆR -->
@@ -324,7 +324,7 @@ img{display:block}
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Nice extras</div>
       <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Calendar and weather — zero setup</h2>
-      <p style="color:#B6AED4;font-size:1.05rem;margin:0">The Family page shows the shared calendar and local weather automatically. Nothing to configure inside the app.</p>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">The Family page on the board shows the shared calendar and local weather automatically. Nothing to configure inside the app.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
       <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
@@ -353,7 +353,7 @@ img{display:block}
           <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Up to 2 child profiles</li>
           <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Categories marked "Free" (the Morning routine is included)</li>
           <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Stars, approvals, trophies — the entire core loop</li>
-          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Calendar and weather on the dashboard</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Calendar and weather on the family board</li>
         </ul>
       </div>
       <div data-reveal="1" style="position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,197,61,.42);border-radius:24px;box-shadow:0 0 0 1px rgba(255,197,61,.18),0 22px 56px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:28px">
@@ -453,48 +453,48 @@ class Component extends DCLogic {
       floaties:this._floaties,
       toggle:(e)=>this.toggle(e),
       flow:[
-        {n:'1',t:'Kid taps',d:'On the iPad, the child taps a task they\'ve finished in StarTap.'},
-        {n:'2',t:'You approve',d:'It lands in "Pending" on your iPhone. One tap to approve — or reject.'},
+        {n:'1',t:'Kid taps',d:'On the family board or their own phone, the child taps a task they\'ve finished.'},
+        {n:'2',t:'You approve',d:'It lands under "Waiting for you" in the Today tab on your iPhone. One tap to approve — or reject.'},
         {n:'3',t:'The star counts',d:'Approved stars fill a board, grouped in fives, toward the goal.'},
         {n:'4',t:'Trophy unlocks',d:'Reach the goal → a trophy is earned, the board resets, and the cycle starts over.'}
       ],
       blocks:[
-        {ic:'📋',h:'Routine',who:'Kid-reported · ordered steps',p:'An ordered series of small steps that belong together — "Get dressed → Brush teeth → Eat breakfast".',items:['Sits at the top of the child\'s StarTap list','The child taps through each step, then claims one star','You approve it — all steps together = one star'],chip:'<span style="'+chipApp+'">Approval required</span>'},
-        {ic:'✅',h:'Task',who:'Kid-reported · standalone',p:'A single standalone action — "Tidied the room". The child decides when it\'s done.',items:['The child taps it themselves in StarTap','Requires your approval before it counts','Recurring (daily) or one-time'],chip:'<span style="'+chipApp+'">Approval required</span>'},
-        {ic:'🔄',h:'Cycle',who:'Family-synced · together',p:'A shared check-in ritual across categories — like the "Morning Round" the whole family does in sync.',items:['Each child checks in; progress is shared','Credited immediately, no approval','Ends with a soft reward you choose — bonus stars optional (default 0)'],chip:'<span style="'+chipV+'">Instant check-in</span>'}
+        {ic:'📋',h:'Routine',who:'Kid-reported · ordered steps',p:'An ordered series of small steps that belong together — "Get dressed → Brush teeth → Eat breakfast".',items:['Sits at the top of the child\'s task list','The child taps through each step, then claims one star','You approve it — all steps together = one star'],chip:'<span style="'+chipApp+'">Approval required</span>'},
+        {ic:'✅',h:'Task',who:'Kid-reported · standalone',p:'A single standalone action — "Tidied the room". The child decides when it\'s done.',items:['The child taps it themselves on the board or their own phone','Requires your approval before it counts','Recurring (daily) or one-time'],chip:'<span style="'+chipApp+'">Approval required</span>'},
+        {ic:'🔄',h:'Cycle',who:'Family-synced · together',p:'A shared check-in ritual across categories — like the "Morning Round" the whole family does in sync.',items:['Each child checks in; progress is shared','Check-ins count right away, no approval','No stars or prizes — it simply gets the morning going'],chip:'<span style="'+chipV+'">Instant check-in</span>'}
       ],
       ruleOfThumb:'<h4 style="margin:0 0 4px;font-size:1.05rem">Rule of thumb</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Several ordered steps that give one star → <b '+b+'>Routine</b>. A single action the child reports → <b '+b+'>Task</b>. Something the whole family does together, in sync → <b '+b+'>Cycle</b>.</p>',
       setupSteps:[
         {n:'1',ic:'🍎',h:'Sign in with Apple',hasTip:true,body:'<p style="margin:0">The only way to sign in — no passwords to remember, no email required. Apple gives the app a private identifier and nothing else, unless you choose to share it.</p>',tip:'⭐ Kids never sign in. They are profiles inside your family, chosen from a list on the iPad.'},
-        {n:'2',ic:'🏡',h:'Name your family',hasTip:false,body:'<p style="margin:0">This shows at the top of the dashboard — "The Hansen Family", "The Berg Family", whatever you like. You can change it later in Settings.</p>'},
-        {n:'3',ic:'🦊',h:'Add your kids',hasTip:true,body:'<p style="margin:0">For each child: a name, an emoji avatar (or a photo), and two things that make the magic — a <b '+b+'>goal</b> (number of stars before a trophy, default 15) and a <b '+b+'>reward</b> in your own words, like "Movie night with pizza".</p>',tip:'⭐ Each profile tracks its own stars and tasks independently — kids can\'t share one profile.'},
-        {n:'4',ic:'🔒',h:'Set a parent PIN',hasTip:true,body:'<p style="margin:0">A 4-digit code locks parent mode so kids can\'t wander into settings from the iPad. Face ID / Touch ID is offered automatically as faster unlocking. A banner reminds you until it\'s done.</p>',tip:'⚠️ Choose a code you\'ll remember and keep it safe — you change or remove it from <span '+k+'>Settings → Parent PIN</span> while signed in.'},
-        {n:'5',ic:'📲',h:'Connect the iPad',hasTip:true,body:'<p style="margin:0">Sign the iPad in with the same Apple ID, or share your family with iOS Family Sharing. Then the iPad runs the always-on dashboard for the kids.</p>',tip:'⭐ Not seeing the kids on the iPad? Check that both devices use the same Apple ID and that the app is installed on both.'}
+        {n:'2',ic:'🏡',h:'Name your family',hasTip:false,body:'<p style="margin:0">This shows at the top of the family board — "The Hansen Family", "The Berg Family", whatever you like. You can change it later in Settings.</p>'},
+        {n:'3',ic:'🦊',h:'Add your kids',hasTip:true,body:'<p style="margin:0">For each child: a name, an emoji avatar (or a photo), and two things that make the magic — a <b '+b+'>goal</b> (number of stars before a trophy, default 15) and a <b '+b+'>reward</b> in your own words, like "Movie night with pizza".</p>',tip:'⭐ Each profile tracks its own stars and tasks independently — kids can\'t share one profile. Add more kids later under <span '+k+'>Settings → Add child</span>.'},
+        {n:'4',ic:'🔒',h:'Set a PIN',hasTip:true,body:'<p style="margin:0">A 4-digit code locks parent mode so kids can\'t wander into settings from the iPad. Face ID / Touch ID is offered automatically as faster unlocking. A banner reminds you until it\'s done.</p>',tip:'⚠️ Choose a code you\'ll remember and keep it safe — you change or remove it from <span '+k+'>Settings → PIN for parent mode</span> while signed in.'},
+        {n:'5',ic:'📲',h:'Connect the iPad',hasTip:true,body:'<p style="margin:0">Choose "Family board" on the iPad and enter the code you get under <span '+k+'>Settings → Device & app → Connect a family board</span>. You can also sign the iPad in with the same Apple ID. The iPad then becomes the family board — the always-on screen for the kids.</p>',tip:'⭐ Not seeing the kids on the iPad? Make a new code and try again, or check that both devices use the same Apple ID and that the app is installed on both.'},
+        {n:'6',ic:'📱',h:'Link your child\'s phone (optional)',hasTip:true,body:'<p style="margin:0">Does your child have their own iPhone? Go to <span '+k+'>Settings → Device & app → Link child’s phone</span>, pick the child, and let them enter the code. Your child gets the tabs <b '+b+'>Me</b> (balance, cash out, allowance and goals), <b '+b+'>My day</b> (today\'s tasks as a list) and <b '+b+'>Family</b>.</p>',tip:'🎉 When you approve something, your child gets a full-screen celebration — on their own phone and on the family board.'}
       ],
-      catBody:'<p style="margin:0">Morning and evening routines are pre-filled. Toggle them on/off and edit the <b '+b+'>steps</b> — the checklist the child taps through in StarTap.</p>',
+      catBody:'<p style="margin:0">Morning and evening routines are pre-filled. Open <b '+b+'>Morning routine</b> or <b '+b+'>Evening routine</b> to edit the <b '+b+'>steps</b> — the checklist the child taps through. Under <b '+b+'>Available content (on/off)</b> you choose what the kids see.</p>',
       taskLi1:star+'<span><b '+b+'>Recurring</b> — once per day per child, resets overnight</span>',
       taskLi2:star+'<span><b '+b+'>One-time</b> — stays until you delete it</span>',
-      threePages:'<p style="margin:0">The dashboard switches between <b '+b+'>Stars</b> (board + trophies), <b '+b+'>Tasks</b> (StarTap) and <b '+b+'>Family</b> (photos, weather, shared calendar). Nothing to configure — it just shows.</p>',
-      tapDone:'<p style="margin:0">A child selects their profile, taps a finished task, and it goes to <b '+b+'>pending</b> (green) for your approval. Rejected tasks turn red with "Try again" and can be retried the same day.</p>',
-      morningRound:'<h4 style="margin:0 0 4px;font-size:1.05rem">Optional: the Morning Round (a cycle)</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Set up a shared morning check-in from <span '+k+'>Admin → Morning Round</span>. Kids check in as they wake up and move through the categories one step at a time — with a cheering dance scene, a sunrise, and a gift box they tap at the end. It ends with a soft reward you choose (bonus stars optional, default 0). Perfect for school mornings.</p>',
-      calBody:'<p style="margin:0">Upcoming events are read straight from the iPad\'s iOS calendar. Just make sure there is a calendar named "Family" (or "Familie") and that the app has calendar access in <span '+k+'>Settings → Privacy → Calendars</span>. Works with iCloud, Google or Outlook accounts added in iOS.</p>',
+      threePages:'<p style="margin:0">Switch pages with the menu at the top: <b '+b+'>Stars</b> (board + trophies), <b '+b+'>My day</b> (one child\'s tasks), <b '+b+'>All tasks</b> (every child side by side) and <b '+b+'>Family</b> (photos, weather, shared calendar). Nothing to configure — it just shows.</p>',
+      tapDone:'<p style="margin:0">A child selects their profile, taps a finished task, and it goes to <b '+b+'>pending</b> (green) for your approval. When you approve, the board celebrates with full-screen confetti. Rejected tasks turn red with "Try again" and can be retried the same day.</p>',
+      morningRound:'<h4 style="margin:0 0 4px;font-size:1.05rem">Optional: the Morning Round (a cycle)</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Set up a calm, shared morning check-in under <span '+k+'>Settings → Morning round</span>. Kids check in as they wake up and move through the steps you choose, one at a time. The round gives no stars or prizes — it simply gets the morning going. Perfect for school mornings.</p>',
+      calBody:'<p style="margin:0">Upcoming events are read straight from the iPad\'s iOS calendar. Just make sure there is a calendar named "Family" (or "Familie") and that the app has calendar access in <span '+k+'>iOS Settings → Privacy → Calendars</span>. Works with iCloud, Google or Outlook accounts added in iOS.</p>',
       faqs:[
-        {ic:'📱',q:'Do I need both an iPhone and an iPad?',a:'The iPad is the family board (the kids\' view), and the iPhone is parent mode. The board works best on an iPad kept on display, but you can use both devices.'},
+        {ic:'📱',q:'Do I need both an iPhone and an iPad?',a:'The iPad is the family board (the kids\' view), and on the iPhone you run everything from the tabs Today, The kids, Chores and Family board. The board works best on an iPad kept on display, but you can use both devices.'},
         {ic:'🌍',q:'What languages are supported?',a:'Norwegian and English. The app adapts automatically to your device\'s region — language, time format, currency and payment app.'},
         {ic:'🆓',q:'What\'s free?',a:'The morning routine and up to 2 children are free. Premium unlocks every routine category and up to 6 children.'},
-        {ic:'💸',q:'How does cash out work — does the app move money?',a:'No. The app opens your own payment app (Vipps, Venmo or PayPal) pre-filled with the amount. You pay and confirm yourself, and stars are deducted only when you confirm "sent". No card details, no payment license — full parental control.'},
-        {ic:'💬',q:'Are my kids\' answers to the Question of the day stored?',a:'No. The Question of the day is just a conversation starter — one age-based question a day. There are no points, no right answer, and no answers are entered or stored.'},
-        {ic:'👨‍👩‍👧',q:'Can both parents take part?',a:'Yes. Invite a co-parent with a code, and you both see the same children and can approve and manage from your own phones.'},
-        {ic:'💰',q:'Can I give my kids real pocket money?',a:'Yes — switch on the optional weekly allowance mode. Each star gets a cash value you choose, the child builds up a balance, and you pay it out manually. It is your family\'s own money; the app handles no payment between you.'},
-        {ic:'🔒',q:'Can I lock the iPad to the app?',a:'Yes. OurFamilyHub works with iOS\'s built-in Guided Access, so kids can use the app without swiping out to other apps, the home screen or settings. A built-in guide walks you through the setup.'},
-        {ic:'🎁',q:'What is the reward ladder?',a:'A ladder of named rewards you decide on, unlocking based on how many stars a child has earned — from an ice cream to a big surprise. The child always sees "Saving toward your next reward" with a progress bar.'},
-        {ic:'👶',q:'My child can\'t sign in',a:'That\'s by design — kids don\'t sign in at all. They are profiles inside your family, chosen from a list on the iPad. Only parents sign in (with Apple).'},
+        {ic:'💸',q:'How does cash out work — does the app move money?',a:'No. The app opens your own payment app (Vipps, Venmo or PayPal) pre-filled with the amount. You pay and confirm yourself, and stars are deducted only when you confirm "sent". No card details, no payment license — full parental control. You enter your payment details under <span '+k+'>Settings → Allowance</span>.'},
+        {ic:'👨‍👩‍👧',q:'Can both parents take part?',a:'Yes. Go to <span '+k+'>Settings → People & devices → Invite a parent</span> and share the code. You both see the same children and can approve and manage from your own phones.'},
+        {ic:'💰',q:'Can I give my kids real pocket money?',a:'Yes — switch on the optional weekly allowance mode under <span '+k+'>Settings → Allowance</span>. Each star gets a cash value you choose, the child builds up a balance, and you pay it out manually. It is your family\'s own money; the app handles no payment between you.'},
+        {ic:'🔒',q:'Can I lock the iPad to the app?',a:'Yes. OurFamilyHub works with iOS\'s built-in Guided Access, so kids can use the app without swiping out to other apps, the home screen or settings. A built-in guide under <span '+k+'>Settings → Lock the iPad to the app</span> walks you through the setup.'},
+        {ic:'🎁',q:'What is the reward ladder?',a:'A ladder of named rewards you decide on, unlocking based on how many stars a child has earned — from an ice cream to a big surprise. The child always sees "Saving toward your next reward" with a progress bar. You find it under <span '+k+'>The kids → pick the child → Reward ladder</span>.'},
+        {ic:'👶',q:'My child can\'t sign in',a:'That\'s by design — kids don\'t sign in at all. They are profiles inside your family, chosen from a list on the family board. If your child has their own phone, link it with a code from <span '+k+'>Settings → Device & app → Link child’s phone</span>. Only parents sign in (with Apple).'},
         {ic:'⭐',q:'A star disappeared',a:'The task was probably rejected — look for a red mark and "Try again". Rejected and pending tasks don\'t count toward the total until you approve them.'},
         {ic:'🏆',q:'I reached the goal but got no trophy',a:'Trophies are awarded automatically the moment a child passes their goal, and the star board resets for the next round. If a trophy doesn\'t appear right away, pull to refresh or reopen the app to load the latest status.'},
-        {ic:'✏️',q:'How do I change a goal or reward?',a:'Go to <span '+k+'>Admin → Stars</span>, select the child and tap Edit. Update the goal or reward text any time.'},
-        {ic:'📱',q:'I don\'t see the kids on the iPad',a:'Check that the iPad and iPhone are signed in with the same Apple ID (or share via Family Sharing), and that the app is installed on both devices.'},
-        {ic:'🔢',q:'How do I remove the parent PIN?',a:'Go to <span '+k+'>Settings → Parent PIN → Remove</span> and confirm. You must be signed in as a parent to do this, so keep the code safe.'},
-        {ic:'📅',q:'The calendar card is empty',a:'Make sure (a) a calendar named "Family" or "Familie" exists on the iPad, and (b) the app has calendar access under <span '+k+'>Settings → Privacy → Calendars</span>. Google calendars only appear if the account is added in iOS Settings → Calendar.'},
+        {ic:'✏️',q:'How do I change a goal or reward?',a:'Go to <span '+k+'>The kids → pick the child</span> and tap Edit. Update the goal or reward text any time.'},
+        {ic:'📱',q:'I don\'t see the kids on the iPad',a:'Connect the iPad with a new code from <span '+k+'>Settings → Device & app → Connect a family board</span>. If the iPad uses an Apple ID, check that the iPad and iPhone are signed in with the same Apple ID (or share via Family Sharing), and that the app is installed on both devices.'},
+        {ic:'🔢',q:'How do I remove the PIN?',a:'Go to <span '+k+'>Settings → PIN for parent mode → Remove PIN</span> and confirm. You must be signed in as a parent to do this, so keep the code safe.'},
+        {ic:'📅',q:'The calendar card is empty',a:'Make sure (a) a calendar named "Family" or "Familie" exists on the iPad, and (b) the app has calendar access under <span '+k+'>iOS Settings → Privacy → Calendars</span>. Google calendars only appear if the account is added in iOS Settings → Calendar.'},
         {ic:'👥',q:'Can two kids share one profile?',a:'No — each profile is individual and tracks its own stars and tasks. Give each child their own profile so progress stays separate.'}
       ]
     };

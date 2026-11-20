@@ -223,7 +223,7 @@ img{display:block}
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Del 1 · På din iPhone</div>
       <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Foreldreoppsett, steg for steg</h2>
-      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Alt dette gjør du én gang, fra din iPhone. De fleste familier er ferdige på godt under ti minutter.</p>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Alt dette gjør du én gang, fra din iPhone. De fleste familier er ferdige på godt under ti minutter. Etterpå finner du alt i fanene nederst — I dag, Barna, Oppgaver og Familietavla — og innstillingene bak tannhjulet øverst til høyre.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto">
       <sc-for list="{{ setupSteps }}" as="st" hint-placeholder-count="5">
@@ -242,8 +242,8 @@ img{display:block}
   </section>
 
   <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
-    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="parent-menu.png" alt="Forelder-admin-meny" loading="lazy" style="width:100%"></div>
-    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Forelder-hubben — godkjenninger, rutiner, oppgaver og profiler, bak en PIN.</div>
+    <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="parent-menu.png" alt="Innstillinger for foreldre" loading="lazy" style="width:100%"></div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Innstillingene — barna, aktiviteter, belønninger og enheter. På iPaden ligger de bak en PIN.</div>
   </div>
 
   <!-- RUTINER & OPPGAVER -->
@@ -257,18 +257,18 @@ img{display:block}
       <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
         <div style="font-size:38px;margin-bottom:10px">📋</div>
         <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Kategorier og rutiner</h3>
-        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Innstillinger → Profiler og kategorier</div>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Innstillinger → Aktiviteter</div>
         <div data-html="{{ catBody }}" style="color:#B6AED4;font-size:.93rem;margin-bottom:12px"></div>
         <ul style="list-style:none;padding:0;margin:0">
           <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Kategorier er bare merkelapper for hvor en stjerne kom fra</li>
           <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Rediger steg når som helst; ingenting går tapt</li>
-          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Barna fullfører dem i StarTap; du godkjenner stjernen</li>
+          <li style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"><span style="color:#FFC861;flex:none">★</span> Barna fullfører dem på familietavla eller egen telefon; du godkjenner stjernen</li>
         </ul>
       </div>
       <div data-reveal="1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:26px">
         <div style="font-size:38px;margin-bottom:10px">✅</div>
         <h3 style="margin:0 0 4px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.2rem">Oppgaver</h3>
-        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Admin → Administrer oppgaver</div>
+        <div style="font-size:.74rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#7FB0FF;margin-bottom:12px">Fanen Oppgaver</div>
         <p style="color:#B6AED4;font-size:.93rem;margin:0 0 12px">Enkelthandlinger under en kategori. Velg en type og, om du vil, begrens den til bestemte ukedager.</p>
         <ul style="list-style:none;padding:0;margin:0">
           <li data-html="{{ taskLi1 }}" style="display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.10);font-size:.9rem;color:#C2BAD9"></li>
@@ -285,21 +285,21 @@ img{display:block}
 
   <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
     <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="edit-steps.png" alt="Rediger rutinesteg" loading="lazy" style="width:100%"></div>
-    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Rediger stegene i en rutine i Admin — barnet trykker seg gjennom disse i StarTap.</div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Rediger stegene i en rutine under Innstillinger → Aktiviteter — barnet trykker seg gjennom dem på familietavla.</div>
   </div>
 
   <!-- BARNEMODUS -->
   <section id="child" style="max-width:1080px;margin:0 auto;padding:48px 24px">
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#FFE0A6;margin-bottom:12px">Del 2 · På iPaden</div>
-      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Barnas dashbord</h2>
+      <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Familietavla på iPaden</h2>
       <p style="color:#B6AED4;font-size:1.05rem;margin:0">iPaden er en rolig, alltid-på skjerm barna faktisk vil se på. Ingen innlogging og ingenting som kan ødelegges — de bare trykker.</p>
     </div>
     <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:center">
       <div data-reveal="1" style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5)"><img src="app-stars.png" alt="Stjernebrettet på iPad" loading="lazy" style="width:100%"></div>
       <div data-reveal="1">
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px;margin-bottom:14px">
-          <h3 style="margin:0 0 8px;font-size:1.12rem">Tre sider du sveiper mellom</h3>
+          <h3 style="margin:0 0 8px;font-size:1.12rem">Menyen øverst</h3>
           <div data-html="{{ threePages }}" style="color:#B6AED4;font-size:.93rem"></div>
         </div>
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:22px 24px">
@@ -316,7 +316,7 @@ img{display:block}
 
   <div data-reveal="1" style="max-width:1080px;margin:0 auto;padding:8px 24px;text-align:center">
     <div style="display:inline-block;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 22px 50px rgba(0,0,0,.5);max-width:300px"><img src="approvals.png" alt="Godkjenninger" loading="lazy" style="width:100%"></div>
-    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Ventende godkjenninger på iPhone — godkjenn eller avvis hver, eller «Godkjenn alle».</div>
+    <div style="color:#8E86AE;font-size:.85rem;margin-top:10px">Godkjenninger ligger under «Venter på deg» i I dag-fanen på iPhone — godkjenn eller avvis hver, eller «Godkjenn alle».</div>
   </div>
 
   <!-- KALENDER & VÆR -->
@@ -324,7 +324,7 @@ img{display:block}
     <div data-reveal="1" style="max-width:700px;margin:0 auto 34px;text-align:center">
       <div style="font-size:.78rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C79BFF;margin-bottom:12px">Fine ekstrafunksjoner</div>
       <h2 style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.5px;margin:0 0 12px">Kalender og vær — null oppsett</h2>
-      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Familie-siden viser den delte kalenderen og lokalt vær automatisk. Ingenting å konfigurere inne i appen.</p>
+      <p style="color:#B6AED4;font-size:1.05rem;margin:0">Familien-siden på tavla viser den delte kalenderen og lokalt vær automatisk. Ingenting å konfigurere inne i appen.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
       <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px">
@@ -353,7 +353,7 @@ img{display:block}
           <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Opptil 2 barneprofiler</li>
           <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Kategorier merket «Gratis» (Morgenrutinen er inkludert)</li>
           <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Stjerner, godkjenninger, trofeer — hele kjernesløyfen</li>
-          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Kalender og vær på dashbordet</li>
+          <li style="padding:8px 0;font-size:.92rem;color:#C2BAD9;display:flex;gap:10px"><span style="color:#FFC861">★</span> Kalender og vær på familietavla</li>
         </ul>
       </div>
       <div data-reveal="1" style="position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,197,61,.42);border-radius:24px;box-shadow:0 0 0 1px rgba(255,197,61,.18),0 22px 56px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:28px">
@@ -453,48 +453,48 @@ class Component extends DCLogic {
       floaties:this._floaties,
       toggle:(e)=>this.toggle(e),
       flow:[
-        {n:'1',t:'Barnet trykker',d:'På iPaden trykker barnet på en oppgave de har fullført i StarTap.'},
-        {n:'2',t:'Du godkjenner',d:'Den havner i «Venter» på din iPhone. Ett trykk for å godkjenne — eller avvise.'},
+        {n:'1',t:'Barnet trykker',d:'På familietavla eller sin egen telefon trykker barnet på en oppgave de har fullført.'},
+        {n:'2',t:'Du godkjenner',d:'Den havner under «Venter på deg» i I dag-fanen på din iPhone. Ett trykk for å godkjenne — eller avvise.'},
         {n:'3',t:'Stjernen telles',d:'Godkjente stjerner fyller et brett, gruppert i femmere, mot målet.'},
         {n:'4',t:'Trofé låses opp',d:'Nå målet → et trofé opptjenes, brettet nullstilles, og runden begynner på nytt.'}
       ],
       blocks:[
-        {ic:'📋',h:'Rutine',who:'Barn-rapportert · ordnede steg',p:'En ordnet rekke små steg som hører sammen — «Kle på seg → Pusse tenner → Spise frokost».',items:['Ligger øverst i barnets StarTap-liste','Barnet trykker seg gjennom hvert steg og claimer så én stjerne','Du godkjenner den — alle steg sammen = én stjerne'],chip:'<span style="'+chipApp+'">Godkjenning kreves</span>'},
-        {ic:'✅',h:'Oppgave',who:'Barn-rapportert · selvstendig',p:'En enkeltstående handling — «Ryddet rommet». Barnet bestemmer selv når den er ferdig.',items:['Barnet trykker den selv i StarTap','Krever din godkjenning før den teller','Gjentakende (daglig) eller engangs'],chip:'<span style="'+chipApp+'">Godkjenning kreves</span>'},
-        {ic:'🔄',h:'Syklus',who:'Familie-synkronisert · sammen',p:'Et felles innsjekk-ritual på tvers av kategorier — som «Morgenrunden» hele familien gjør i takt.',items:['Hvert barn sjekker inn; fremdriften er felles','Krediteres umiddelbart, ingen godkjenning','Avsluttes med en myk premie du velger — bonusstjerner valgfritt (standard 0)'],chip:'<span style="'+chipV+'">Umiddelbar innsjekk</span>'}
+        {ic:'📋',h:'Rutine',who:'Barn-rapportert · ordnede steg',p:'En ordnet rekke små steg som hører sammen — «Kle på seg → Pusse tenner → Spise frokost».',items:['Ligger øverst i barnets oppgaveliste','Barnet trykker seg gjennom hvert steg og claimer så én stjerne','Du godkjenner den — alle steg sammen = én stjerne'],chip:'<span style="'+chipApp+'">Godkjenning kreves</span>'},
+        {ic:'✅',h:'Oppgave',who:'Barn-rapportert · selvstendig',p:'En enkeltstående handling — «Ryddet rommet». Barnet bestemmer selv når den er ferdig.',items:['Barnet trykker den selv på tavla eller egen telefon','Krever din godkjenning før den teller','Gjentakende (daglig) eller engangs'],chip:'<span style="'+chipApp+'">Godkjenning kreves</span>'},
+        {ic:'🔄',h:'Syklus',who:'Familie-synkronisert · sammen',p:'Et felles innsjekk-ritual på tvers av kategorier — som «Morgenrunden» hele familien gjør i takt.',items:['Hvert barn sjekker inn; fremdriften er felles','Innsjekken registreres med en gang, ingen godkjenning','Gir ingen stjerner eller premier — den hjelper bare morgenen i gang'],chip:'<span style="'+chipV+'">Umiddelbar innsjekk</span>'}
       ],
       ruleOfThumb:'<h4 style="margin:0 0 4px;font-size:1.05rem">Tommelfingerregel</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Flere ordnede steg som gir én stjerne → <b '+b+'>Rutine</b>. En enkelthandling barnet rapporterer → <b '+b+'>Oppgave</b>. Noe hele familien gjør sammen, i takt → <b '+b+'>Syklus</b>.</p>',
       setupSteps:[
         {n:'1',ic:'🍎',h:'Logg inn med Apple',hasTip:true,body:'<p style="margin:0">Den eneste måten å logge inn på — ingen passord å huske, ingen e-post nødvendig. Apple gir appen en privat identifikator og ingenting annet, med mindre du selv velger å dele det.</p>',tip:'⭐ Barn logger aldri inn. De er profiler inne i familien din, valgt fra en liste på iPaden.'},
-        {n:'2',ic:'🏡',h:'Gi familien et navn',hasTip:false,body:'<p style="margin:0">Dette vises øverst på dashbordet — «Familien Hansen», «Familien Berg», hva du vil. Du kan endre det senere i Innstillinger.</p>'},
-        {n:'3',ic:'🦊',h:'Legg til barna',hasTip:true,body:'<p style="margin:0">For hvert barn: et navn, en emoji-avatar (eller et bilde), og to ting som gjør magien — et <b '+b+'>mål</b> (antall stjerner før et trofé, standard 15) og en <b '+b+'>belønning</b> med dine egne ord, som «Kinokveld med pizza».</p>',tip:'⭐ Hver profil sporer sine egne stjerner og oppgaver uavhengig — barn kan ikke dele én profil.'},
-        {n:'4',ic:'🔒',h:'Sett en foreldre-PIN',hasTip:true,body:'<p style="margin:0">En 4-sifret kode låser foreldremodus så barna ikke roter seg inn i innstillinger fra iPaden. Face ID / Touch ID tilbys automatisk som raskere opplåsing. Et banner minner deg på det til det er gjort.</p>',tip:'⚠️ Velg en kode du husker og oppbevar den trygt — du endrer eller fjerner den fra <span '+k+'>Innstillinger → Foreldre-PIN</span> mens du er innlogget.'},
-        {n:'5',ic:'📲',h:'Koble til iPaden',hasTip:true,body:'<p style="margin:0">Logg iPaden inn på samme Apple-ID, eller del familien din med iOS Familiedeling. Da kjører iPaden det alltid-på dashbordet for barna.</p>',tip:'⭐ Ser du ikke barna på iPaden? Sjekk at begge enhetene bruker samme Apple-ID og at appen er installert på begge.'}
+        {n:'2',ic:'🏡',h:'Gi familien et navn',hasTip:false,body:'<p style="margin:0">Dette vises øverst på familietavla — «Familien Hansen», «Familien Berg», hva du vil. Du kan endre det senere i Innstillinger.</p>'},
+        {n:'3',ic:'🦊',h:'Legg til barna',hasTip:true,body:'<p style="margin:0">For hvert barn: et navn, en emoji-avatar (eller et bilde), og to ting som gjør magien — et <b '+b+'>mål</b> (antall stjerner før et trofé, standard 15) og en <b '+b+'>belønning</b> med dine egne ord, som «Kinokveld med pizza».</p>',tip:'⭐ Hver profil sporer sine egne stjerner og oppgaver uavhengig — barn kan ikke dele én profil. Flere barn legger du til senere under <span '+k+'>Innstillinger → Legg til barn</span>.'},
+        {n:'4',ic:'🔒',h:'Sett en PIN-kode',hasTip:true,body:'<p style="margin:0">En 4-sifret kode låser foreldremodus så barna ikke roter seg inn i innstillinger fra iPaden. Face ID / Touch ID tilbys automatisk som raskere opplåsing. Et banner minner deg på det til det er gjort.</p>',tip:'⚠️ Velg en kode du husker og oppbevar den trygt — du endrer eller fjerner den fra <span '+k+'>Innstillinger → PIN-kode for foreldremodus</span> mens du er innlogget.'},
+        {n:'5',ic:'📲',h:'Koble til iPaden',hasTip:true,body:'<p style="margin:0">Velg «Familietavle» på iPaden og skriv inn koden du får under <span '+k+'>Innstillinger → Enhet & app → Koble en familietavle</span>. Du kan også logge iPaden inn med samme Apple-ID. Da blir iPaden familietavla — den alltid-på skjermen for barna.</p>',tip:'⭐ Ser du ikke barna på iPaden? Lag en ny kode og prøv igjen, eller sjekk at begge enhetene bruker samme Apple-ID og at appen er installert på begge.'},
+        {n:'6',ic:'📱',h:'Koble barnets telefon (valgfritt)',hasTip:true,body:'<p style="margin:0">Har barnet egen iPhone? Gå til <span '+k+'>Innstillinger → Enhet & app → Koble barnets telefon</span>, velg barnet, og la barnet skrive inn koden. Barnet får fanene <b '+b+'>Meg</b> (saldo, uttak, ukelønn og mål), <b '+b+'>Min dag</b> (dagens oppgaver som en liste) og <b '+b+'>Familie</b>.</p>',tip:'🎉 Når du godkjenner noe, får barnet en feiring over hele skjermen — både på egen telefon og på familietavla.'}
       ],
-      catBody:'<p style="margin:0">Morgen- og kveldsrutiner er forhåndsutfylt. Slå dem av/på og rediger <b '+b+'>stegene</b> — sjekklisten barnet trykker seg gjennom i StarTap.</p>',
+      catBody:'<p style="margin:0">Morgen- og kveldsrutiner er forhåndsutfylt. Åpne <b '+b+'>Morgenrutine</b> eller <b '+b+'>Kveldsrutine</b> for å redigere <b '+b+'>stegene</b> — sjekklisten barnet trykker seg gjennom. Under <b '+b+'>Tilgjengelig innhold (på/av)</b> velger du hva barna ser.</p>',
       taskLi1:star+'<span><b '+b+'>Gjentakende</b> — én gang per dag per barn, nullstilles over natten</span>',
       taskLi2:star+'<span><b '+b+'>Engangs</b> — blir liggende til du sletter den</span>',
-      threePages:'<p style="margin:0">Dashbordet veksler mellom <b '+b+'>Stjerner</b> (brett + trofeer), <b '+b+'>Oppgaver</b> (StarTap) og <b '+b+'>Familie</b> (bilder, vær, delt kalender). Ingenting å konfigurere — det bare vises.</p>',
-      tapDone:'<p style="margin:0">Et barn velger profilen sin, trykker en fullført oppgave, og den går til <b '+b+'>venter</b> (grønn) for din godkjenning. Avviste oppgaver blir røde med «Prøv igjen» og kan prøves på nytt samme dag.</p>',
-      morningRound:'<h4 style="margin:0 0 4px;font-size:1.05rem">Valgfritt: Morgenrunden (en syklus)</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Sett opp en felles morgeninnsjekk fra <span '+k+'>Admin → Morgenrunde</span>. Barna sjekker inn etter hvert som de våkner, og går gjennom kategoriene ett steg om gangen — med en heiende dansescene, en soloppgang, og en gaveeske de trykker på til slutt. Den avsluttes med en myk premie du velger (bonusstjerner valgfritt, standard 0). Perfekt for skolemorgener.</p>',
-      calBody:'<p style="margin:0">Kommende hendelser leses rett fra iPadens iOS-kalender. Bare pass på at det finnes en kalender med navnet «Family» (eller «Familie») og at appen har kalendertilgang i <span '+k+'>Innstillinger → Personvern → Kalendere</span>. Fungerer med iCloud-, Google- eller Outlook-kontoer lagt til i iOS.</p>',
+      threePages:'<p style="margin:0">Bytt side med menyen øverst: <b '+b+'>Stjerner</b> (brett + trofeer), <b '+b+'>Min dag</b> (ett barns oppgaver), <b '+b+'>Alle oppgaver</b> (alle barna side om side) og <b '+b+'>Familien</b> (bilder, vær, delt kalender). Ingenting å konfigurere — det bare vises.</p>',
+      tapDone:'<p style="margin:0">Et barn velger profilen sin, trykker en fullført oppgave, og den går til <b '+b+'>venter</b> (grønn) for din godkjenning. Når du godkjenner, feirer tavla med konfetti over hele skjermen. Avviste oppgaver blir røde med «Prøv igjen» og kan prøves på nytt samme dag.</p>',
+      morningRound:'<h4 style="margin:0 0 4px;font-size:1.05rem">Valgfritt: Morgenrunden (en syklus)</h4><p style="margin:0;color:#B6AED4;font-size:.94rem">Sett opp en rolig, felles morgeninnsjekk under <span '+k+'>Innstillinger → Morgenrunde</span>. Barna sjekker inn etter hvert som de våkner, og går gjennom stegene du velger, ett om gangen. Runden gir ingen stjerner eller premier — den hjelper bare morgenen i gang. Perfekt for skolemorgener.</p>',
+      calBody:'<p style="margin:0">Kommende hendelser leses rett fra iPadens iOS-kalender. Bare pass på at det finnes en kalender med navnet «Family» (eller «Familie») og at appen har kalendertilgang i <span '+k+'>iOS Innstillinger → Personvern → Kalendere</span>. Fungerer med iCloud-, Google- eller Outlook-kontoer lagt til i iOS.</p>',
       faqs:[
-        {ic:'📱',q:'Trenger jeg både iPhone og iPad?',a:'iPaden er familietavla (barnas visning), og iPhonen er foreldremodus. Tavla fungerer best på en iPad som står fremme, men du kan bruke begge enhetene.'},
+        {ic:'📱',q:'Trenger jeg både iPhone og iPad?',a:'iPaden er familietavla (barnas visning), og på iPhonen styrer du alt fra fanene I dag, Barna, Oppgaver og Familietavla. Tavla fungerer best på en iPad som står fremme, men du kan bruke begge enhetene.'},
         {ic:'🌍',q:'Hvilke språk støttes?',a:'Norsk og engelsk. Appen tilpasser seg automatisk enhetens region — språk, tidsformat, valuta og betalingsapp.'},
         {ic:'🆓',q:'Hva er gratis?',a:'Morgenrutinen og opptil 2 barn er gratis. Premium låser opp alle rutinekategorier og opptil 6 barn.'},
-        {ic:'💸',q:'Hvordan fungerer cash out — flytter appen penger?',a:'Nei. Appen åpner din egen betalingsapp (Vipps, Venmo eller PayPal) forhåndsutfylt med beløpet. Du betaler og bekrefter selv, og stjernene trekkes først når du bekrefter «sendt». Ingen kortdata, ingen betalingslisens — full foreldrekontroll.'},
-        {ic:'💬',q:'Lagres barnas svar på Dagens spørsmål?',a:'Nei. Dagens spørsmål er bare en samtalestarter — ett aldersbasert spørsmål om dagen. Det finnes ingen poeng, ingen fasit, og ingen svar skrives inn eller lagres.'},
-        {ic:'👨‍👩‍👧',q:'Kan begge foreldre være med?',a:'Ja. Inviter en co-parent med en kode, så ser dere de samme barna og kan godkjenne og styre fra hver deres telefon.'},
-        {ic:'💰',q:'Kan jeg gi barna ekte lommepenger?',a:'Ja — skru på den valgfrie ukelønn-modusen. Hver stjerne får en kroneverdi du bestemmer, barnet sparer opp en saldo, og du betaler ut manuelt. Det er familiens egne penger; appen håndterer ingen betaling mellom dere.'},
-        {ic:'🔒',q:'Kan jeg låse iPaden til appen?',a:'Ja. OurFamilyHub fungerer med iOS sin innebygde Veiledet tilgang, så barna kan bruke appen uten å sveipe seg ut til andre apper, hjemskjerm eller innstillinger. En innebygd guide tar deg gjennom oppsettet.'},
-        {ic:'🎁',q:'Hva er premie-stigen?',a:'En stige av navngitte premier dere bestemmer, som låses opp etter hvor mange stjerner barnet har tjent — fra en is til en stor overraskelse. Barnet ser alltid «Spar mot neste premie» med en framdriftslinje.'},
-        {ic:'👶',q:'Barnet mitt får ikke logget inn',a:'Det er med vilje — barn logger ikke inn i det hele tatt. De er profiler inne i familien din, valgt fra en liste på iPaden. Bare foreldre logger inn (med Apple).'},
+        {ic:'💸',q:'Hvordan fungerer cash out — flytter appen penger?',a:'Nei. Appen åpner din egen betalingsapp (Vipps, Venmo eller PayPal) forhåndsutfylt med beløpet. Du betaler og bekrefter selv, og stjernene trekkes først når du bekrefter «sendt». Ingen kortdata, ingen betalingslisens — full foreldrekontroll. Betalingsinfo legger du inn under <span '+k+'>Innstillinger → Ukelønn</span>.'},
+        {ic:'👨‍👩‍👧',q:'Kan begge foreldre være med?',a:'Ja. Gå til <span '+k+'>Innstillinger → Personer & enheter → Inviter en forelder</span> og del koden. Da ser dere de samme barna og kan godkjenne og styre fra hver deres telefon.'},
+        {ic:'💰',q:'Kan jeg gi barna ekte lommepenger?',a:'Ja — skru på den valgfrie ukelønn-modusen under <span '+k+'>Innstillinger → Ukelønn</span>. Hver stjerne får en kroneverdi du bestemmer, barnet sparer opp en saldo, og du betaler ut manuelt. Det er familiens egne penger; appen håndterer ingen betaling mellom dere.'},
+        {ic:'🔒',q:'Kan jeg låse iPaden til appen?',a:'Ja. OurFamilyHub fungerer med iOS sin innebygde Veiledet tilgang, så barna kan bruke appen uten å sveipe seg ut til andre apper, hjemskjerm eller innstillinger. En innebygd guide under <span '+k+'>Innstillinger → Lås iPaden til appen</span> tar deg gjennom oppsettet.'},
+        {ic:'🎁',q:'Hva er premie-stigen?',a:'En stige av navngitte premier dere bestemmer, som låses opp etter hvor mange stjerner barnet har tjent — fra en is til en stor overraskelse. Barnet ser alltid «Spar mot neste premie» med en framdriftslinje. Du finner den under <span '+k+'>Barna → velg barnet → Premie-stige</span>.'},
+        {ic:'👶',q:'Barnet mitt får ikke logget inn',a:'Det er med vilje — barn logger ikke inn i det hele tatt. De er profiler inne i familien din, valgt fra en liste på familietavla. Har barnet egen telefon, kobles den med en kode fra <span '+k+'>Innstillinger → Enhet & app → Koble barnets telefon</span>. Bare foreldre logger inn (med Apple).'},
         {ic:'⭐',q:'En stjerne forsvant',a:'Oppgaven ble sannsynligvis avvist — se etter en rød markering og «Prøv igjen». Avviste og ventende oppgaver teller ikke mot totalen før du godkjenner dem.'},
         {ic:'🏆',q:'Jeg nådde målet, men fikk ikke trofé',a:'Trofeer tildeles automatisk i det øyeblikket et barn passerer målet sitt, og stjernebrettet nullstilles til neste runde. Dukker ikke et trofé opp med en gang, dra for å oppdatere eller åpne appen på nytt for å laste inn siste status.'},
-        {ic:'✏️',q:'Hvordan endrer jeg et mål eller en belønning?',a:'Gå til <span '+k+'>Admin → Stjerner</span>, velg barnet og trykk Rediger. Oppdater målet eller belønningsteksten når som helst.'},
-        {ic:'📱',q:'Jeg ser ikke barna på iPaden',a:'Sjekk at iPaden og iPhonen er logget inn på samme Apple-ID (eller deler via Familiedeling), og at appen er installert på begge enhetene.'},
-        {ic:'🔢',q:'Hvordan fjerner jeg foreldre-PIN-en?',a:'Gå til <span '+k+'>Innstillinger → Foreldre-PIN → Fjern</span> og bekreft. Du må være innlogget som forelder for å gjøre dette, så oppbevar koden trygt.'},
-        {ic:'📅',q:'Kalenderkortet er tomt',a:'Pass på at (a) det finnes en kalender med navnet «Family» eller «Familie» på iPaden, og (b) at appen har kalendertilgang under <span '+k+'>Innstillinger → Personvern → Kalendere</span>. Google-kalendere vises bare hvis kontoen er lagt til i iOS Innstillinger → Kalender.'},
+        {ic:'✏️',q:'Hvordan endrer jeg et mål eller en belønning?',a:'Gå til <span '+k+'>Barna → velg barnet</span> og trykk Rediger. Oppdater målet eller belønningsteksten når som helst.'},
+        {ic:'📱',q:'Jeg ser ikke barna på iPaden',a:'Koble iPaden med en ny kode fra <span '+k+'>Innstillinger → Enhet & app → Koble en familietavle</span>. Bruker du Apple-ID på iPaden, sjekk at iPaden og iPhonen er logget inn på samme Apple-ID (eller deler via Familiedeling), og at appen er installert på begge enhetene.'},
+        {ic:'🔢',q:'Hvordan fjerner jeg PIN-koden?',a:'Gå til <span '+k+'>Innstillinger → PIN-kode for foreldremodus → Fjern PIN-kode</span> og bekreft. Du må være innlogget som forelder for å gjøre dette, så oppbevar koden trygt.'},
+        {ic:'📅',q:'Kalenderkortet er tomt',a:'Pass på at (a) det finnes en kalender med navnet «Family» eller «Familie» på iPaden, og (b) at appen har kalendertilgang under <span '+k+'>iOS Innstillinger → Personvern → Kalendere</span>. Google-kalendere vises bare hvis kontoen er lagt til i iOS Innstillinger → Kalender.'},
         {ic:'👥',q:'Kan to barn dele én profil?',a:'Nei — hver profil er individuell og sporer sine egne stjerner og oppgaver. Gi hvert barn sin egen profil så fremdriften holdes adskilt.'}
       ]
     };
